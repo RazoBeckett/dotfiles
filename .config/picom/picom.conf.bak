@@ -1,0 +1,131 @@
+#################################
+#                                Backend                                         #
+################################# 
+
+#Backend to use: "xrender", "glx" or "xr_glx_hybrid".
+#GLX backend is typically much faster but depends on a sane driver.
+
+backend = "glx";
+glx-no-stencil = true;
+vsync = true;
+#use-damage = false;
+
+#################################
+#                                  Fading                                          #
+#################################
+
+# Fade windows in/out when opening/closing and when opacity changes,
+#  unless no-fading-openclose is used.
+fading = true;
+
+# Opacity change between steps while fading in. (0.01 - 1.0, defaults to 0.028)
+fade-in-step = 0.03;
+
+# Opacity change between steps while fading out. (0.01 - 1.0, defaults to 0.03)
+fade-out-step = 0.03;
+
+# The time between steps in fade step, in milliseconds. (> 0, defaults to 10)
+fade-delta = 10;
+
+# Specify a list of conditions of windows that should not be faded.
+fade-exclude = [
+ "class_g = 'Conky'",
+ "window_type = 'desktop'" 
+];
+
+# Do not fade on window open/close.
+# no-fading-openclose = false
+
+# Do not fade destroyed ARGB windows with WM frame. Workaround of bugs in Openbox, Fluxbox, etc.
+#no-fading-destroyed-argb = false
+
+#################################
+#                                      Focus                                       #
+#################################
+
+# Specify a list of conditions of windows that should always be considered focused.
+focus-exclude = [ 
+ "window_type = 'utility'"
+];
+
+#################################
+#                      Transparency / Opacity                          #
+#################################
+
+# Opacity of inactive windows. (0.1 - 1.0, defaults to 1.0)
+inactive-opacity = 0.85;
+
+# Opacity of window titlebars and borders. (0.1 - 1.0, disabled by default)
+frame-opacity = 0.85;
+
+# Default opacity for active windows. (0.0 - 1.0, defaults to 1.0)
+#active-opacity = 0.85;
+
+# Dim inactive windows. (0.0 - 1.0, defaults to 0.0)
+#inactive-dim = 0.6;
+
+# Specify a list of conditions of windows that should always be considered focused.
+
+# Use fixed inactive dim value, instead of adjusting according to window opacity.
+#inactive-dim-fixed = 1.0
+
+# Specify a list of opacity rules, in the format `PERCENT:PATTERN`, 
+# like `50:name *= "Firefox"`. picom-trans is recommended over this. 
+# Note we don't make any guarantee about possible conflicts with other 
+# programs that set '_NET_WM_WINDOW_OPACITY' on frame or client windows.
+
+opacity-rule = [
+"90:class_g = 'Xfce-polkit'",
+"85:class_g = 'Xfce4-session-settings'",
+"85:class_g = 'Xfce4-appfinder'",
+"65:class_g = 'Xfce4-terminal'",
+"85:class_g = 'Wrapper-2.0'",
+"85:class_g = 'Xfce4-appearance-settings'",
+"85:class_g = 'Xfce4-display-settings'",
+"85:class_g = 'Xfce4-keyboard-settings'",
+"55:class_g = 'Conky'",
+"90:class_g = 'dwm'"
+];
+
+#################################
+#                              Wintypes rules                                #
+#################################
+
+wintypes:
+{
+normal = { shadow = true; full-shadow = true; };
+tooltip = { fade = true; shadow = true; opacity = 0.75; focus = true; full-shadow = true; };
+dock = { shadow = false; };
+dnd = { shadow = false; };
+popup_menu = { opacity = 0.80; shadow = true; full-shadow = true; };
+dropdown_menu = { opacity = 0.85; shadow = true; full-shadow = true; };
+notify = { opacity = 0.90; shadow = true; full-shadow = true; };
+utility = { opacity = 0.80; shadow = true; full-shadow = true; };
+combo = { opacity = 0.85; shadow = true; full-shadow = true; };
+dialog = { opacity = 0.80; shadow = true; full-shadow = true; };
+};
+
+#################################
+#                                 Shadows                                       #
+#################################
+
+shadow = true;
+shadow-radius = 20;
+shadow-offset-x = -13;
+shadow-offset-y = -13;
+shadow-opacity = 0.9;
+shadow-exclude = [
+ "class_g = 'Conky'",
+ "class_g = 'kitty'",
+ "class_g = 'dwm'",
+ "class_g = 'pasystray'",
+ "class_g = 'xfce4-clipman'",
+ "class_g = 'nm-applet'",
+ "class_g = 'flatpak'"
+];
+
+#################################
+#                            Rounded corners                              #
+#################################
+
+#corner-radius = 9;
