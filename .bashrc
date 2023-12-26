@@ -4,12 +4,12 @@ iatest=$(expr index "$-" i)
 # Enable bash programmable completion features in interactive shells
 [[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion || { [[ -f /etc/bash_completion ]] && . /etc/bash_completion; }
 
-[[ -f $HOME/.shell/exportrc ]] && source $HOME/.shell/exportrc			      # Loads the $PATH Variable and Exports
-[[ -f $HOME/.shell/nvigpurc ]] && source $HOME/.shell/nvigpurc			      # Loads the $PATH Variable and Exports
-[[ -f $HOME/.shell/aliasesrc ]] && source $HOME/.shell/aliasesrc			    # Loads all aliases
-[[ -f $HOME/.shell/fzftricksrc ]] && source $HOME/.shell/fzftricksrc			# Loads all aliases
-[[ -f $HOME/.shell/functionsrc ]] && source $HOME/.shell/functionsrc		  # Loads all custom functions 
-[[ -f $HOME/.shell/starshiprc ]] && source $HOME/.shell/starshiprc		    # Loads startship config
+[[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc			      # Loads the $PATH Variable and Exports
+[[ -f $HOME/.config/shellrc/nvigpurc ]] && source $HOME/.config/shellrc/nvigpurc			      # Loads the $PATH Variable and Exports
+[[ -f $HOME/.config/shellrc/aliasesrc ]] && source $HOME/.config/shellrc/aliasesrc			    # Loads all aliases
+[[ -f $HOME/.config/shellrc/fzftricksrc ]] && source $HOME/.config/shellrc/fzftricksrc			# Loads all aliases
+[[ -f $HOME/.config/shellrc/functionsrc ]] && source $HOME/.config/shellrc/functionsrc		  # Loads all custom functions 
+[[ -f $HOME/.config/shellrc/starshiprc ]] && source $HOME/.config/shellrc/starshiprc		    # Loads startship config
 
 #set -o vi										# vi mode
 shopt -s autocd										# Enable autocd (change directory just by typing its name)
