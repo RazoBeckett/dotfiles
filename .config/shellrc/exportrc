@@ -1,5 +1,6 @@
 # Export JAVA_HOME if needed
 # export JAVA_HOME=/opt/jdk1.8.0_371
+# export PATH="/opt/jdk1.8.0_371/bin:$PATH"
 
 # Add directories to the PATH
 export PATH=$PATH:/sbin:$HOME/.local/bin
@@ -7,5 +8,3 @@ export PATH=$PATH:$HOME/.spicetify
 export PATH=$PATH:/var/lib/flatpak
 export PATH=$PATH:$HOME/.suckless/dwmblocks/sb-files
 # Uncomment the following lines if needed
-# alias spicetify="cd ~/.spicetify && spicetify"
-# export PATH="/opt/jdk1.8.0_371/bin:$PATH"

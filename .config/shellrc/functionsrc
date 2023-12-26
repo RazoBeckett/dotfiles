@@ -2,7 +2,7 @@ function ed() {
 	function reloader() {
     echo "Reload (z)sh (b)ash (n)one"
 		read reload
-    [[ "$reload" = "z" ]] && source $HOME/.zshrc
+    [[ "$reload" = "z" ]] && source $ZDOTDIR/.zshrc
     [[ "$reload" = "b" ]] && source $HOME/.bashrc
     [[ "$reload" = "n" ]] && echo ".OK."
 	}
@@ -10,24 +10,15 @@ function ed() {
 	field=$1
 	case $field in
 		bashrc)
+			bash=1
 			nvim $HOME/.bashrc
-      bash=1
 			reloader
 			;;
-    zshrc)
-			nvim $HOME/.zshrc
-			reloader
-			;;
-		bashfunc)
-			nvim $HOME/.bash/functions.bash
-			reloader
-			;;
-		bashalias)
-			nvim $HOME/.bash/aliases.bash
+		zshrc)
+			nvim $ZDOTDIR/.zshrc
 			reloader
 			;;
 	esac
-
 }
 
 # custom ssher
