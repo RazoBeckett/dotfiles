@@ -1,0 +1,112 @@
+function ed() {
+	function reloader() {
+    echo "Reload (z)sh (b)ash (n)one"
+		read reload
+    [[ "$reload" = "z" ]] && source $HOME/.zshrc
+    [[ "$reload" = "b" ]] && source $HOME/.bashrc
+    [[ "$reload" = "n" ]] && echo ".OK."
+	}
+
+	field=$1
+	case $field in
+		bashrc)
+			nvim $HOME/.bashrc
+      bash=1
+			reloader
+			;;
+    zshrc)
+			nvim $HOME/.zshrc
+			reloader
+			;;
+		bashfunc)
+			nvim $HOME/.bash/functions.bash
+			reloader
+			;;
+		bashalias)
+			nvim $HOME/.bash/aliases.bash
+			reloader
+			;;
+	esac
+
+}
+
+# custom ssher
+function cch() {
+	[ "$TERM" = "xterm-kitty" ] && export TERM=xterm-256color && cchterm=1
+	local yellow='\033[1;33m'
+	local reset='\033[0m'
+	host=$1
+	if [ "$1" = "" ]; then
+		while true; do
+			echo -ne "${yellow}host:${reset} "
+			read host
+			[[ -z "$host" ]] && echo "host is required. Please provide a value." && continue || break 
+		done
+	fi
+	case "$host" in
+		"piedisback") echo "connecting to piedisback...." && ssh piedisback ;;
+		
+		*)
+			while true; do
+				echo -ne "${yellow}Username:${reset} "
+				read username
+				[[ -z "$username" ]] &&	echo "Username is required. Please provide a value." && continue
+				echo -ne "${yellow}Port (default 22):${reset} "
+				read port
+				port=${port:-22}
+				echo -ne "${yellow}Key Path (optional):${reset} "
+				read keypair
+				getin
+				break
+			done
+			;;
+	esac
+	[ $cchterm -eq 1 ] && export TERM=xterm-kitty
+}
+function getin() {
+	[ -n "$keypair" ] && ssh -i "$keypair" "$username@$host" -p "$port" || ssh "$username@$host" -p "$port"
+}
+
+# Chris Titus - Additions GitHub 
+# Extracts any archive(s) (if unp isn't installed)
+extract () {
+	for archive in "$@"; do
+		if [ -f "$archive" ] ; then
+			case $archive in
+				*.tar.bz2)   tar xvjf $archive    ;;
+				*.tar.gz)    tar xvzf $archive    ;;
+				*.bz2)       bunzip2 $archive     ;;
+				*.rar)       rar x $archive       ;;
+				*.gz)        gunzip $archive      ;;
+				*.tar)       tar xvf $archive     ;;
+				*.tbz2)      tar xvjf $archive    ;;
+				*.tgz)       tar xvzf $archive    ;;
+				*.zip)       unzip $archive       ;;
+				*.Z)         uncompress $archive  ;;
+				*.7z)        7z x $archive        ;;
+				*)           echo "don't know how to extract '$archive'..." ;;
+			esac
+		else
+			echo "'$archive' is not a valid file!"
+		fi
+	done
+}
+
+#apt to nala:
+function apt() { 
+  command nala "$@"
+}
+
+function sudo() {
+  [[ "$1" = "apt" ]] && shift && command sudo nala "$@" || command sudo "$@"
+}
+
+function gcom() {
+	git add .
+	git commit -m "$1"
+	}
+function lazyg() {
+	git add .
+	git commit -m "$1"
+	git push
+}

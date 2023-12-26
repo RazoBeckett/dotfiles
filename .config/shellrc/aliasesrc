@@ -1,0 +1,67 @@
+# Change directory aliases
+alias home='cd ~'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# cd into the old directory
+alias bd='cd "$OLDPWD"'
+
+# Replaced ls with eza
+alias ls="eza --icons --hyperlink --group-directories-first"
+alias ll="eza --icons --hyperlink --git --git-repos --group-directories-first -l"
+alias la='eza --icons --hyperlink --group-directories-first -a'
+alias lla='eza --icons --hyperlink --git --git-repos --group-directories-first -la'
+alias l='eza --icons --hyperlink --group-directories-first'
+
+# Avoid Mistakes
+alias cp='cp -Riv'
+alias mv='mv -iv'
+alias suod='sudo'
+
+# Misc:
+alias g="goto"
+alias cat='bat' #alias cat='batcat' # For Debian and Debian based distros
+alias ccat='/usr/bin/cat' # Normal Cat Command
+alias cls='clear'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+alias ip='ip --color=auto'
+alias nf='neofetch'
+alias nff='fastfetch'
+alias quit='exit'
+alias vi='vim'
+alias upfor='echo -ne booted at:  && uptime --since && echo -ne "(running) " && uptime --pretty'
+# for dwm quick compile
+alias smci="sudo make clean install && yes | rm *.o *.orig config.h"
+
+# From github.com/christitustech/mybash
+
+# alias to show the date
+alias da='date "+%Y-%m-%d %A %T %Z"'
+
+# pacman
+alias pacinstall='sudo pacman -S'
+alias pacupdate='sudo pacman -Sy'
+alias pacupgrade='sudo pacman -Syu'
+alias pacsearch='sudo pacman -Ss'
+alias pacqsearch='sudo pacman -Qs'
+alias pacman='sudo pacman'
+# Alias's to modified commands
+alias rm='trash -v'
+alias mkdir='mkdir -p'
+alias md='mkdir -p'
+alias rd='rm -r'
+alias less='less -R'
+#alias apt-get='sudo apt-get'
+#apt='sudo apt'
+alias multitail='multitail --no-repeat -c'
+alias freshclam='sudo freshclam'
+alias sv='sudo nvim'
+alias v='nvim'
+alias nemo='setsid -f nemo $1 > /dev/null 2<&1'
+alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME' 
