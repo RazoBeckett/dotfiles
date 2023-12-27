@@ -19,7 +19,7 @@ disabled = false
 [os.symbols]
 Windows = ' '
 Arch = '󰣇'
-Artix = '󰣇'
+Artix = ''
 Ubuntu = ''
 Macos = '󰀵'
 Debian = ''
