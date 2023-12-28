@@ -31,4 +31,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"                        # 
 eval "$(thefuck --alias)"                                                     # Load thefuck
 eval "$(starship init zsh)"                                                   # Load starship prompt
 eval "$(direnv hook zsh)"                                                     # Load Direnv
+eval "$(zoxide init zsh)"                                                     # Load zoxide
 pokemon-colorscripts --no-title -r 1                                          # print a random pokemon on terminal

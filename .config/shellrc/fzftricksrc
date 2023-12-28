@@ -16,29 +16,6 @@ pvlc() {
     local song
     song=$(find ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | fzf) && setsid -f vlc "$song" > /dev/null 2<&1
 }
-jp(){
-    codeon=$HOME/1hundred/Dev/CodeOn
-    selected_location=$(echo -e "wallpaper\nzsh\nshellrc\nskless\nsless\nkitty\nconf\ncode\ncoshell\ncocss\ndl\nbash\ndeploy\ndcmp\ndocker" | fzf --height=40% --reverse)
-            case $selected_location in
-				zsh) cd ~/.config/zsh ;;
-                wallpaper) cd ~/Pictures/Wallpapers ;;
-				shellrc) cd ~/.config/shellrc ;;
-                skless) cd ~/.config/sucklessog/.suckless/ ;;
-                sless) cd $HOME/.config/suckless ;;
-                kitty) cd $HOME/.config/kitty ;;
-                conf) cd ~/.config/ ;;
-                code) cd $codeon ;;
-                coshell) cd $codeon/shell ;;
-                cocss) cd $codeon/css ;;
-                dl) cd ~/Downloads/ ;;
-                bash) cd $HOME/.bash/ ;;
-                deploy) cd $HOME/1hundred/Dev/deploy/ ;;
-                dcmp) cd $HOME/1hundred/Dev/deploy/docker/compose ;;
-                docker) cd $HOME/1hundred/Dev/deploy/docker ;;
-                *) echo "Invalid option" ;;
-            esac
-}
-
 
 loca() {
   locate "$1" | fzf | xargs -o nvim
