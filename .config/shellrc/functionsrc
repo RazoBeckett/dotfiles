@@ -85,13 +85,14 @@ extract() {
 }
 
 # apt to nala:
-apt() {
+if [ -x /bin/apt ]; then
+  apt() {
     command nala "$@"
-}
-
-sudo() {
+  }
+  sudo() {
     [ "$1" = "apt" ] && shift && command sudo nala "$@" || command sudo "$@"
-}
+  }
+fi
 
 gcom() {
     git add .
