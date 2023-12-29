@@ -1,4 +1,4 @@
-*.alpha: 0
+*.alpha: .8
 
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
