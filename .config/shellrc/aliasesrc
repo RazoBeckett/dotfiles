@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Change directory aliases
 alias home='cd ~'
 alias cd..='cd ..'
@@ -60,4 +62,4 @@ alias freshclam='sudo freshclam'
 [[ -x /bin/nvim ]] && alias vim='nvim'
 [[ -x /bin/nvim ]] && alias v='nvim'
 [[ -x /bin/nemo ]] && alias nemo='setsid -f nemo $1 > /dev/null 2<&1'
-alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME' 
+alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'

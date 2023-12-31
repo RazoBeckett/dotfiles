@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # configure key keybindings
 bindkey -e                                        # emacs key bindings
 bindkey ' ' magic-space                           # do history expansion on space

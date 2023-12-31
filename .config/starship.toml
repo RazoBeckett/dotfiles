@@ -3,16 +3,16 @@
 add_newline = false
 command_timeout = 1000
 format = """\
-$os$username$hostname\
+╭╴$os$username$hostname\
 $directory\
 $python$kubernetes$docker_context$c\
 $git_branch$git_status
-$character"""
+╰──$character"""
 
 # Drop ugly default prompt characters
 [character]
-success_symbol = '[](bold green)'
-error_symbol = '[](bold red)'
+success_symbol = ''
+error_symbol = ''
 
 # ---
 
@@ -31,6 +31,7 @@ Debian = ''
 
 # Shows the username
 [username]
+#style_user = 'white bold'
 style_user = 'white bold'
 style_root = 'black bold'
 format = '[$user]($style) '
@@ -65,7 +66,7 @@ style = 'bold green'
 format = '[$all_status$ahead_behind]($style)'
 style = 'bold green'
 conflicted = '🏳'
-up_to_date = ' '
+up_to_date = ''
 untracked = '[ ](red)'
 ahead = '[⇡${count}](yellow)'
 diverged = '[⇕⇡${ahead_count}⇣${behind_count}](yellow)'

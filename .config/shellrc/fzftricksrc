@@ -12,11 +12,11 @@ extract_archive() {
     archive=$(find . -type f -name '*.zip' -o -name '*.tar' -o -name '*.tar.gz' | fzf) && tar -xf "$archive"
 }
 
-pvlc() {
+psong() {
     local song
-    song=$(find ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | fzf) && setsid -f vlc "$song" > /dev/null 2<&1
+    song=$(find ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | fzf) && setsid -f mpv "$song" > /dev/null 2<&1
 }
 
 loca() {
-  locate "$1" | fzf | xargs -o nvim
+    locate "$1" | fzf | xargs -o nvim
 }
