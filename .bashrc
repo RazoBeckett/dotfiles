@@ -11,10 +11,10 @@ iatest=$(expr index "$-" i)
 [[ -f $HOME/.config/shellrc/functionsrc ]] && source $HOME/.config/shellrc/functionsrc		  # Loads all custom functions 
 [[ -f $HOME/.config/shellrc/starshiprc ]] && source $HOME/.config/shellrc/starshiprc		    # Loads startship config
 
-#set -o vi										# vi mode
+set -o vi										# vi mode
 shopt -s autocd										# Enable autocd (change directory just by typing its name)
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"					# Load Homebrew
-eval "$(thefuck --alias)"								# Load thefuck
-eval "$(direnv hook bash)"								# Load Direnv
+#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"					# Load Homebrew
+#eval "$(thefuck --alias)"								# Load thefuck
+#eval "$(direnv hook bash)"								# Load Direnv
 eval "$(starship init bash)"								# Load starship prompt
 pokemon-colorscripts --no-title -r 1 #,3,6 #toilet -f future -F gay "$(date +%d\ %m\ %Y)"

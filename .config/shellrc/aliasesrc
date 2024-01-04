@@ -28,7 +28,7 @@ alias g="goto"
 alias cat='bat' #alias cat='batcat' # For Debian and Debian based distros
 alias ccat='/usr/bin/cat' # Normal Cat Command
 alias cls='clear'
-alias grep='grep --color=auto'
+alias grep='rg --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff='diff --color=auto'

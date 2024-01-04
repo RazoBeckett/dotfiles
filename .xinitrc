@@ -19,9 +19,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 [ -f $HOME/.config/xinit/pipewire-launcher.sh ] && $HOME/.config/xinit/pipewire-launcher.sh &     # initial pipewire audio
 [ -x /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ] && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-touchegg &
 # Misc.
-nitrogen --restore &              # sets wallpaper
-setxkbmap -option caps:escape     # now caps works like esc 
+setxkbmap -option caps:swapescape     # now caps works like esc 
 # Start DWM
 exec dbus-launch --sh-syntax dwm
