@@ -15,11 +15,11 @@ export BROWSER="firefox"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # running scripts
-[ -f $HOME/.config/xinit/touchpad.sh ]	&& $HOME/.config/xinit/touchpad.sh &                       # enable tap to click & natural scrolling
+#[ -f $HOME/.config/xinit/touchpad.sh ]	&& $HOME/.config/xinit/touchpad.sh &                       # enable tap to click & natural scrolling
 [ -f $HOME/.config/xinit/pipewire-launcher.sh ] && $HOME/.config/xinit/pipewire-launcher.sh &     # initial pipewire audio
 [ -x /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ] && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Misc.
-setxkbmap -option caps:swapescape     # now caps works like esc 
+setxkbmap -option caps:escape     # now caps works like esc 
 # Start DWM
 exec dbus-launch --sh-syntax dwm
