@@ -7,6 +7,8 @@ return {
 		config.setup({
 			ensure_installed = { "dockerfile", "python", "javascript", "yaml" },
 			auto_install = true,
+			autotag = { enable = true },
+			rainbow = { enable = true },
 			highlight = { enable = true },
 			indent = { enable = true },
 		})

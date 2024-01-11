@@ -26,6 +26,7 @@ alias suod='sudo'
 # Misc:
 alias g="goto"
 alias cat='bat' #alias cat='batcat' # For Debian and Debian based distros
+alias phpr='xdg-open http://localhost:8000 && php -S localhost:8000 -t .'
 alias ccat='/usr/bin/cat' # Normal Cat Command
 alias cls='clear'
 alias grep='rg --color=auto'

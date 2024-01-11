@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+local k = vim.keymap.set
 -- default vim
-vim.keymap.set("i", "?", "\\")
-vim.keymap.set("i", "\\", "?")
+k("i", "?", "\\")
+k("i", "\\", "?")
