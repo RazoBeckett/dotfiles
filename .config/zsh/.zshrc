@@ -13,7 +13,7 @@
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh			              # Loads syntax-highlighting plugin
 
 # History
-HISTFILE=~/.cache/zsh/history
+HISTFILE=${XDG_STATE_HOME}/zsh/history
 HISTSIZE=4096
 SAVEHIST=4096
 setopt hist_ignore_all_dups inc_append_history 

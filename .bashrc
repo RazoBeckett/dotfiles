@@ -1,6 +1,6 @@
 iatest=$(expr index "$-" i)
 [ $iatest -gt 0 ] && bind "set bell-style visible"					# Disable the bell
-
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 # Enable bash programmable completion features in interactive shells
 [[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion || { [[ -f /etc/bash_completion ]] && . /etc/bash_completion; }
 
