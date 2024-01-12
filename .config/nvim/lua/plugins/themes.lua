@@ -7,7 +7,7 @@ return {
 		"baliestri/aura-theme",
 		config = function(plugin)
 			vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
---      vim.cmd([[colorscheme aura-dark]])
+      vim.cmd([[colorscheme aura-dark]])
 		end,
 	},
 	{
@@ -21,7 +21,7 @@ return {
 		"ellisonleao/gruvbox.nvim",
 		config = function()
 			vim.o.background = "dark"
-			vim.cmd([[colorscheme gruvbox]])
+--			vim.cmd([[colorscheme gruvbox]])
 		end,
 	},
 }
