@@ -12,6 +12,7 @@
 [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh			                # Loads autosuggestion plugin
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh			              # Loads syntax-highlighting plugin
 
+WAKATIME_HOME=${XDG_CONFIG_HOME}/wakatime
 # History
 HISTFILE=${XDG_STATE_HOME}/zsh/history
 HISTSIZE=4096

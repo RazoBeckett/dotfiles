@@ -26,6 +26,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 [ -x /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ] && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Misc.
-setxkbmap -option caps:escape     # now caps works like esc
+setxkbmap -option caps:escape           # now caps works like esc
+xrdb -load "$HOME/.config/Xresources"   # loads Xresources
 # Start DWM
 exec dbus-launch --sh-syntax dwm

@@ -19,3 +19,7 @@
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+
+dmenu.foreground    : #BD93F9
+dmenu.selforeground : #54F37F
+dmenu.selbackground : #333333

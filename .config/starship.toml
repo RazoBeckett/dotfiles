@@ -7,12 +7,12 @@ format = """\
 $directory\
 $python$kubernetes$docker_context$c\
 $git_branch$git_status
-╰──$character"""
+╰─$character"""
 
 # Drop ugly default prompt characters
 [character]
-success_symbol = ''
-error_symbol = ''
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
 
 # ---
 
