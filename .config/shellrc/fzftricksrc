@@ -14,7 +14,16 @@ extract_archive() {
 
 psong() {
     local song
-    song=$(find ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | fzf) && setsid -f mpv "$song" > /dev/null 2<&1
+    song=$(find ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) -print | fzf --prompt="Select a song (Ctrl+C to quit): ")
+
+    if [[ -n "$song" ]]; then
+        mpv --no-video "$song"
+        clear
+        psong
+    else
+        echo -e "\nNo song selected. Exiting."
+        return
+    fi
 }
 
 loca() {
