@@ -16,12 +16,15 @@ return {
 		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-path",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
-
 			cmp.setup({
+				formatting = {
+					format = require("lspkind").cmp_format(),
+				},
 				completion = {
 					completeopt = "menu,menuone,preview,noselect",
 				},

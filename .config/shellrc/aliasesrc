@@ -28,6 +28,7 @@ alias g="goto"
 alias cat='bat' #alias cat='batcat' # For Debian and Debian based distros
 alias phpr='xdg-open http://localhost:8000 && php -S localhost:8000 -t .'
 alias ccat='/usr/bin/cat' # Normal Cat Command
+alias cb='xclip -selection clipboard'
 alias cls='clear'
 alias grep='rg --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -64,4 +65,5 @@ alias freshclam='sudo freshclam'
 [[ -x /bin/nvim ]] && alias vim='nvim'
 [[ -x /bin/nvim ]] && alias v='nvim'
 [[ -x /bin/nemo ]] && alias nemo='setsid -f nemo $1 > /dev/null 2<&1'
+[[ -x /bin/thunar ]] && alias thunar='setsid -f thunar $1 > /dev/null 2<&1'
 alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'

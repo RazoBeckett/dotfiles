@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "FiraCode Nerd Font Medium 12";
+    font:   "JetBrainsMono Nerd Font Medium 12";
 
     bg0:     #282a36;
     bg1:     #44475a;
@@ -51,8 +51,8 @@ textbox {
 
 listview {
     padding:    4px 0;
-    lines:      8;
-    columns:    1;
+    lines:      6;
+    columns:    2;
 
     fixed-height:   false;
 }
