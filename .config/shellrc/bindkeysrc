@@ -1,7 +1,9 @@
 #!/bin/zsh
 
 #custom keybinds
-bindkey -s '^f' 'fzf_open_file\n'
+bindkey -s '^O' 'fzfopenfile\n'
+bindkey -s '^F' 'fzfsearchfile\n'
+bindkey -s '^B' 'sylvie "^[[D"'
 
 # configure key keybindings
 bindkey -e                                        # emacs key bindings

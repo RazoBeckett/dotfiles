@@ -1,4 +1,5 @@
 #!/bin/sh
+[[ -f "$HOME/.local/ai/sylvie" ]] && source "$HOME/.local/ai/sylvie"  # Loads the $PATH Variable and Exports
 
 ed() {
     reloader() {
