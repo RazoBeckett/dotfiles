@@ -1,5 +1,9 @@
 *.alpha: .6
 
+! cursor
+Xcursor.theme: Simp1e 
+Xcursor.size: 24
+
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
 *.background: #282A36
@@ -19,6 +23,27 @@
 *.color14:    #9AEDFE
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
+
+! xcad colors
+!*.foreground: #F1F1F1
+!*.background: #1A1A1A
+!*.color0:     #121212
+!*.color8:     #666666
+!*.color1:     #A52AFF
+!*.color9:     #BA5AFF
+!*.color2:     #7129FF
+!*.color10:    #905AFF
+!*.color3:     #3D2AFF
+!*.color11:    #685AFF
+!*.color4:     #2B4FFF
+!*.color12:    #5C78FF
+!*.color5:     #2883FF
+!*.color13:    #5EA2FF
+!*.color6:     #28B9FF
+!*.color14:    #5AC8FF
+!*.color7:     #FFFFFF
+!*.color15:    #F1F1F1
+
 
 dmenu.foreground    : #BD93F9
 dmenu.selforeground : #54F37F

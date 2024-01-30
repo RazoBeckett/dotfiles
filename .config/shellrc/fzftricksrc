@@ -9,14 +9,14 @@ fzf_history() {
 
 asong() {
     local song
-    song=$(find ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) -print | fzf --prompt="Select a song (Ctrl+C to quit): ")
+    song=$(find -maxdepth 1 ~/Music -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) -print | fzf --prompt="Select a song (Ctrl+C to quit): ")
 
     [[ -n "$song" ]] && mpv --no-video "$song" && asong || echo -e "\nNo song selected. Exiting." && return
 }
 
 fzfopenfile() {
     local selected_file
-    selected_file=$(fd --type f | fzf --preview='bat --color=always {}')
+    selected_file=$(fd --max-depth 1 --type f | fzf --preview='bat --color=always {}')
 
     if [ -n "$selected_file" ]; then
         xdg-open "$selected_file"
@@ -26,7 +26,7 @@ fzfopenfile() {
 
 fzfsearchfile() {
     local selected_file
-    selected_file=$(fd --type f | fzf --preview='bat --color=always {}')
+    selected_file=$(fd --max-depth 1 --type f | fzf --preview='bat --color=always {}')
 
     if [ -n "$selected_file" ]; then
         realpath "$selected_file" | xclip -selection clipboard
