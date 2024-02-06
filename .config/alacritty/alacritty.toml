@@ -12,8 +12,8 @@ padding.y = 10
 draw_bold_text_with_bright_colors = true
 
 [env]
-TERM = "xterm-256color"
+TERM = "xterm-kitty"
 
 [font.normal]
-family = "SFMono Nerd Font"
+family = "BlexMono Nerd Font"
 style = "Medium"

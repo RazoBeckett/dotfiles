@@ -3,7 +3,7 @@
 add_newline = false
 command_timeout = 1000
 format = """\
-╭╴$os$username$hostname\
+╭╴$os$username\
 $directory\
 $python$kubernetes$docker_context$c\
 $git_branch$git_status
