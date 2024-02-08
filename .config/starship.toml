@@ -3,18 +3,17 @@
 add_newline = false
 command_timeout = 1000
 format = """\
-╭╴$os$username\
+$os$username\
 $directory\
 $python$kubernetes$docker_context$c\
 $git_branch$git_status
-╰─$character"""
+$character"""
 
 # Drop ugly default prompt characters
 [character]
 success_symbol = '[\$](bold green)'
-error_symbol = '[\$](bold red)'
-
-# ---
+error_symbol = '[](bold red)'
+vimcmd_symbol = '[](bold fg:purple)'
 
 [os]
 format = '[$symbol](bold white) '   
@@ -27,11 +26,9 @@ Artix = ''
 Ubuntu = ''
 Macos = '󰀵'
 Debian = ''
-# ---y
 
 # Shows the username
 [username]
-#style_user = 'white bold'
 style_user = 'white bold'
 style_root = 'black bold'
 format = '[$user]($style) '
@@ -52,6 +49,13 @@ home_symbol = '󰋜 ~'
 read_only_style = '197'
 read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
+
+[directory.substitutions]
+"Documents" = " 󰈙 Documents"
+"Downloads" = "  Downloads"
+"Music" = " 󰝚 Music"
+"Pictures" = "  Pictures"
+"Developer" = " 󰲋 Developer"
 
 # Shows current git branch
 [git_branch]
@@ -74,7 +78,7 @@ behind = '[⇣${count}](yellow)'
 stashed = ' '
 modified = ' '
 staged = '[++\($count\)](green) '
-renamed = '襁 '
+renamed = '  '
 deleted = ' '
 
 # Shows kubernetes context and namespace
