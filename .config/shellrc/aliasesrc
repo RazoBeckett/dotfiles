@@ -1,15 +1,10 @@
 #!/bin/sh
 
 # Change directory aliases
-alias home='cd ~'
+alias cd.='cd .'
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-# cd into the old directory
-alias bd='cd "$OLDPWD"'
 
 # Replaced ls with eza
 alias ls="eza --icons --hyperlink --group-directories-first"
@@ -24,7 +19,6 @@ alias mv='mv -iv'
 alias suod='sudo'
 
 # Misc:
-alias g="goto"
 alias cat='bat' #alias cat='batcat' # For Debian and Debian based distros
 alias phpr='xdg-open http://localhost:8000 && php -S localhost:8000 -t .'
 alias ccat='/usr/bin/cat' # Normal Cat Command
@@ -42,7 +36,7 @@ alias vi='vim'
 alias upfor='echo -ne booted at:  && uptime --since && echo -ne "(running) " && uptime --pretty'
 # for dwm quick compile
 alias smci="sudo make clean install && yes | rm config.h && rm *.o && rm *.orig"
-alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 
 # From github.com/christitustech/mybash
 
@@ -66,4 +60,5 @@ alias freshclam='sudo freshclam'
 [[ -x /bin/nvim ]] && alias v='nvim'
 [[ -x /bin/nemo ]] && alias nemo='setsid -f nemo $1 > /dev/null 2<&1'
 [[ -x /bin/thunar ]] && alias thunar='setsid -f thunar $1 > /dev/null 2<&1'
+[[ -x /bin/pcmanfm ]] && alias pcmanfm='setsid -f pcmanfm $1 > /dev/null 2<&1'
 alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'
