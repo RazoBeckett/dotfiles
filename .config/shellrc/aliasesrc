@@ -7,11 +7,11 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Replaced ls with eza
-alias ls="eza --icons --hyperlink --group-directories-first"
-alias ll="eza --icons --hyperlink --git --git-repos --group-directories-first -l"
-alias la='eza --icons --hyperlink --group-directories-first -a'
-alias lla='eza --icons --hyperlink --git --git-repos --group-directories-first -la'
-alias l='eza --icons --hyperlink --group-directories-first'
+alias l=ls
+alias la='ls -a'
+alias lla='ll -a'
+alias ll='ls -l --git --git-repos --header'
+alias ls='eza --time-style=long-iso --icons --hyperlink --group-directories-first'
 
 # Avoid Mistakes
 alias cp='cp -Riv'

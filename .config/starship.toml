@@ -59,8 +59,8 @@ format = 'at [$path]($style)[$read_only]($read_only_style) '
 
 # Shows current git branch
 [git_branch]
-symbol = ' '
-format = '[$symbol$branch]($style)'
+symbol = ' '
+format = '[$symbol\($branch\)]($style)'
 # truncation_length = 4
 truncation_symbol = '…/'
 style = 'bold green'
@@ -98,7 +98,7 @@ symbol = ' '
 disabled = false
 
 [python]
-format = 'via [${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style) '
+format = 'via [${symbol}${pyenv_prefix}(${version})( \($virtualenv\))]($style) '
 symbol = ' '
 version_format = "${raw}"
 style = "#edf67d"

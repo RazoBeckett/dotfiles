@@ -7,4 +7,3 @@ export PATH=$PATH:/sbin:$HOME/.local/bin
 export PATH=$PATH:$HOME/.spicetify
 export PATH=$PATH:/var/lib/flatpak
 export PATH=$PATH:$HOME/.suckless/dwmblocks/sb-files
-# Uncomment the following lines if needed

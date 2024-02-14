@@ -1,6 +1,4 @@
 #!/bin/env sh
-xset r rate 210 40    #speedy keys
-
 # XDG Paths
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -25,8 +23,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 [ -f "$HOME/.config/xinit/pipewire-launcher.sh" ] && "$HOME/.config/xinit/pipewire-launcher.sh" &     # initial pipewire audio
 [ -x /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ] && exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# Misc.
 # setxkbmap -option caps:escape         # now caps works like esc , setup in here: /usr/share/X11/xkb/symbols/pc
+xset r rate 210 40                      #speedy keys
 xrdb -load "$HOME/.config/Xresources"   # loads Xresources
-# Start DWM
-exec dbus-launch --sh-syntax dwm
+exec dbus-launch --sh-syntax dwm        # Start DWM
