@@ -1,7 +1,9 @@
 live_config_reload = true
 working_directory = "None"
 
-import = [ "~/.config/alacritty/dracula.toml" ]
+# Themes --
+#import = [ "~/.config/alacritty/dracula.toml" ]
+import = [ "~/.config/alacritty/catppuccin_macchiato.toml" ]
 
 [window]
 opacity = 0.6

@@ -4,25 +4,30 @@
 Xcursor.theme: Simp1e 
 Xcursor.size: 24
 
+! demnu
+dmenu.foreground    : #BD93F9
+dmenu.selforeground : #54F37F
+dmenu.selbackground : #333333
+
 ! Dracula Xresources palette
-*.foreground: #F8F8F2
-*.background: #282A36
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+!*.foreground: #F8F8F2
+!*.background: #282A36
+!*.color0:     #000000
+!*.color8:     #4D4D4D
+!*.color1:     #FF5555
+!*.color9:     #FF6E67
+!*.color2:     #50FA7B
+!*.color10:    #5AF78E
+!*.color3:     #F1FA8C
+!*.color11:    #F4F99D
+!*.color4:     #BD93F9
+!*.color12:    #CAA9FA
+!*.color5:     #FF79C6
+!*.color13:    #FF92D0
+!*.color6:     #8BE9FD
+!*.color14:    #9AEDFE
+!*.color7:     #BFBFBF
+!*.color15:    #E6E6E6
 
 ! xcad colors
 !*.foreground: #F1F1F1
@@ -44,7 +49,30 @@ Xcursor.size: 24
 !*.color7:     #FFFFFF
 !*.color15:    #F1F1F1
 
-
-dmenu.foreground    : #BD93F9
-dmenu.selforeground : #54F37F
-dmenu.selbackground : #333333
+!*. Catppuccin-Macchiato Xresources palette
+*background: #24273A
+*foreground: #CAD3F5
+! black
+*color0: #494D64
+*color8: #5B6078
+! red
+*color1: #ED8796
+*color9: #ED8796
+! green
+*color2: #A6DA95
+*color10: #A6DA95
+! yellow
+*color3: #EED49F
+*color11: #EED49F
+! blue
+*color4: #8AADF4
+*color12: #8AADF4
+! magenta
+*color5: #F5BDE6
+*color13: #F5BDE6
+! cyan
+*color6: #8BD5CA
+*color14: #8BD5CA
+! white
+*color7: #B8C0E0
+*color15: #A5ADCB

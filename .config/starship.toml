@@ -5,8 +5,10 @@ command_timeout = 1000
 format = """\
 $os$username\
 $directory\
+$git_branch$git_status\
+$fill\
 $python$kubernetes$docker_context$c\
-$git_branch$git_status
+$cmd_duration
 $character"""
 
 # Drop ugly default prompt characters
@@ -56,6 +58,13 @@ format = 'at [$path]($style)[$read_only]($read_only_style) '
 "Music" = " 󰝚 Music"
 "Pictures" = "  Pictures"
 "Developer" = " 󰲋 Developer"
+
+[cmd_duration]
+format = "[󰥔 $duration]($style)"
+style = "yellow"
+
+[fill]
+symbol = " "
 
 # Shows current git branch
 [git_branch]
@@ -110,4 +119,3 @@ style = "#70e000"
 ignore_base = false
 disabled = false
 symbol = " "
-
