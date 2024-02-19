@@ -48,7 +48,6 @@ alias da='date "+%Y-%m-%d %A %T %Z"'
 # Alias's to modified commands
 [[ -x /bin/trash ]] && alias rm='trash -v'
 alias mkdir='mkdir -p'
-alias md='mkdir -p'
 alias rd='rm -r'
 alias less='less -R'
 #alias apt-get='sudo apt-get'

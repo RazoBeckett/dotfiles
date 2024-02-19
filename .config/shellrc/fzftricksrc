@@ -8,10 +8,28 @@ fzf_history() {
 }
 
 asong() {
+    # asong is rewritten by ChatGPT
+    local songs
+    songs=$(find ~/Music -maxdepth 1\
+      -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | sort)
+    
     local song
-    song=$(find ~/Music -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) -print | fzf --prompt="Select a song (Ctrl+C to quit): ")
-
-    [[ -n "$song" ]] && mpv --no-video "$song" && asong || echo -e "\nNo song selected. Exiting." && return
+    song=$(echo "$songs" | awk -F/ '{print $NF}' | gum filter --fuzzy\
+      --indicator="󰽴" --indicator.foreground="150"\
+      --cursor-text.foreground="150"\
+      --placeholder="select a song: ")
+    
+    # Check if a song was selected
+    if [[ -n "$song" ]]; then
+        # Get the full path of the selected song
+        full_path=$(echo "$songs" | grep "/$song$")
+        # Play the song using mpv with the full path
+        mpv --no-video "$full_path"
+        # Call asong() recursively for continuous song selection
+        asong
+    else
+        echo -e "\nNo song selected. Exiting."
+    fi
 }
 
 fzfopenfile() {

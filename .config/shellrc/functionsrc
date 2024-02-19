@@ -1,28 +1,6 @@
 #!/bin/sh
 [[ -f "$HOME/.local/ai/sylvie" ]] && source "$HOME/.local/ai/sylvie"  # Loads the $PATH Variable and Exports
 
-ed() {
-    reloader() {
-        echo "Reload (z)sh (b)ash (n)one"
-        read -r reload
-        [ "$reload" = "z" ] && . "$ZDOTDIR"/.zshrc
-        [ "$reload" = "b" ] && . "$HOME"/.bashrc
-        [ "$reload" = "n" ] && echo ".OK."
-    }
-
-    field=$1
-    case $field in
-        bashrc)
-            nvim "$HOME"/.bashrc
-            reloader
-            ;;
-        zshrc)
-            nvim "$ZDOTDIR"/.zshrc
-            reloader
-            ;;
-    esac
-}
-
 # custom ssher
 cch() {
     [ "$TERM" = "xterm-kitty" ] && export TERM=xterm-256color && cchterm=1
@@ -55,6 +33,7 @@ cch() {
             ;;
     esac
     [ "$cchterm" -eq 1 ] && export TERM=xterm-kitty
+
 }
 getin() {
     [ -n "$keypair" ] && ssh -i "$keypair" "$username@$host" -p "$port" || ssh "$username@$host" -p "$port"
@@ -83,6 +62,11 @@ extract() {
             echo "'$archive' is not a valid file!"
         fi
     done
+}
+
+md() {
+  mkdir -p "$1"
+  cd "$1" || return
 }
 
 # apt to nala:

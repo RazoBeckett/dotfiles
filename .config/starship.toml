@@ -1,17 +1,12 @@
-# ~/.config/starship.toml
-
 add_newline = false
 command_timeout = 1000
 format = """\
-$os$username\
-$directory\
+$os$username$hostname$directory\
 $git_branch$git_status\
 $fill\
-$python$kubernetes$docker_context$c\
 $cmd_duration
 $character"""
 
-# Drop ugly default prompt characters
 [character]
 success_symbol = '[\$](bold green)'
 error_symbol = '[](bold red)'
@@ -29,7 +24,6 @@ Ubuntu = ''
 Macos = '󰀵'
 Debian = ''
 
-# Shows the username
 [username]
 style_user = 'white bold'
 style_root = 'black bold'
@@ -37,13 +31,11 @@ format = '[$user]($style) '
 disabled = false
 show_always = true
 
-# Shows the hostname
 [hostname]
-ssh_only = false
+ssh_only = true
 format = 'on [$hostname](bold yellow) '
 disabled = false
 
-# Shows current directory
 [directory]
 truncation_length = 3
 truncation_symbol = '…/'
@@ -52,13 +44,6 @@ read_only_style = '197'
 read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
-[directory.substitutions]
-"Documents" = " 󰈙 Documents"
-"Downloads" = "  Downloads"
-"Music" = " 󰝚 Music"
-"Pictures" = "  Pictures"
-"Developer" = " 󰲋 Developer"
-
 [cmd_duration]
 format = "[󰥔 $duration]($style)"
 style = "yellow"
@@ -66,18 +51,14 @@ style = "yellow"
 [fill]
 symbol = " "
 
-# Shows current git branch
 [git_branch]
 symbol = ' '
 format = '[$symbol\($branch\)]($style)'
-# truncation_length = 4
 truncation_symbol = '…/'
-style = 'bold green'
+style = 'bright-black'
 
-# Shows current git status
 [git_status]
-format = '[$all_status$ahead_behind]($style)'
-style = 'bold green'
+format = '[$all_status$ahead_behind](green)'
 conflicted = '🏳'
 up_to_date = ''
 untracked = '[ ](red)'
@@ -89,33 +70,3 @@ modified = ' '
 staged = '[++\($count\)](green) '
 renamed = '  '
 deleted = ' '
-
-# Shows kubernetes context and namespace
-[kubernetes]
-format = 'via [󱃾 $context\($namespace\)](bold purple) '
-disabled = false
-
-# ---
-[docker_context]
-symbol = ' '
-format = 'via $symbol '
-disabled = false
-
-[c]
-format = 'via [$symbol$version](#caf0f8) '
-symbol = ' '
-disabled = false
-
-[python]
-format = 'via [${symbol}${pyenv_prefix}(${version})( \($virtualenv\))]($style) '
-symbol = ' '
-version_format = "${raw}"
-style = "#edf67d"
-disabled=false
-
-[conda]
-format = "[ $symbol$environment ]($style) "
-style = "#70e000"
-ignore_base = false
-disabled = false
-symbol = " "
