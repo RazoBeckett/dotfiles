@@ -47,6 +47,8 @@ alias da='date "+%Y-%m-%d %A %T %Z"'
 [[ -x /bin/pacman ]] && alias pacman='sudo pacman'
 # Alias's to modified commands
 [[ -x /bin/trash ]] && alias rm='trash -v'
+alias TL='trash-list'
+alias TE='trash-empty'
 alias mkdir='mkdir -p'
 alias rd='rm -r'
 alias less='less -R'
