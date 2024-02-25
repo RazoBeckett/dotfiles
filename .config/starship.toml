@@ -4,7 +4,8 @@ format = """\
 $os$username$hostname$directory\
 $git_branch$git_status\
 $fill\
-$cmd_duration
+$cmd_duration\
+$python$c$kubernetes$conda$docker_context
 $character"""
 
 [character]
@@ -45,8 +46,8 @@ read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
-format = "[󰥔 $duration]($style)"
-style = "yellow"
+format = "[󰥔 $duration]($style) "
+style = "bold purple"
 
 [fill]
 symbol = " "
@@ -59,7 +60,7 @@ style = 'bright-black'
 
 [git_status]
 format = '[$all_status$ahead_behind](green)'
-conflicted = '🏳'
+conflicted = '󰈻'
 up_to_date = ''
 untracked = '[ ](red)'
 ahead = '[⇡${count}](yellow)'
@@ -67,6 +68,37 @@ diverged = '[⇕⇡${ahead_count}⇣${behind_count}](yellow)'
 behind = '[⇣${count}](yellow)'
 stashed = ' '
 modified = ' '
-staged = '[++\($count\)](green) '
+staged = '[++\($count\)](green)'
 renamed = ' '
 deleted = ' '
+
+# -- languages and tools --
+
+[kubernetes]
+format = '[󱃾 $context\($namespace\)](bold purple) '
+disabled = false
+
+# ---
+[docker_context]
+symbol = ' '
+format = '$symbol '
+disabled = false
+
+[c]
+format = '[$symbol$version](#caf0f8) '
+symbol = ' '
+disabled = false
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style) '
+symbol = ' '
+version_format = "${raw}"
+style = "#edf67d"
+disabled=false
+
+[conda]
+format = "[ $symbol$environment ]($style) "
+style = "#70e000"
+ignore_base = false
+disabled = false
+symbol = " "

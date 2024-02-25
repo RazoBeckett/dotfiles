@@ -9,8 +9,14 @@ import = [ "~/.config/alacritty/catppuccin_macchiato.toml" ]
 opacity = 0.6
 padding.x = 10
 padding.y = 10
+decorations = "none"
+
+[window.dimensions]
+columns = 93
+lines = 35
 
 [colors]
+transparent_background_colors = true
 draw_bold_text_with_bright_colors = true
 
 [env]

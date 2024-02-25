@@ -1,6 +1,7 @@
 # Export JAVA_HOME if needed
 # export JAVA_HOME=/opt/jdk1.8.0_371
 # export PATH="/opt/jdk1.8.0_371/bin:$PATH"
+source $HOME/.config/shellrc/sensitive-export
 
 # Add directories to the PATH
 export PATH=$PATH:/sbin:$HOME/.local/bin
