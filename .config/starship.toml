@@ -6,7 +6,7 @@ $git_branch$git_status\
 $fill\
 $cmd_duration\
 $python$c$kubernetes$conda$docker_context
-$character"""
+"""
 
 [character]
 success_symbol = '[\$](bold green)'

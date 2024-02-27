@@ -3,50 +3,48 @@
 #export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 fzf_history() {
-    # Expand aliases and execute fzf
-    eval "$(HISTTIMEFORMAT=history | sed 's/^ *[0-9]\+ *//g' | awk '!x[$0]++' | fzf --height=40% --reverse)"
+	# Expand aliases and execute fzf
+	eval "$(HISTTIMEFORMAT=history | sed 's/^ *[0-9]\+ *//g' | awk '!x[$0]++' | fzf --height=40% --reverse)"
 }
 
 asong() {
-    # asong is rewritten by ChatGPT
-    local songs
-    songs=$(find ~/Music -maxdepth 1\
-      -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | sort)
-    
-    local song
-    song=$(echo "$songs" | awk -F/ '{print $NF}' | gum filter --fuzzy\
-      --indicator="󰽴" --indicator.foreground="150"\
-      --cursor-text.foreground="150"\
-      --placeholder="select a song: ")
-    
-    # Check if a song was selected
-    if [[ -n "$song" ]]; then
-        # Get the full path of the selected song
-        full_path=$(echo "$songs" | grep "/$song$")
-        # Play the song using mpv with the full path
-        mpv --no-video "$full_path"
-        # Call asong() recursively for continuous song selection
-        asong
-    else
-        echo -e "\nNo song selected. Exiting."
-    fi
+	# asong is rewritten by ChatGPT
+	local songs
+	songs=$(find ~/Music -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | sort)
+
+	local song
+	song=$(echo "$songs" | awk -F/ '{print $NF}' | gum filter --fuzzy --indicator="󰽴" --indicator.foreground="150" \
+		--cursor-text.foreground="150" \
+		--placeholder="select a song: ")
+
+	# Check if a song was selected
+	if [[ -n "$song" ]]; then
+		# Get the full path of the selected song
+		full_path=$(echo "$songs" | grep "/$song$")
+		# Play the song using mpv with the full path
+		mpv --no-video "$full_path"
+		# Call asong() recursively for continuous song selection
+		asong
+	else
+		echo -e "\nNo song selected. Exiting."
+	fi
 }
 
 fzfopenfile() {
-    local selected_file
-    selected_file=$(fd --type f | fzf --preview='bat --color=always {}')
+	local selected_file
+	selected_file=$(fd --type f | fzf --preview='bat --color=always {}')
 
-    if [ -n "$selected_file" ]; then
-        xdg-open "$selected_file"
-        echo "$selected_file" | cb
-    fi
+	if [ -n "$selected_file" ]; then
+		xdg-open "$selected_file"
+		echo "$selected_file" | cb
+	fi
 }
 
 fzfsearchfile() {
-    local selected_file
-    selected_file=$(fd --type f | fzf --preview='bat --color=always {}')
+	local selected_file
+	selected_file=$(fd --type f | fzf --preview='bat --color=always {}')
 
-    if [ -n "$selected_file" ]; then
-        realpath "$selected_file" | xclip -selection clipboard
-    fi
+	if [ -n "$selected_file" ]; then
+		realpath "$selected_file" | xclip -selection clipboard
+	fi
 }
