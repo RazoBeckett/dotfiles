@@ -1,8 +1,8 @@
 #!/bin/zsh
 
 #custom keybinds
-bindkey -s '^O' 'fzfopenfile\n'
-bindkey -s '^F' 'fzfsearchfile\n'
+bindkey -s '^O' 'FOF\n'
+bindkey -s '^F' 'FSF\n'
 bindkey -s '^B' 'sylvie "^[[D"'
 
 # configure key keybindings
