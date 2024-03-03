@@ -8,6 +8,7 @@ alias ...='cd ../..'
 
 # Replaced ls with eza
 alias l=ls
+alias sl=ls
 alias la='ls -a'
 alias lla='ll -a'
 alias ll='ls -l --git --git-repos --header'

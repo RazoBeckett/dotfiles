@@ -3,7 +3,11 @@ return {
 	-- color_scheme = 'termnial.sexy',
 	color_scheme = "Catppuccin Macchiato",
 	enable_tab_bar = false,
-  font = wezterm.font("BlexMono Nerd Font Medium"),
+	font = wezterm.font_with_fallback({
+		{ family = "berkeley mono", weight = "Regular" },
+		{ family = "ConkySymbols", weight = "Regular" },
+		"Noto Color Emoji",
+	}),
 	font_size = 14.0,
 	-- macos_window_background_blur = 40,
 	macos_window_background_blur = 30,
