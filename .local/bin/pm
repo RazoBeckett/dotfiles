@@ -1,29 +1,40 @@
 #!/bin/bash
 
+umount_mnt() {
+	umount -R /mnt
+}
+
 powermenu() {
-    options="cancel\nshutdown\nrestart\nRefresh Rate\nScreen Settings\n$(uptime --pretty)"
+	options="cancel\nshutdown\nrestart\nRefresh Rate\nScreen Settings\n$(uptime --pretty)"
 	selected=$(echo -e "$options" | dmenu -fn "JetBrains Mono Nerd Font")
-	if [[ "$selected" = "shutdown" ]]; then
+
+	case "$selected" in
+	"shutdown")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
 		[[ $confirm = "yes" ]] && systemctl poweroff || return
-	elif [[ "$selected" = "restart" ]]; then
+		#&& umount_mnt 
+		;;
+	"restart")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
 		[[ $confirm = "yes" ]] && systemctl reboot || return
-	elif [[ "$selected" = "Refresh Rate" ]]; then
+		#&& umount_mnt 
+		;;
+	"Refresh Rate")
 		confirm=$(echo -e "60\n144" | dmenu -fn "JetBrains Mono Nerd Font")
 		if [[ "$confirm" = "60" ]]; then
-			xrandr --output eDP-1 --mode 1920x1080 --rate 59
-			return
+			xrandr --output eDP-1 --mode 1920x1080 --rate 60
 		elif [[ "$confirm" = "144" ]]; then
 			xrandr --output eDP-1 --mode 1920x1080 --rate 144
+		else
 			return
 		fi
-	elif [[ "$selected" = "Screen Settings" ]]; then
+		;;
+	"Screen Settings")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
 		[[ $confirm = "yes" ]] && arandr || return
-	elif [[ "$selected" = "cancel" ]]; then
-		return
-	fi
+		;;
+	"cancel") return ;;
+	esac
 }
 
 powermenu
