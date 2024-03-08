@@ -14,4 +14,5 @@ export HISTFILE="${XDG_STATE_HOME}"/bash/history
 set -o vi                            # vi mode
 shopt -s autocd                      # Enable autocd (change directory just by typing its name)
 eval "$(starship init bash)"         # Load starship prompt
+alias bashconfig="nvim ~/.bashrc"    # Edit bashrc
 pokemon-colorscripts --no-title -r 1 #,3,6 #toilet -f future -F gay "$(date +%d\ %m\ %Y)"

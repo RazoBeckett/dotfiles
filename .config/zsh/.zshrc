@@ -1,4 +1,5 @@
 # /etc/zsh/zshenv : export ZDOTDIR="$HOME/.config/zsh"
+alias zshconfig="nvim $ZDOTDIR/.zshrc"
 # Custom scripts
 [[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc 			      # Loads the $PATH Variable and Exports
 [[ -f $HOME/.config/shellrc/bindkeys.zsh ]] && source $HOME/.config/shellrc/bindkeys.zsh    # Loads the set up the bindkeys
@@ -7,8 +8,9 @@
 [[ -f $HOME/.config/shellrc/functionsrc ]] && source $HOME/.config/shellrc/functionsrc 		  # Loads all custom functions 
 
 # Plugins 
-[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh ]] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh			                # Loads autosuggestion plugin
-[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh			              # Loads syntax-highlighting plugin
+PLUGINPATH=/usr/share/zsh/plugins
+[[ -f $PLUGINPATH/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh ]] && source $PLUGINPATH/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh			                # Loads autosuggestion plugin
+[[ -f $PLUGINPATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $PLUGINPATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh			              # Loads syntax-highlighting plugin
 
 WAKATIME_HOME=${XDG_CONFIG_HOME}/wakatime
 # History
