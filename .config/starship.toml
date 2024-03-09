@@ -46,7 +46,7 @@ read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
-format = "[󰥔 $duration]($style) "
+format = "[ $duration]($style) "
 style = "bold purple"
 
 [fill]
