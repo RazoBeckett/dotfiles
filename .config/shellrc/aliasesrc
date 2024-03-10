@@ -36,7 +36,7 @@ alias quit='exit'
 alias vi='vim'
 alias upfor='echo -ne booted at:  && uptime --since && echo -ne "(running) " && uptime --pretty'
 # for dwm quick compile
-alias smci="sudo make clean install && yes | rm config.h && rm *.o && rm *.orig"
+alias smci="sudo make clean install && yes | rm *.o && rm *.orig"
 alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 
 # From github.com/christitustech/mybash

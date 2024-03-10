@@ -1,0 +1,27 @@
+#!/bin/env bash
+TOUCHPAD_ID="$(xinput list | grep -i touchpad | awk '{print $6}' | sed 's/id=//')"
+
+notify() {
+	notify-send -t 2000 -i input-touchpad "Touchpad" "$1"
+}
+
+case "$1" in
+# in case you want to use on/off instead of toggle
+# on)
+# 	xinput enable "$TOUCHPAD_ID" && notify "Touchpad enabled"
+# 	;;
+# off)
+# 	xinput disable "$TOUCHPAD_ID" && notify "Touchpad disabled"
+# 	;;
+toggle)
+	if [ "$(xinput list-props "$TOUCHPAD_ID" | grep "Device Enabled" | awk '{print $4}')" -eq 1 ]; then
+		xinput disable "$TOUCHPAD_ID" && notify "Touchpad disabled"
+	else
+		xinput enable "$TOUCHPAD_ID" && notify "Touchpad enabled"
+	fi
+	;;
+*)
+	echo "DEBUG: Usage: $0 {on|off}"
+	exit 1
+	;;
+esac
