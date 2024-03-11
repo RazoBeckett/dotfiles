@@ -8,3 +8,4 @@ export PATH=$PATH:/sbin:$HOME/.local/bin
 export PATH=$PATH:$HOME/.spicetify
 export PATH=$PATH:/var/lib/flatpak
 export PATH=$PATH:$HOME/.suckless/dwmblocks/sb-files
+export PATH=$PATH:/usr/share/flutter/bin
