@@ -50,8 +50,7 @@ dmenu.selbackground : #333333
 !*.color15:    #F1F1F1
 
 !*. Catppuccin-Macchiato Xresources palette
-!*background: #24273A
-*background: #001B26
+*background: #24273A
 *foreground: #CAD3F5
 ! black
 *color0: #494D64

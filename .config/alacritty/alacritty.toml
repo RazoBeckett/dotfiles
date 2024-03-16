@@ -6,6 +6,8 @@ working_directory = "None"
 #import = [ "~/.config/alacritty/dracula.toml" ]
 #import = [ "~/.config/alacritty/catppuccin-mocha.toml" ]
 import = [ "~/.config/alacritty/catppuccin-macchiato.toml" ]
+#import = [ "~/.config/alacritty/solarized_dark.toml" ]
+#import = [ "~/.config/alacritty/solarized-osaka.toml" ]
 
 [window]
 opacity = 0.6
@@ -14,11 +16,11 @@ padding.y = 10
 decorations = "none"
 
 [window.dimensions]
-columns = 93
-lines = 35
+columns = 160
+lines = 80
 
 [colors]
-transparent_background_colors = true
+#transparent_background_colors = true
 draw_bold_text_with_bright_colors = true
 
 [env]
