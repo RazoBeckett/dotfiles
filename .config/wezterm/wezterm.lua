@@ -1,10 +1,9 @@
 local wezterm = require("wezterm")
 return {
-	-- color_scheme = 'termnial.sexy',
 	color_scheme = "Catppuccin Macchiato",
 	enable_tab_bar = false,
 	font = wezterm.font_with_fallback({
-		{ family = "berkeley mono", weight = "Regular" },
+		{ family = "BlexMono Nerd Font", weight = "Regular" },
 		{ family = "ConkySymbols", weight = "Regular" },
 		"Noto Color Emoji",
 	}),
@@ -30,6 +29,7 @@ return {
 			action = wezterm.action.ToggleFullScreen,
 		},
 	},
+	cursor_blink_rate = 0, -- disable cursor blinking
 	mouse_bindings = {
 		-- Ctrl-click will open the link under the mouse cursor
 		{

@@ -5,21 +5,22 @@ umount_mnt() {
 }
 
 powermenu() {
-	options="cancel\nshutdown\nrestart\nRefresh Rate\nScreen Settings\n$(uptime --pretty)"
+	options="󰌍\n Shutdown\n Restart\n Lock\n󱎴 Refresh Rate\n󰍹 Screen Settings\n󰜺 Cancel\n$(uptime --pretty)"
 	selected=$(echo -e "$options" | dmenu -fn "JetBrains Mono Nerd Font")
 
 	case "$selected" in
-	"shutdown")
+	"󰌍") ~/.local/bin/topmenu ;;
+	"󰜺 Cancel") return ;;
+	" Shutdown")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && systemctl poweroff || return
-		#&& umount_mnt 
+		[[ $confirm = "yes" ]] && umount_mnt && systemctl poweroff || return
 		;;
-	"restart")
+	" Restart")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && systemctl reboot || return
-		#&& umount_mnt 
+		[[ $confirm = "yes" ]] && umount_mnt && systemctl reboot || return
 		;;
-	"Refresh Rate")
+	" Lock") dm-tool lock ;;
+	"󱎴 Refresh Rate")
 		confirm=$(echo -e "60\n144" | dmenu -fn "JetBrains Mono Nerd Font")
 		if [[ "$confirm" = "60" ]]; then
 			xrandr --output eDP-1 --mode 1920x1080 --rate 60
@@ -29,11 +30,7 @@ powermenu() {
 			return
 		fi
 		;;
-	"Screen Settings")
-		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && arandr || return
-		;;
-	"cancel") return ;;
+	"󰍹 Screen Settings") arandr || return ;;
 	esac
 }
 
