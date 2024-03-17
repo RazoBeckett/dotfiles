@@ -1,0 +1,34 @@
+#!/bin/env bash
+
+# NOTE: chanage filename changing pattern to suit your needs
+FILENAME=$(date +%Y_%m_%d_%s)
+
+# NOTE: change the resolution and frame rate to suit your needs
+RESO=1920x1080
+FRATE=60
+
+# NOTE: change the following line to suit your system
+SYS_AUDIO=$(pactl list sources short | grep alsa_output | awk 'NR==1 && $7=="RUNNING" {print $2}')
+
+# NOTE: don't mention the trailing slash
+OUTPUT_DIR=~/Videos/FFStudio
+
+ffrecord() {
+	# check if ffmpeg is installed and in PATH, if not exit
+	if ! command -v ffmpeg &>/dev/null; then
+		echo "Error: ffmpeg is not installed or not in PATH. Please install ffmpeg and try again." >&2
+		exit 1
+	fi
+	# check if the output directory exists, if not create it
+	[[ ! -d "$OUTPUT_DIR" ]] && mkdir -p "$OUTPUT_DIR"
+	# check if the output directory is writable, if not exit
+	[[ ! -w "$OUTPUT_DIR" ]] && echo "Output directory not writable. Exiting..." && exit 1
+	# check if the audio source is available, if not exit
+	[[ -z "$SYS_AUDIO" ]] && echo "No audio source found. Exiting..." && exit 1
+	# check if the output file already exists, if yes exit
+	[[ -f "$OUTPUT_DIR"/"$FILENAME".mp4 ]] && echo "Output file already exists. Exiting..." && exit 1
+
+	ffmpeg -f x11grab -s $RESO -framerate "$FRATE" -i :0.0 -f pulse -i "$SYS_AUDIO" -c:v libx264 -crf 18 -preset ultrafast -c:a aac -b:a 192k "$OUTPUT_DIR"/"$FILENAME".mp4
+}
+
+ffrecord

@@ -1,9 +1,5 @@
 #!/bin/bash
 
-umount_mnt() {
-	umount -R /mnt
-}
-
 powermenu() {
 	options="󰌍\n Shutdown\n Restart\n Lock\n󱎴 Refresh Rate\n󰍹 Screen Settings\n󰜺 Cancel\n$(uptime --pretty)"
 	selected=$(echo -e "$options" | dmenu -fn "JetBrains Mono Nerd Font")
@@ -13,11 +9,11 @@ powermenu() {
 	"󰜺 Cancel") return ;;
 	" Shutdown")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && umount_mnt && systemctl poweroff || return
+		[[ $confirm = "yes" ]] && systemctl poweroff || return
 		;;
 	" Restart")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && umount_mnt && systemctl reboot || return
+		[[ $confirm = "yes" ]] && systemctl reboot || return
 		;;
 	" Lock") dm-tool lock ;;
 	"󱎴 Refresh Rate")

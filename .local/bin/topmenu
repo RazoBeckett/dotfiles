@@ -1,13 +1,20 @@
 #!/bin/env bash
 
 topmenu() {
-	options=" Terminal\n󰈹 Firefox\n Files\n󰀴 Android Studio\n󰍜 PowerMenu\n󰜺 Cancel"
-	pointer="$(echo -e "$options" | dmenu -fn "JetBrainsMono Nerd Font")"
+	options=" Terminal\n󰈹 Firefox\n Files\n󰀴 Android Studio\n󰻃 FFStudio\n󰍜 PowerMenu\n󰜺 Cancel"
+	pointer="$(echo -e "$options" | dmenu -fn "JetBrainsMono Nerd Font" -p "Quick Launch")"
 	case $pointer in
 	" Terminal") alacritty ;;
 	"󰈹 Firefox") firefox ;;
 	" Files") pcmanfm ;;
 	"󰀴 Android Studio") android-studio ;;
+	"󰻃 FFStudio")
+		ffoptions="$(printf " Start Recording\n View Footages" | dmenu -fn "JetBrainsMono Nerd Font" -p "FFStudio Options")"
+		case $ffoptions in
+		" Start Recording") wezterm start -- bash ~/.local/bin/ffstudio ;;
+		" View Footages") xdg-open ~/Videos/FFStudio ;;
+		esac
+		;;
 	"󰍜 PowerMenu") ~/.local/bin/pm ;;
 	"󰜺 Cancel") return ;;
 	esac
