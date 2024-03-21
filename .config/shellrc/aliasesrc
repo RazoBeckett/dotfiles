@@ -1,4 +1,5 @@
 #!/bin/sh
+alias aliasconfig='nvim $HOME/.config/shellrc/aliasesrc'
 
 # Change directory aliases
 alias cd.='cd .'
@@ -7,8 +8,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # Replaced ls with eza
-alias l=ls
 alias sl=ls
+alias l='ls -1'
 alias la='ls -a'
 alias lla='ll -a'
 alias ll='ls -l --git --git-repos --header'
@@ -20,7 +21,7 @@ alias mv='mv -iv'
 alias suod='sudo'
 
 # Misc:
-alias cat='bat' #alias cat='batcat' # For Debian and Debian based distros
+alias cat='bat --plain --wrap character' #alias cat='batcat' # For Debian and Debian based distros
 alias phpr='xdg-open http://localhost:8000 && php -S localhost:8000 -t .'
 alias ccat='/usr/bin/cat' # Normal Cat Command
 alias cb='xclip -selection clipboard'
@@ -43,6 +44,7 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
+alias BT='sudo systemctl start bluetooth'
 
 # pacman
 [[ -x /bin/pacman ]] && alias pacman='sudo pacman'
@@ -50,6 +52,10 @@ alias da='date "+%Y-%m-%d %A %T %Z"'
 [[ -x /bin/trash ]] && alias rm='trash -v'
 alias TL='trash-list'
 alias TE='trash-empty'
+alias R='shred'
+alias Rd='shred -u'
+alias Rz='shred -z'
+alias Rzd='shred -zu'
 alias mkdir='mkdir -p'
 alias rd='rm -r'
 alias less='less -R'

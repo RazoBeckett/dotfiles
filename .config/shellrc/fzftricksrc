@@ -5,9 +5,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+
 fzf_history() {
-	# Expand aliases and execute fzf
-	eval "$(HISTTIMEFORMAT=history | sed 's/^ *[0-9]\+ *//g' | awk '!x[$0]++' | fzf --height=40% --reverse)"
+	fzf --reverse --tac --preview 'echo {}' --preview-window=top:2:wrap <~/.local/state/zsh/history | xclip -selection clipboard
 }
 
 asong() {

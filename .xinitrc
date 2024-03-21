@@ -17,7 +17,7 @@ export XCURSOR_PATH=/usr/share/icons:"$XDG_DATA_HOME"/icons
 # Environment variables set everywhere
 unset EDITOR; unset TERMINAL; unset BROWSER
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="wezterm"
 export BROWSER="firefox"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 

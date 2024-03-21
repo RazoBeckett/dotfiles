@@ -1,12 +1,30 @@
-#!/bin/zsh
+#!/usr/bin/zsh
+
+# zsh specific configuration
+alias background='setsid -f'
+alias -s {pdf,PDF}='background mupdf'
+alias -s {jpg,JPG,jpeg,JPEG,png,PNG}='background feh'
+alias -s {mp3,MP3,flac,FLAC}='background mpv'
+alias -s {mp4,MP4,avi,AVI,mkv,MKV}='background mpv'
+alias -s {doc,DOC,docx,DOCX,odt,ODT}='background libreoffice'
+alias -s {xls,XLS,xlsx,XLSX,ods,ODS}='background libreoffice'
+alias -s {ppt,PPT,pptx,PPTX,odp,ODP}='background libreoffice'
+alias -s {html,HTML,htm,HTM}='background firefox'
+alias -s {zip,ZIP,tar,TAR,tar.gz,TAR.GZ,tar.bz2,TAR.BZ2}='tar -xvf'
+alias -s {rar,RAR}='unrar x'
+alias -s {7z,7Z}='7z x'
+alias -s {deb,DEB}='sudo dpkg -i'
+alias -s {rpm,RPM}='sudo rpm -i'
+alias -s {iso,ISO}='sudo mount -o loop'
+alias -s {torrent,TORRENT}='transmission-remote -a'
+alias -s {cbr,CBR,cbz,CBZ}='comix'
+alias -s {epub,EPUB}='background fbreader'
 
 #custom keybinds
 bindkey -s '^O' 'FOF\n'
 bindkey -s '^F' 'FSF\n'
-bindkey -s '^B' 'sylvie "^[[D"'
 
 # configure key keybindings
-bindkey -e                                        # emacs key bindings
 bindkey ' ' magic-space                           # do history expansion on space
 bindkey '^U' backward-kill-line                   # ctrl + U
 bindkey '^[[3;5~' kill-word                       # ctrl + Supr
