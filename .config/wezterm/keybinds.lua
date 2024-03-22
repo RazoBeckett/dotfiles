@@ -1,5 +1,6 @@
 local M = {}
 
+--kits are the keybinds that are used in the terminal
 function M.setup(config, wezterm)
 	config.keys = {
 		{ key = "f", mods = "CTRL", action = wezterm.action.ToggleFullScreen },

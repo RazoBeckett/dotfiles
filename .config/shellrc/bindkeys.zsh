@@ -1,8 +1,10 @@
 #!/usr/bin/zsh
+alias zshbinds='vim ~/.config/shellrc/bindkeys.zsh'
 
 # zsh specific configuration
 alias background='setsid -f'
 alias -s {pdf,PDF}='background mupdf'
+alias -s {txt,TXT,md,MD}='vim'
 alias -s {jpg,JPG,jpeg,JPEG,png,PNG}='background feh'
 alias -s {mp3,MP3,flac,FLAC}='background mpv'
 alias -s {mp4,MP4,avi,AVI,mkv,MKV}='background mpv'
