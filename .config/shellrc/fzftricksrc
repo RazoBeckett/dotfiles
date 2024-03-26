@@ -29,6 +29,7 @@ asong() {
 		# Call asong() recursively for continuous song selection
 		asong
 	else
+		pkill mpv
 		echo -e "\nNo song selected. Exiting."
 	fi
 }

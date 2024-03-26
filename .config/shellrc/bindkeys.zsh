@@ -3,6 +3,7 @@ alias zshbinds='vim ~/.config/shellrc/bindkeys.zsh'
 
 # zsh specific configuration
 alias background='setsid -f'
+alias -s {py,PY}='python'
 alias -s {pdf,PDF}='background mupdf'
 alias -s {txt,TXT,md,MD}='vim'
 alias -s {jpg,JPG,jpeg,JPEG,png,PNG}='background feh'
@@ -22,10 +23,6 @@ alias -s {torrent,TORRENT}='transmission-remote -a'
 alias -s {cbr,CBR,cbz,CBZ}='comix'
 alias -s {epub,EPUB}='background fbreader'
 
-#custom keybinds
-bindkey -s '^O' 'FOF\n'
-bindkey -s '^F' 'FSF\n'
-
 # configure key keybindings
 bindkey ' ' magic-space                           # do history expansion on space
 bindkey '^U' backward-kill-line                   # ctrl + U
@@ -38,3 +35,6 @@ bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # home
 bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
+
+# custom keybindings
+bindkey -s '^]' 'tmux-sessionizer\n'              # ctrl + ] to open tmux sessionizer

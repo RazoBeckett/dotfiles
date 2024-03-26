@@ -22,6 +22,7 @@ config.window_background_opacity = 0.7
 config.macos_window_background_blur = 30
 config.status_update_interval = 1000
 config.scrollback_lines = 30000
+config.term = "xterm-256color"
 
 config.window_padding = {
 	top = "0.5cell",

@@ -1,5 +1,6 @@
 # /etc/zsh/zshenv : export ZDOTDIR="$HOME/.config/zsh"
 alias zshconfig="nvim $ZDOTDIR/.zshrc"
+
 # Custom scripts
 [[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc 			      # Loads the $PATH Variable and Exports
 [[ -f $HOME/.config/shellrc/bindkeys.zsh ]] && source $HOME/.config/shellrc/bindkeys.zsh    # Loads the set up the bindkeys
