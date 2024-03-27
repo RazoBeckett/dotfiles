@@ -37,4 +37,5 @@ bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
 # custom keybindings
+bindkey -s '^R' 'history\n'                       # ctrl + R to search history
 bindkey -s '^]' 'tmux-sessionizer\n'              # ctrl + ] to open tmux sessionizer

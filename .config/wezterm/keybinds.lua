@@ -3,7 +3,7 @@ local M = {}
 --kits are the keybinds that are used in the terminal
 function M.setup(config, wezterm)
 	config.keys = {
-		{ key = "f", mods = "CTRL", action = wezterm.action.ToggleFullScreen },
+		{ key = "f", mods = "CTRL",       action = wezterm.action.ToggleFullScreen },
 		{ key = "r", mods = "CTRL|SHIFT", action = wezterm.action.ReloadConfiguration },
 	}
 
@@ -29,17 +29,17 @@ function M.setup(config, wezterm)
 		J = "\x1b\x5b\x42", -- move to pane below
 		L = "\x1b\x5b\x43", -- move to pane right
 		H = "\x1b\x5b\x44", -- move to pane above
-		[";"] = ";", -- navigate over to last pane
-		[","] = ",", -- renaming window
+		[";"] = ";",      -- navigate over to last pane
+		[","] = ",",      -- renaming window
 
-		R = "r", -- reload tmux config
-		z = "z", -- zoom into pane
-		t = "c", -- create new wndow
-		w = "x", -- close window
-		W = "w", -- show all windows
-		s = "%", -- split open pane vertically
-		S = '"', -- split open pane horizontally
-		D = "d", -- detach tmux session
+		R = "r",          -- reload tmux config
+		z = "z",          -- zoom into pane
+		t = "c",          -- create new wndow
+		w = "x",          -- close window
+		W = "w",          -- show all windows
+		s = "%",          -- split open pane vertically
+		S = '"',          -- split open pane horizontally
+		D = "d",          -- detach tmux session
 	}
 
 	for key, bind in pairs(keybinds_for_tmux) do
