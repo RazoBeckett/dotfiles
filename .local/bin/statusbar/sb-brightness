@@ -1,0 +1,32 @@
+#!/bin/env sh
+# Display brightness levels.
+
+case "$BLOCK_BUTTON" in
+	4) brightnessctl -q set +5% ;;   # Scroll up
+	5) brightnessctl -q set 5%- ;;   # Scroll down
+	6) terminal -e "$EDITOR" "$0" ;; # Shift + Left click
+esac
+
+. sb-theme
+
+level="$(brightnessctl | awk '/Current brightness/ {print substr($4, 2, length($4)-3)}')"
+
+if [ -z "$level" ]; then
+	exit 1
+fi
+
+if [ "$level" -eq 100 ]; then
+	icon="󰃠"
+elif [ "$level" -ge 60 ]; then
+	icon="󰃠 " # Brightness icon at 90% and above
+elif [ "$level" -ge 30 ]; then
+	icon="󰃟 " # Brightness icon at above 50%
+elif [ "$level" -ge 10 ]; then
+	icon="󰃞 " # Brightness icon at above 0%
+elif [ "$level" -le 9 ]; then
+	icon="󰃞  0" # Brightness icon at above 0%
+	display "^c#F5BDE6^[ $icon$level% ]"
+	exit
+fi
+
+display "^c#F5BDE6^[ $icon $level% ]"

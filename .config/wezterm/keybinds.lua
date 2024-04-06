@@ -35,6 +35,7 @@ function M.setup(config, wezterm)
 		R = "r",          -- reload tmux config
 		z = "z",          -- zoom into pane
 		t = "c",          -- create new wndow
+		T = "!",          -- break pane into new window
 		w = "x",          -- close window
 		W = "w",          -- show all windows
 		s = "%",          -- split open pane vertically

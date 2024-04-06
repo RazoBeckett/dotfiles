@@ -1,0 +1,41 @@
+#!/bin/bash
+# Display volume levels.
+
+case "$BLOCK_BUTTON" in
+	1) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+	2) setsid --fork terminal -e pulsemixer ;;
+	3) pavucontrol ;;
+	4) pactl set-sink-volume @DEFAULT_SINK@ +5% ;;
+	5) pactl set-sink-volume @DEFAULT_SINK@ -5% ;;
+	6) terminal -e "$EDITOR" "$0" ;;
+esac
+
+. sb-theme
+if [ "$(pactl list sinks | grep 'Mute: ' | awk '{print $2}')" == "yes" ]; then
+	display "^c#F5BDE6^[  MUTE ]" 9
+	exit
+fi
+
+volume="$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | tr -d '%')"
+
+if [ -z "$volume" ]; then
+	exit 1
+fi
+
+if [ "$volume" -eq 125 ]; then
+	icon=""
+	notify-send -u critical "Volume 125%" "You are going to damage your ears!"
+elif [ "$volume" -gt 99 ]; then
+	icon=""
+elif [ "$volume" -gt 40 ]; then
+	icon=" "
+elif [ "$volume" -gt 15 ]; then
+	icon=" "
+elif [ "$volume" -lt 10 ]; then
+	display "^c#F5BDE6^[   0$volume% ]"
+	exit
+else
+	icon=" "
+fi
+
+display "^c#F5BDE6^[ $icon $volume% ]"

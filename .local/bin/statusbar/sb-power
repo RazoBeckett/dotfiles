@@ -1,0 +1,9 @@
+#!/bin/sh
+
+printf "^c#ED8796^[  ] ^c#B8C0E0^|"
+
+if [ "$BLOCK_BUTTON" = "1" ]; then
+	"$HOME"/.local/bin/pm
+elif [ "$BLOCK_BUTTON" = "3" ]; then
+	"$HOME"/.local/bin/topmenu
+fi

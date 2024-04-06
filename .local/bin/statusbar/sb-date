@@ -1,0 +1,19 @@
+#!/bin/sh
+# Display the current time in HH:MM:SS.
+
+notify() {
+	notify-send --icon=office-calendar-symbolic \
+		--hint=string:x-canonical-private-synchronous:"$1" "$@"
+}
+
+case $BLOCK_BUTTON in
+1)
+	notify "This Month" "$(cal --color=always |
+		sed "s|..7m|<span color='$(xrdb -get color1)'>|;s|..0m|</span>|")"
+	;;
+2) setsid --fork terminal -e calcurse ;;
+6) terminal -e "$EDITOR" "$0" ;;
+esac
+
+. sb-theme
+display "^c#89dceb^[  $(date +'%b %d') |  $(date '+%H:%M') ]"
