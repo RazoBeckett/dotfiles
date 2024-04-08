@@ -29,5 +29,6 @@ _comp_options+=(globdots)
 [[ -f $HOME/.config/shellrc/lukesmithrc ]] && source $HOME/.config/shellrc/lukesmithrc      # Loads startship config
 
 # Environment
+eval "$(fzf --zsh)"                                                           # Load fzf
 eval "$(zoxide init zsh)"                                                     # Load zoxide
 eval "$(starship init zsh)"                                                   # Load starship prompt

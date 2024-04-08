@@ -1,15 +1,26 @@
 #!/bin/env sh
 # Display brightness levels.
 
+. sb-theme
+level="$(brightnessctl | awk '/Current brightness/ {print substr($4, 2, length($4)-3)}')"
+
 case "$BLOCK_BUTTON" in
-	4) brightnessctl -q set +5% ;;   # Scroll up
-	5) brightnessctl -q set 5%- ;;   # Scroll down
+	4)
+		if [ "$level" -le 4 ]; then
+			brightnessctl -q set +1%
+		else
+			brightnessctl -q set +5% # Scroll up
+		fi
+		;;
+	5)
+		if [ "$level" -le 5 ]; then
+			brightnessctl -q set 1%-
+		else
+			brightnessctl -q set 5%- # Scroll up
+		fi
+		;;
 	6) terminal -e "$EDITOR" "$0" ;; # Shift + Left click
 esac
-
-. sb-theme
-
-level="$(brightnessctl | awk '/Current brightness/ {print substr($4, 2, length($4)-3)}')"
 
 if [ -z "$level" ]; then
 	exit 1

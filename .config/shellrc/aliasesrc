@@ -39,6 +39,7 @@ alias upfor='echo -ne booted at:  && uptime --since && echo -ne "(running) " && 
 # for dwm quick compile
 alias smci="sudo make clean install && yes | rm *.o && rm *.orig"
 alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
+alias tree='eza --tree'
 
 # From github.com/christitustech/mybash
 

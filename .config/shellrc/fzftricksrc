@@ -4,27 +4,24 @@
 export FZF_DEFAULT_OPTS=" \
 --color=spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+--color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--prompt='  ' --marker='󰫢' --pointer='' --separator='─' --scrollbar=''"
 
-history() {
-	cmd=$(fzf --tac --height 40% \
-		--layout=reverse \
-		--border=rounded \
-		--border-label="history" \
-		--margin=10%,10% \
-		<"$HISTFILE")
-	[[ -n "$cmd" ]] && print -z "$cmd"
-}
+# FZF Ctrl-R: history search
+export FZF_CTRL_R_OPTS='--prompt=" " --height 40% --layout=reverse --border=rounded --border-label="history" --margin=10%,10%'
+
+# FZF Alt-C: change directory
+export FZF_ALT_C_COMMAND="fd --type d . --color=auto --hidden --exclude .git"
+export FZF_ALT_C_OPTS="--prompt='󰥩  ' --walker-skip .git,node_modules,target --preview 'tree -C {}'"
 
 asong() {
 	# asong is rewritten by ChatGPT
 	local songs
-	songs=$(find ~/Music -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' \) | sort)
+	songs=$(find ~/Music -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' -o -name '*.m4a' \) | sort)
 
 	local song
-	song=$(echo "$songs" | awk -F/ '{print $NF}' | gum filter --fuzzy --indicator="󰽴" --indicator.foreground="150" \
-		--cursor-text.foreground="150" \
-		--placeholder="select a song: ")
+	song=$(echo "$songs" | awk -F/ '{print $NF}' | fzf --layout=reverse \
+		--border=rounded --border-label="Press ESC to exit" --prompt="  " --pointer="󰽴" --marker="󰷞 ")
 
 	# Check if a song was selected
 	if [[ -n "$song" ]]; then
