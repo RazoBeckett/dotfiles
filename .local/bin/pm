@@ -1,7 +1,7 @@
 #!/bin/bash
 
 powermenu() {
-	options="󰌍\n Shutdown\n Restart\n Lock\n󱎴 Refresh Rate\n󰍹 Screen Settings\n󰜺 Cancel\nHOT RELOAD\n$(uptime --pretty)"
+	options="󰌍\n Shutdown\n Restart\n Lock\n󱎴 Refresh Rate\n󰍹 Screen Settings\nHOT RELOAD\n󰜺 Cancel\n$(uptime --pretty)"
 	selected=$(echo -e "$options" | dmenu -fn "JetBrains Mono Nerd Font")
 
 	case "$selected" in

@@ -8,13 +8,12 @@ end
 
 config.color_scheme = "Catppuccin Macchiato"
 config.font = wezterm.font_with_fallback({
-	{ family = "BlexMono Nerd Font" },
-	-- { family = "" },
+	{ family = "Comic Code" },
 	{ family = "Symbols Nerd Font" },
 	{ family = "Noto Color Emoji" },
 })
 
-config.font_size = 12.4
+config.font_size = 12.3
 config.cursor_blink_rate = 0
 config.enable_tab_bar = false
 config.use_fancy_tab_bar = false

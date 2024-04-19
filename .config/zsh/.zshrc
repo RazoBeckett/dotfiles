@@ -26,7 +26,7 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
-[[ -f $HOME/.config/shellrc/lukesmithrc ]] && source $HOME/.config/shellrc/lukesmithrc      # Loads startship config
+[[ -f $HOME/.config/shellrc/lukesmithrc ]] && source $HOME/.config/shellrc/lukesmithrc      # Loads vim (cursor) mode indicator
 
 # Environment
 eval "$(fzf --zsh)"                                                           # Load fzf

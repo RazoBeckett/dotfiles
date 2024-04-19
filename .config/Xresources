@@ -1,7 +1,7 @@
 *.alpha: .6
 
 ! cursor
-Xcursor.theme: Catppuccin-Macchiato-Dark
+Xcursor.theme: macOS-BigSur
 Xcursor.size: 24
 
 ! demnu

@@ -10,3 +10,7 @@ export PATH=$PATH:/var/lib/flatpak
 export PATH=$PATH:$HOME/.suckless/dwmblocks/sb-files
 export PATH=$PATH:/usr/share/flutter/bin
 export PATH=$PATH:/usr/share/dart-sdk/bin
+
+# ----- Bat (better cat) -----
+
+export BAT_THEME="Catppuccin Macchiato"

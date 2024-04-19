@@ -5,6 +5,14 @@
 level="$(brightnessctl | awk '/Current brightness/ {print substr($4, 2, length($4)-3)}')"
 
 case "$BLOCK_BUTTON" in
+	2)
+		brightnessctl -q set 100
+		display "^c#F5BDE6^[ 󰃞  00% ]"
+		exit
+		;;
+	3)
+		notify-send "🌞 Brightness module" "\- Shows the current brightness level"
+		;;
 	4)
 		if [ "$level" -le 4 ]; then
 			brightnessctl -q set +1%
