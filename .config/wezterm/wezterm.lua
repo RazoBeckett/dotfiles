@@ -13,6 +13,7 @@ config.font = wezterm.font_with_fallback({
 	{ family = "Noto Color Emoji" },
 })
 
+config.max_fps = 144
 config.font_size = 12.3
 config.cursor_blink_rate = 0
 config.enable_tab_bar = false

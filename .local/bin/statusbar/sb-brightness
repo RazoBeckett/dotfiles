@@ -2,7 +2,7 @@
 # Display brightness levels.
 
 . sb-theme
-level="$(brightnessctl | awk '/Current brightness/ {print substr($4, 2, length($4)-3)}')"
+level="$(brightnessctl -m | cut -d, -f4 | sed 's/%//')"
 
 case "$BLOCK_BUTTON" in
 	2)
@@ -29,6 +29,8 @@ case "$BLOCK_BUTTON" in
 		;;
 	6) terminal -e "$EDITOR" "$0" ;; # Shift + Left click
 esac
+
+level="$(brightnessctl -m | cut -d, -f4 | sed 's/%//')"
 
 if [ -z "$level" ]; then
 	exit 1

@@ -5,7 +5,7 @@ $os$username$hostname$directory\
 $git_branch$git_status\
 $fill\
 $cmd_duration\
-$python$c$kubernetes$conda$docker_context
+$python$c$kubernetes$conda$docker_context$golang
 """
 
 [character]
@@ -14,8 +14,7 @@ error_symbol = '[](bold red)'
 vimcmd_symbol = '[](bold fg:purple)'
 
 [os]
-format = '[$symbol](bold white) '   
-disabled = false
+format = '[$symbol](bold white) '
 
 [os.symbols]
 Windows = ' '
@@ -29,13 +28,11 @@ Debian = ''
 style_user = 'white bold'
 style_root = 'red bold'
 format = '[$user]($style) '
-disabled = false
 show_always = true
 
 [hostname]
 ssh_only = true
 format = 'on [$hostname](bold yellow) '
-disabled = false
 
 [directory]
 truncation_length = 3
@@ -75,30 +72,31 @@ deleted = ' '
 # -- languages and tools --
 
 [kubernetes]
-format = '[󱃾 $context\($namespace\)](bold purple) '
-disabled = false
+symbol = '󱃾 '
+format = '[$symbol $context\($namespace\)](bold purple) '
 
 # ---
 [docker_context]
 symbol = ' '
 format = '$symbol '
-disabled = false
 
 [c]
 format = '[$symbol$version](#caf0f8) '
 symbol = ' '
-disabled = false
 
 [python]
 format = '[${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style) '
 symbol = ' '
 version_format = "${raw}"
 style = "#edf67d"
-disabled=false
 
 [conda]
 format = "[ $symbol$environment ]($style) "
 style = "#70e000"
 ignore_base = false
-disabled = false
 symbol = " "
+
+[golang]
+symbol = ' '
+style = "#86BBD8"
+format = '[ $symbol($version) ]($style)'

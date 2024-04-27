@@ -11,12 +11,12 @@ case "$BLOCK_BUTTON" in
 esac
 
 . sb-theme
-if [ "$(pactl list sinks | grep 'Mute: ' | awk '{print $2}')" == "yes" ]; then
-	display "^c#F5BDE6^[  MUTE ]" 9
+if [ "$(pamixer --get-mute)" == "true" ]; then
+	display "^c#F5BDE6^[  MUTE ]"
 	exit
 fi
 
-volume="$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | tr -d '%')"
+volume="$(pamixer --get-volume)"
 
 if [ -z "$volume" ]; then
 	exit 1

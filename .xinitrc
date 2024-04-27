@@ -18,8 +18,8 @@ export XCURSOR_PATH=/usr/share/icons:"$XDG_DATA_HOME"/icons
 # Environment variables set everywhere
 unset EDITOR; unset TERMINAL; unset BROWSER
 export EDITOR="nvim"
-export TERMINAL="wezterm"
-export BROWSER="firefox"
+export TERMINAL="alacritty"
+export BROWSER="firefox-developer-edition"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 exec dbus-launch --sh-syntax dwm # Start DWM

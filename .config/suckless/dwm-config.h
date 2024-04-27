@@ -87,14 +87,14 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* user constants */
-#define TERMINAL "wezterm"
+#define TERMINAL "alacritty"
 #define FILEMANAGER "pcmanfm"
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 
 /* user commands */
 static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-c", "-l", "7", "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; 
-static const char *rofisearch[]	= { "rofi", "-show", "drun", "-modi", "drun", "-show-icons", "-font", "JetBrainsMono", "Nerd", "Font", "12", NULL };
-static const char *rofiemoji[]	= { "rofi", "-modi", "emoji", "-show", "emoji", "-font", "JoyPixels", "12", NULL };
+static const char *rofisearch[]	= { "rofi", "-show", NULL };
+static const char *rofiemoji[]	= { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
 
 static const Key keys[] = {
 
@@ -123,6 +123,9 @@ static const Key keys[] = {
 	{ ALTKEY,			XK_Return, 		zoom,           {0} },
 	{ ALTKEY,			XK_Tab,    		view,           {0} },
 	{ ALTKEY,			XK_q,      		killclient,     {0} },
+	{ ALTKEY|ControlMask,		XK_q,			killclient,     {.ui = 1} },  // kill unselect
+	{ ALTKEY|ShiftMask|ControlMask,	XK_q,			killclient,     {.ui = 2} },  // killall
+	{ ALTKEY|ShiftMask,		XK_space,		togglefloating, {0} },
 	{ MODKEY|ShiftMask,		XK_t,      		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,		XK_f,      		setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,		XK_m,      		setlayout,      {.v = &layouts[2]} },
@@ -156,17 +159,16 @@ static const Key keys[] = {
 	/* custom shortcuts */
 	{ MODKEY,			XK_space,		spawn,		{.v = dmenucmd } },
   	{ MODKEY,			XK_period,		spawn,		{.v = rofiemoji} },
-	{ MODKEY,			XK_grave,		spawn,		TOPMENU},
+	{ MODKEY,			XK_grave,		spawn,		TOPMENU },
   	{ MODKEY,			XK_Return,		spawn,		{.v = (const char*[]){ TERMINAL, NULL }} },
   	{ MODKEY,			XK_e,			spawn,		{.v = (const char*[]){ FILEMANAGER, NULL }} },
-  	{ MODKEY,			XK_f,			spawn,		{.v = (const char*[]){ "firefox", NULL }} },
+  	{ MODKEY,			XK_f,			spawn,		{.v = (const char*[]){ "firefox-developer-edition", NULL }} },
   	{ MODKEY,			XK_b,			spawn,		{.v = (const char*[]){ "brave", NULL }} },
+  	{ MODKEY,			XK_t,			spawn,		{.v = (const char*[]){ "thorium-browser", NULL }} },
   	{ MODKEY,			XK_n,			spawn,		{.v = (const char*[]){ "nitrogen", NULL }} },
-  	{ MODKEY,			XK_w,			spawn,		{.v = (const char*[]){ "whatsapp-for-linux", NULL }} },
   	{ MODKEY,			XK_v,			spawn,		{.v = (const char*[]){ "xfce4-popup-clipman", NULL }} },
   	{ MODKEY|ShiftMask,		XK_s,			spawn,		{.v = (const char*[]){ "flameshot", "gui", NULL }} },
-  	{ MODKEY,			XK_l,			spawn,		SHCMD("dm-tool lock") },
-  	{ MODKEY|ShiftMask,		XK_l,			spawn,		SHCMD("xrdb -load ~/.config/Xresources") },
+  	{ MODKEY,			XK_l,			spawn,		SHCMD("slock") },
 };
 
 /* button definitions */
@@ -181,21 +183,15 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
 	{ ClkStatusText,        0,              Button4,        sigstatusbar,   {.i = 4} },
 	{ ClkStatusText,        0,              Button5,        sigstatusbar,   {.i = 5} },
-	/* placemouse options, choose which feels more natural:
-	 *    0 - tiled position is relative to mouse cursor
-	 *    1 - tiled postiion is relative to window center
-	 *    2 - mouse pointer warps to window center
-	 *
-	 * The moveorplace uses movemouse or placemouse depending on the floating state
-	 * of the selected client. Set up individual keybindings for the two if you want
-	 * to control these separately (i.e. to retain the feature to move a tiled window
-	 * into a floating position).
-	 */
-	{ ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 1} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+
+	{ ClkClientWin,         ALTKEY,         Button1,        moveorplace,    {.i = 2} },
+	{ ClkClientWin,         ALTKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         ALTKEY,         Button3,        resizemouse,    {0} },
+
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
+	{ ClkTagBar,            0,              Button2,        killclient,     {.ui = 2 } },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
+
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
