@@ -5,15 +5,17 @@ $os$username$hostname$directory\
 $git_branch$git_status\
 $fill\
 $cmd_duration\
-$python$c$kubernetes$conda$docker_context$golang
+$all
 """
 
 [character]
+disabled = true
 success_symbol = '[\$](bold green)'
 error_symbol = '[](bold red)'
 vimcmd_symbol = '[](bold fg:purple)'
 
 [os]
+disabled = false
 format = '[$symbol](bold white) '
 
 [os.symbols]
@@ -43,8 +45,8 @@ read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
-format = "[ $duration]($style) "
-style = "bold purple"
+format = '[ $duration]($style)'
+style = 'bold purple'
 
 [fill]
 symbol = " "
@@ -78,20 +80,21 @@ format = '[$symbol $context\($namespace\)](bold purple) '
 # ---
 [docker_context]
 symbol = ' '
-format = '$symbol '
+style = 'bold blue'
+detect_files = ['Dockerfile', 'docker-compose.yaml' ]
+format = '[ $symbol$context ]($style)'
 
 [c]
-format = '[$symbol$version](#caf0f8) '
+format = '[ $symbol$version ](#caf0f8)'
 symbol = ' '
 
 [python]
-format = '[${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style) '
+format = '[ ${symbol}${pyenv_prefix}(${version})( \($virtualenv\)) ]($style)'
 symbol = ' '
-version_format = "${raw}"
 style = "#edf67d"
 
 [conda]
-format = "[ $symbol$environment ]($style) "
+format = '[ $symbol$environment ]($style)'
 style = "#70e000"
 ignore_base = false
 symbol = " "
@@ -99,4 +102,14 @@ symbol = " "
 [golang]
 symbol = ' '
 style = "#86BBD8"
+format = '[ $symbol($version) ]($style)'
+
+[rust]
+symbol = ' '
+style = "#dea584"
+format = '[ $symbol($version) ]($style)'
+
+[lua]
+symbol = ' '
+style = "#8aadf4"
 format = '[ $symbol($version) ]($style)'

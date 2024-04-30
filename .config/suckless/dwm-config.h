@@ -2,14 +2,15 @@
 /* NOTE: make symbolic link of this file into dwm build directory */
 
 /* appearance */
-static const unsigned int borderpx       = 2;       /* border pixel of windows */
-static const unsigned int gappx          = 4;       /* gaps between windows */
-static const unsigned int fgappx         = 18;      /* gaps around only one window*/
-static const unsigned int snap           = 32;      /* snap pixel */
+static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int gappx          = 4;   /* gaps between windows */
+static const unsigned int fgappx         = 18;  /* gaps around only one window*/
+static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft  = 0;   /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int onlyclient   = 1;        /* 1: keep border even if only client */
 static const int showsystray  = 1;        /* 0 means no systray */
 static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
@@ -17,22 +18,18 @@ static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned
 static const char *fonts[]    = { "JetBrains Mono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_brown[]       = "#361a09";
-static const char pink[]            = "#f5bde6";
-static const char dark[]            = "#1d2021";
-static const char red[]             = "#ED8796";
-static const char brightyellow[]    = "#EED49F";
-static const char brightblue[]      = "#8aadf4";
-static const char *colors[][3]      = {
-	/*               fg         bg          border   */
-	[SchemeNorm] = { col_gray3, col_gray1,  col_gray2 },
-	[SchemeSel]  = { brightyellow,       dark,    brightblue },
-	[SchemeTitle] = { "#FFFFFF",     dark,       dark },
+static const char col_base[]       = "#24273a"; // Base
+static const char col_surface1[]   = "#494d64"; // Surface1
+static const char col_lavender[]   = "#b7bdf8"; // Lavender
+static const char col_text[]       = "#eeeeee"; // Text
+static const char col_mantle[]     = "#1e2030"; // Mantle
+static const char col_yellow[]     = "#eed49f"; // Yellow
+static const char col_blue[]       = "#8aadf4"; // Blue
+static const char *colors[][3]     = {
+    /*			fg		bg		border   */
+    [SchemeNorm]  =  { col_lavender,	col_base,	col_surface1 },
+    [SchemeSel]   =  { col_yellow,	col_mantle,	col_blue},
+    [SchemeTitle] =  { col_text,	col_mantle,	col_mantle},
 };
 
 static const char *const autostart[] = {

@@ -11,7 +11,16 @@ case $BLOCK_BUTTON in
 	notify "This Month" "$(cal --color=always |
 		sed "s|..7m|<span color='$(xrdb -get color1)'>|;s|..0m|</span>|")"
 	;;
-2) setsid --fork terminal -e calcurse ;;
+2)
+	yad --width=400 --height=200 \
+		--center \
+		--fixed \
+		--title="Calendar" \
+		--no-buttons \
+		yad \
+		--calendar
+	;;
+3) notify-send "Date:            Time:" "$(date)" ;;
 6) terminal -e "$EDITOR" "$0" ;;
 esac
 
