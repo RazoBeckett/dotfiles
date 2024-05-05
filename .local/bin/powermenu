@@ -1,19 +1,34 @@
 #!/bin/bash
 
-function powermenu {
-	options="Shutdown\nRestart\nExit\nSleep\nCancel"
-	selected=$(echo -e $options | dmenu -c -g 1 -fn "JetBrainsMono Nerd Font" -nb "#1e1d2d" -nf "#abe9b3" -sb "#d5aeea" -sf "#1e1d2d" -shb "#cba6f7" -shf "#585b70" -nhb "#1e1e2e" -nfh "#585b70" -l 5 -h 40 -p '') 
-	if [[ $selected = "Shutdown" ]]; then
-		systemctl poweroff
-	elif [[ $selected = "Restart" ]]; then
-		systemctl reboot
-	elif [[ $selected = "Sleep" ]]; then
-		systemctl suspend	
-	elif [[ $selected = "Exit" ]]; then
-		systemctl exit	
-	elif [[ $selected = "Cancel" ]]; then
-		return
-	fi
+powermenu() {
+	options="󰌍\n Shutdown\n Restart\n Lock\n󱎴 Refresh Rate\n󰍹 Screen Settings\nHOT RELOAD\n󰜺 Cancel\n$(uptime --pretty)"
+	selected=$(echo -e "$options" | dmenu -fn "JetBrains Mono Nerd Font")
+
+	case "$selected" in
+	"󰌍") ~/.local/bin/topmenu ;;
+	"󰜺 Cancel") return ;;
+	" Shutdown")
+		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
+		[[ $confirm = "yes" ]] && systemctl poweroff || return
+		;;
+	" Restart")
+		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
+		[[ $confirm = "yes" ]] && systemctl reboot || return
+		;;
+	" Lock") dm-tool lock ;;
+	"󱎴 Refresh Rate")
+		confirm=$(echo -e "60\n144" | dmenu -fn "JetBrains Mono Nerd Font")
+		if [[ "$confirm" = "60" ]]; then
+			xrandr --output eDP-1 --mode 1920x1080 --rate 60
+		elif [[ "$confirm" = "144" ]]; then
+			xrandr --output eDP-1 --mode 1920x1080 --rate 144
+		else
+			return
+		fi
+		;;
+	"󰍹 Screen Settings") arandr || return ;;
+	"HOT RELOAD") kill -9 $(pgrep -u razobeckett) || return ;;
+	esac
 }
 
 powermenu

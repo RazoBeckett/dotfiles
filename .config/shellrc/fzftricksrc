@@ -31,7 +31,6 @@ _fzf_compgen_dir() {
 }
 
 asong() {
-	# asong is rewritten by ChatGPT
 	local songs
 	songs=$(find ~/Music -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' -o -name '*.m4a' \) | sort)
 

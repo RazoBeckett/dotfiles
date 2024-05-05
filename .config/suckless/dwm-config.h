@@ -15,7 +15,8 @@ static const int showsystray  = 1;        /* 0 means no systray */
 static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
 static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned */
-static const char *fonts[]    = { "JetBrains Mono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
+//static const char *fonts[]    = { "JetBrains Mono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
+static const char *fonts[]    = { "BerkeleyMono4 Nerd Font:weight=Regular:size=11:antialias=true:hinting=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 static const char col_base[]       = "#24273a"; // Base
@@ -90,7 +91,7 @@ static const Layout layouts[] = {
 
 /* user commands */
 static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-c", "-l", "7", "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; 
-static const char *rofisearch[]	= { "rofi", "-show", NULL };
+static const char *rofisearch[]	= { "rofi", "-show", "drun", NULL };
 static const char *rofiemoji[]	= { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
 
 static const Key keys[] = {
@@ -120,8 +121,8 @@ static const Key keys[] = {
 	{ ALTKEY,			XK_Return, 		zoom,           {0} },
 	{ ALTKEY,			XK_Tab,    		view,           {0} },
 	{ ALTKEY,			XK_q,      		killclient,     {0} },
-	{ ALTKEY|ControlMask,		XK_q,			killclient,     {.ui = 1} },  // kill unselect
-	{ ALTKEY|ShiftMask|ControlMask,	XK_q,			killclient,     {.ui = 2} },  // killall
+	{ ALTKEY|ShiftMask,		XK_q,			killclient,     {.ui = 1} },  // kill unselect
+	{ MODKEY|ShiftMask,		XK_q,			killclient,     {.ui = 2} },  // killall
 	{ ALTKEY|ShiftMask,		XK_space,		togglefloating, {0} },
 	{ MODKEY|ShiftMask,		XK_t,      		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,		XK_f,      		setlayout,      {.v = &layouts[1]} },
@@ -165,7 +166,7 @@ static const Key keys[] = {
   	{ MODKEY,			XK_n,			spawn,		{.v = (const char*[]){ "nitrogen", NULL }} },
   	{ MODKEY,			XK_v,			spawn,		{.v = (const char*[]){ "xfce4-popup-clipman", NULL }} },
   	{ MODKEY|ShiftMask,		XK_s,			spawn,		{.v = (const char*[]){ "flameshot", "gui", NULL }} },
-  	{ MODKEY,			XK_l,			spawn,		SHCMD("slock") },
+  	{ MODKEY,			XK_l,			spawn,		SHCMD("betterlockscreen -l") },
 };
 
 /* button definitions */
@@ -174,6 +175,10 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+
+	{ ClkLtSymbol,          0,              Button4,        focusstack,     {.i = +1 } },
+	{ ClkLtSymbol,          0,              Button5,        focusstack,     {.i = -1 } },
+
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },

@@ -35,7 +35,12 @@ bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # home
 bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
+bindkey '^[[A' history-search-backward            # Search backwords using arrow-up
+bindkey '^[[B' history-search-forward             # Search forward using arrow-down
+bindkey '^]' history-search-backward              # Search backword using ctrl + K
+bindkey '^_' history-search-forward               # Search forward using ctrl + J
+bindkey '^Y' autosuggest-accept                   # accept autosuggest
 
 # custom keybindings
 # bindkey -s '^R' 'history\n'                       # ctrl + R to search history
-bindkey -s '^]' 'tmux-sessionizer\n'              # ctrl + ] to open tmux sessionizer
+bindkey -s '^\' 'tmux-sessionizer\n'              # ctrl + ] to open tmux sessionizer

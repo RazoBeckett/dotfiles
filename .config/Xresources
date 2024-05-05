@@ -1,7 +1,7 @@
 *.alpha: .6
 
 ! cursor
-Xcursor.theme: macOS-BigSur
+Xcursor.theme: Simp1e
 Xcursor.size: 24
 
 ! demnu

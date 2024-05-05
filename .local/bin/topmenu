@@ -15,7 +15,7 @@ topmenu() {
 		" View Footages") xdg-open ~/Videos/FFStudio ;;
 		esac
 		;;
-	"󰍜 PowerMenu") ~/.local/bin/pm ;;
+	"󰍜 PowerMenu") ~/.local/bin/powermenu ;;
 	"󰜺 Cancel") return ;;
 	esac
 }

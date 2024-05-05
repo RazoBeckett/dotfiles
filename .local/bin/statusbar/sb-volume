@@ -16,7 +16,7 @@ if [ "$(pamixer --get-mute)" == "true" ]; then
 	exit
 fi
 
-volume="$(pamixer --get-volume)"
+volume="$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | tr -d '%')"
 
 if [ -z "$volume" ]; then
 	exit 1
