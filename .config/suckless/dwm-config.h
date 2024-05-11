@@ -3,7 +3,7 @@
 
 /* appearance */
 static const unsigned int borderpx       = 2;   /* border pixel of windows */
-static const unsigned int gappx          = 4;   /* gaps between windows */
+static const unsigned int gappx          = 8;   /* gaps between windows */
 static const unsigned int fgappx         = 18;  /* gaps around only one window*/
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -65,6 +65,7 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },				 /* first entry is default */
 	{ "><>",      NULL },				 /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
 	{ "HHH",      grid },
 };
 
@@ -127,7 +128,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_t,      		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,		XK_f,      		setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,		XK_m,      		setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,		XK_g,      		setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,		XK_c,      		setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,		XK_g,      		setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,			XK_0,      		view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,		XK_0,      		tag,            {.ui = ~0 } },
 	{ MODKEY,			XK_comma,  		focusmon,       {.i = -1 } },
@@ -179,7 +181,10 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button4,        focusstack,     {.i = +1 } },
 	{ ClkLtSymbol,          0,              Button5,        focusstack,     {.i = -1 } },
 
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
+	{ ClkWinTitle,          0,              Button2,        killclient,     {0} },
+	{ ClkWinTitle,          0,              Button4,        focusstack,     {.i = +1 } },
+	{ ClkWinTitle,          0,              Button5,        focusstack,     {.i = -1 } },
+
 	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
 	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },

@@ -12,7 +12,7 @@ esac
 
 . sb-theme
 if [ "$(pamixer --get-mute)" == "true" ]; then
-	display "^c#F5BDE6^[  MUTE ]"
+	display "^b#F5BDE6c#24273A^   ^b#24273Ac#F5BDE6^ MUTE "
 	exit
 fi
 
@@ -28,14 +28,14 @@ if [ "$volume" -eq 125 ]; then
 elif [ "$volume" -gt 99 ]; then
 	icon=""
 elif [ "$volume" -gt 40 ]; then
-	icon=" "
+	icon=""
 elif [ "$volume" -gt 15 ]; then
-	icon=" "
+	icon=""
 elif [ "$volume" -lt 10 ]; then
-	display "^c#F5BDE6^[   0$volume% ]"
+	display "^b#F5BDE6c#24273A^   ^b#24273Ac#F5BDE6^ 0$volume% "
 	exit
 else
-	icon=" "
+	icon=""
 fi
 
-display "^c#F5BDE6^[ $icon $volume% ]"
+echo "^b#F5BDE6c#24273A^ $icon  ^b#24273Ac#F5BDE6^ $volume% "

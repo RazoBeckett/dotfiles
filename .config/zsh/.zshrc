@@ -1,3 +1,11 @@
+#     _________  _   _ ____   ____ 
+#    |__  / ___|| | | |  _ \ / ___|
+#      / /\___ \| |_| | |_) | |    
+#     / /_ ___) |  _  |  _ <| |___ 
+#    /____|____/|_| |_|_| \_\\____|
+#
+# https://github.com/razobeckett/dotfiles
+
 # /etc/zsh/zshenv : export ZDOTDIR="$HOME/.config/zsh"
 alias zshconfig="nvim $ZDOTDIR/.zshrc"
 
@@ -27,7 +35,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 [[ -f $HOME/.config/shellrc/lukesmithrc ]] && source $HOME/.config/shellrc/lukesmithrc      # Loads vim (cursor) mode indicator
-
 # Environment
 eval "$(fzf --zsh)"                                                           # Load fzf
 eval "$(zoxide init zsh)"                                                     # Load zoxide

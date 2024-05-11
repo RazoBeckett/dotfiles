@@ -55,10 +55,10 @@ for battery in /sys/class/power_supply/BAT?*; do
             fi
             ;;
         Charging) status="󰚥$status" ;;
-        "Not charging") status="󱞜 " ;;
+        "Not charging") status="󱞜" ;;
         Unknown) status="? $status" ;;
         *) exit 1 ;;
     esac
 
-    display "^c#4ae172^[ $status$capacity% ]" "$color"
+    display "^c#24273Ab#4ae172^ $status ^b#24273Ac#4ae172^ $capacity%" "$color"
 done

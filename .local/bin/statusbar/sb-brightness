@@ -7,7 +7,7 @@ level="$(brightnessctl -m | cut -d, -f4 | sed 's/%//')"
 case "$BLOCK_BUTTON" in
 	2)
 		brightnessctl -q set 100
-		display "^c#F5BDE6^[ 󰃞  00% ]"
+		display "^b#F5BDE6c#24273A^ 󰃞  ^b#24273Ac#F5BDE6^ 00% "
 		exit
 		;;
 	3)
@@ -37,7 +37,7 @@ if [ -z "$level" ]; then
 fi
 
 if [ "$level" -eq 100 ]; then
-	icon="󰃠"
+	icon="󰃠 "
 elif [ "$level" -ge 60 ]; then
 	icon="󰃠 " # Brightness icon at 90% and above
 elif [ "$level" -ge 30 ]; then
@@ -45,9 +45,9 @@ elif [ "$level" -ge 30 ]; then
 elif [ "$level" -ge 10 ]; then
 	icon="󰃞 " # Brightness icon at above 0%
 elif [ "$level" -le 9 ]; then
-	icon="󰃞  0" # Brightness icon at above 0%
-	display "^c#F5BDE6^[ $icon$level% ]"
+	icon="󰃞 " # Brightness icon at above 0%
+	display "^b#F5BDE6c#24273A^ $icon ^b#24273Ac#F5BDE6^ 0$level% "
 	exit
 fi
 
-display "^c#F5BDE6^[ $icon $level% ]"
+display "^b#F5BDE6c#24273A^ $icon ^b#24273Ac#F5BDE6^ $level% "

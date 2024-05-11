@@ -14,7 +14,7 @@ config.font = wezterm.font_with_fallback({
 })
 
 config.max_fps = 144
-config.font_size = 11.3
+config.font_size = 12.3
 config.cursor_blink_rate = 0
 config.enable_tab_bar = false
 config.use_fancy_tab_bar = false

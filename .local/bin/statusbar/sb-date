@@ -8,8 +8,9 @@ notify() {
 
 case $BLOCK_BUTTON in
 1)
-	notify "This Month" "$(cal --color=always |
-		sed "s|..7m|<span color='$(xrdb -get color1)'>|;s|..0m|</span>|")"
+	notify "$(date +'  %mth Month  ')" "$(cal --color=always |
+		sed "s|..7m|<span color='$(xrdb -get color1)'>|;s|..0m|</span>|")
+			$(date +'%I:%M %p')"
 	;;
 2)
 	yad --width=400 --height=200 \
@@ -20,9 +21,9 @@ case $BLOCK_BUTTON in
 		yad \
 		--calendar
 	;;
-3) notify-send "Date:            Time:" "$(date)" ;;
+3) notify-send "Day Status" "Date: $(date +'%x (%A)')\nTime: $(date +'%I:%M %p')" ;;
 6) terminal -e "$EDITOR" "$0" ;;
 esac
 
 . sb-theme
-display "^c#89dceb^[  $(date +'%b %d') |  $(date '+%H:%M') ]"
+display "^c#24273Ab#89dceb^  ^b#24273Ac#89dceb^ $(date +'%b %d') ^c#24273Ab#89dceb^  ^b#24273Ac#89dceb^ $(date '+%H:%M')"

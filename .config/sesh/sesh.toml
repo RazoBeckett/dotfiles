@@ -1,0 +1,42 @@
+[default_session]
+startup_command = "ls"
+
+[[session]]
+name = "dwm"
+path = "~/.config/suckless/dwm"
+startup_command = "nvim config.h"
+
+[[session]]
+name = "shellrc"
+path = "~/.config/shellrc"
+startup_command = "nvim"
+
+[[session]]
+name = "nvim"
+path = "~/.config/nvim"
+startup_command = "nvim"
+
+[[session]]
+name = "alacritty"
+path = "~/.config/alacritty"
+startup_command = "nvim alacritty.toml"
+
+[[session]]
+name = "wezterm"
+path = "~/.config/wezterm"
+startup_command = "nvim wezterm.lua"
+
+[[session]]
+name = "sesh"
+path = "~/.config/sesh"
+startup_command = "nvim sesh.toml"
+
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "yazi"
+
+[[session]]
+name = "Home"
+path = "~"
+startup_command = "yazi"

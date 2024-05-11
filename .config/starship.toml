@@ -1,5 +1,8 @@
-add_newline = false
+# Increase Starship command scan & duration time-outs
+scan_timeout = 80
 command_timeout = 1000
+
+add_newline = false
 format = """\
 $os$username$hostname$directory\
 $git_branch$git_status\
@@ -10,9 +13,9 @@ $all
 
 [character]
 disabled = true
-success_symbol = '[\$](bold green)'
-error_symbol = '[](bold red)'
-vimcmd_symbol = '[](bold fg:purple)'
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+vimcmd_symbol = '[➜](bold fg:purple)'
 
 [os]
 disabled = false
@@ -45,7 +48,7 @@ read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
-format = '[ $duration]($style)'
+format = '[ $duration]($style) '
 style = 'bold purple'
 
 [fill]

@@ -13,6 +13,15 @@ SYS_AUDIO=$(pactl list sources short | grep alsa_output | awk 'NR==1 {print $2}'
 # NOTE: don't mention the trailing slash
 OUTPUT_DIR=~/Videos/FFStudio
 
+# NOTE: change the encoder to suit your needs
+#ENCODER=libx264 # intel and amd
+# ENCODER=libx265 # slow but high quality
+ENCODER=h264_nvenc # nvidia
+# ENCODER=hevc_nvenc # nvidia
+# ENCODER=libvpx-vp9 # webm format
+# ENCODER=libaom-av1 # av1 format
+# ENCODER=libsvt_av1 # av1 format
+
 ffrecord() {
 	# check if ffmpeg is installed and in PATH, if not exit
 	if ! command -v ffmpeg &>/dev/null; then
@@ -28,7 +37,13 @@ ffrecord() {
 	# check if the output file already exists, if yes exit
 	[[ -f "$OUTPUT_DIR"/"$FILENAME".mp4 ]] && echo "Output file already exists. Exiting..." && sleep 2 && exit 1
 
-	wezterm start ffmpeg -f x11grab -s $RESO -framerate "$FRATE" -i :0.0 -f pulse -i "$SYS_AUDIO" -c:v libx264 -crf 18 -preset ultrafast -c:a aac -b:a 192k "$OUTPUT_DIR"/"$FILENAME".mp4
+	if [[ -z "$ENCODER" ]]; then
+		echo "No encoder specified. Exiting..." && sleep 2 && exit 1
+	elif [[ "$ENCODER" = "h264_nvenc" ]]; then
+		setsid alacritty -e ffmpeg -stats -f x11grab -s $RESO -framerate "$FRATE" -i :0.0 -f pulse -i "$SYS_AUDIO" -c:v h264_nvenc -c:a aac -b:a 192k "$OUTPUT_DIR"/"$FILENAME".mp4
+	else
+		setsid alacritty -e ffmpeg -f x11grab -s $RESO -framerate "$FRATE" -i :0.0 -f pulse -i "$SYS_AUDIO" -c:v libx264 -crf 18 -preset ultrafast -c:a aac -b:a 192k "$OUTPUT_DIR"/"$FILENAME".mp4
+	fi
 }
 
 ffrecord
