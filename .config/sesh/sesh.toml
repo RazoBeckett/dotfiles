@@ -26,6 +26,10 @@ path = "~/Documents/Notes"
 startup_command = "nvim"
 
 [[session]]
+name = "starship"
+startup_command = "nvim ~/.config/starship.toml"
+
+[[session]]
 name = "alacritty"
 path = "~/.config/alacritty"
 startup_command = "nvim alacritty.toml"

@@ -5,7 +5,8 @@ alias zshbinds='vim ~/.config/shellrc/bindkeys.zsh'
 alias background='setsid -f'
 alias -s {py,PY}='python'
 alias -s {pdf,PDF}='background zathura'
-alias -s {txt,TXT,md,MD}='vim'
+alias -s {txt,TXT}='vim'
+alias -s {md,MD}='glow'
 alias -s {jpg,JPG,jpeg,JPEG,png,PNG}='background feh'
 alias -s {mp3,MP3,flac,FLAC}='background mpv'
 alias -s {mp4,MP4,avi,AVI,mkv,MKV}='background mpv'
@@ -35,8 +36,8 @@ bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # home
 bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
-bindkey '^[[A' history-search-backward            # Search backwords using arrow-up
-bindkey '^[[B' history-search-forward             # Search forward using arrow-down
+bindkey '^P' history-search-backward              # Search backwords using arrow-up
+bindkey '^N' history-search-forward               # Search forward using arrow-down
 bindkey '^Y' autosuggest-accept                   # accept autosuggest
 bindkey -M vicmd [ edit-command-line              # edit command line in vim
 

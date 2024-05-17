@@ -5,17 +5,17 @@ command_timeout = 1000
 add_newline = false
 format = """\
 $os$username$hostname$directory\
-$git_branch$git_status\
-$fill\
-$cmd_duration\
-$all
+$git_branch$git_status
+$character
 """
 
+right_format ="""$cmd_duration$all"""
+
 [character]
-disabled = true
-success_symbol = '[➜](bold green)'
-error_symbol = '[➜](bold red)'
-vimcmd_symbol = '[➜](bold fg:purple)'
+disabled = false
+success_symbol = '[󰬐](bright-black)'
+error_symbol = '[󰬐](bright-black)'
+vimcmd_symbol = '[󰢀](bold green)'
 
 [os]
 disabled = true
