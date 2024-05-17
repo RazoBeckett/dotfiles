@@ -25,12 +25,15 @@ function M.setup(config, wezterm)
 	end
 
 	local keybinds_for_tmux = {
+		-- key you press(with CTRL) = key tmux receives
+
 		-- K = "\x1b\x5b\x41", -- move to pane above
 		-- J = "\x1b\x5b\x42", -- move to pane below
 		-- L = "\x1b\x5b\x43", -- move to pane right
 		-- H = "\x1b\x5b\x44", -- move to pane above
 		[";"] = ";", -- navigate over to last pane
 		[","] = ",", -- renaming window
+		["]"] = "]", -- open sesh menu
 
 		R = "r", -- reload tmux config
 		z = "z", -- zoom into pane

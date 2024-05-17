@@ -12,7 +12,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export PATH="$PATH:$HOME/.local/bin/statusbar"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export GTK_THEME='Catppuccin-Macchiato-Standard-Teal-Dark:dark'
+#export GTK_THEME=':dark'
 export XCURSOR_PATH=/usr/share/icons:"$XDG_DATA_HOME"/icons
 
 # Environment variables set everywhere

@@ -12,8 +12,17 @@ path = "~/.config/shellrc"
 startup_command = "nvim"
 
 [[session]]
+name = "testrc"
+path = "~/testenv/rC"
+
+[[session]]
 name = "nvim"
 path = "~/.config/nvim"
+startup_command = "nvim"
+
+[[session]]
+name = "Notes"
+path = "~/Documents/Notes"
 startup_command = "nvim"
 
 [[session]]
@@ -30,6 +39,11 @@ startup_command = "nvim wezterm.lua"
 name = "sesh"
 path = "~/.config/sesh"
 startup_command = "nvim sesh.toml"
+
+[[session]]
+name = "tmux"
+path = "~/.config/tmux"
+startup_command = "nvim tmux.conf"
 
 [[session]]
 name = "Downloads"

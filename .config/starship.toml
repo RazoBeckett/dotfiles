@@ -18,7 +18,7 @@ error_symbol = '[➜](bold red)'
 vimcmd_symbol = '[➜](bold fg:purple)'
 
 [os]
-disabled = false
+disabled = true
 format = '[$symbol](bold white) '
 
 [os.symbols]
@@ -30,6 +30,7 @@ Macos = '󰀵'
 Debian = ''
 
 [username]
+disabled = true
 style_user = 'white bold'
 style_root = 'red bold'
 format = '[$user]($style) '
@@ -45,7 +46,7 @@ truncation_symbol = '…/'
 home_symbol = '󰋜 ~'
 read_only_style = '197'
 read_only = '  '
-format = 'at [$path]($style)[$read_only]($read_only_style) '
+format = '[$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
 format = '[ $duration]($style) '

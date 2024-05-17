@@ -20,12 +20,11 @@
       "type": "host",
       "format": "{1}"
     },
-    "break",
     {
       "key": "     OS        ",
       "keyColor": "blue",
       "type": "os",
-      "format": "{2} {8}"
+      "format": "{2} {8}Btw"
     },
     {
       "key": "     Kernel    ",
