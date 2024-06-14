@@ -1,11 +1,10 @@
-#!/bin/sh
 alias aliasconfig='nvim $HOME/.config/shellrc/aliasesrc'
 
 # Change directory aliases
 alias cd.='cd .'
 alias cd..='cd ..'
 alias ..='cd ..'
-alias ...='cd ../..'
+alias ....='cd ../..'
 
 # Replaced ls with eza
 alias sl=ls
@@ -21,13 +20,19 @@ alias mv='mv -iv'
 alias suod='sudo'
 
 # copy paste
-alias cb='xclip -selection clipboard'
-alias pb='xclip -selection clipboard -o'
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+if [ "$(uname -s)" != "Darwin" ]; then
+  alias cb='xclip -selection clipboard'
+  alias pb='xclip -selection clipboard -o'
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 # Misc:
-alias cat='bat --plain --wrap character' #alias cat='batcat' # For Debian and Debian based distros
+if [ -f /etc/arch-release ]; then
+  alias cat='bat --plain --wrap character' # Arch Linux and Arch based distros
+else
+  alias cat='batcat' # For Debian and Debian based distros
+fi
 alias phpr='xdg-open http://localhost:8000 && php -S localhost:8000 -t .'
 alias ccat='/usr/bin/cat' # Normal Cat Command
 alias cls='clear'
@@ -47,8 +52,6 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias tree='eza --tree'
 alias t='tmux'
 
-# From github.com/christitustech/mybash
-
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
 alias BT='sudo systemctl start bluetooth'
@@ -66,14 +69,10 @@ alias Rzd='shred -zu'
 alias mkdir='mkdir -p'
 alias rd='rm -r'
 alias less='less -R'
-#alias apt-get='sudo apt-get'
-#apt='sudo apt'
-alias multitail='multitail --no-repeat -c'
-alias freshclam='sudo freshclam'
+
 [[ -x /bin/nvim ]] && alias sv='sudo --edit'
-[[ -x /bin/nvim ]] && alias vim='nvim'
-[[ -x /bin/nvim ]] && alias v='nvim'
+[[ -x /bin/nvim ]] && alias vim='nvim' && alias v='nvim'
 [[ -x /bin/nemo ]] && alias nemo='setsid -f nemo $1 > /dev/null 2<&1'
 [[ -x /bin/thunar ]] && alias thunar='setsid -f thunar $1 > /dev/null 2<&1'
 [[ -x /bin/pcmanfm ]] && alias pcmanfm='setsid -f pcmanfm $1 > /dev/null 2<&1'
-alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME'
+# alias dots='/usr/bin/git --git-dir=$HOME/.config/.dotfiles/ --work-tree=$HOME' -- I use Yadm, btw

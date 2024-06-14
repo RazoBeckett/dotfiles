@@ -1,0 +1,102 @@
+#!/bin/env bash
+
+set -euo pipefail # exit on error and unset variables
+
+# Function to install Homebrew on macOS
+install_brew() {
+	if ! command -v brew >/dev/null 2>&1; then
+		echo "Installing Homebrew"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	fi
+
+	if [ -f "$HOME/.Brewfile" ]; then
+		echo "Updating Homebrew bundle"
+		brew bundle --global
+	fi
+}
+
+# Function to install shell utilities on Arch Linux and macOS
+install_shell_utils() {
+	if [ -f /etc/arch-release ]; then
+		printf "\n--- Updating and upgrading system ---\n\n"
+		sudo pacman -Syu
+
+		printf "\n--- Setting up shell utils for Arch Linux ---\n\n"
+		sudo pacman -S --needed --noconfirm \
+			zsh \
+			zsh-autosuggestions \
+			zsh-syntax-highlighting \
+			zsh-completions \
+			git \
+			curl \
+			bat \
+			eza \
+			fd \
+			fzf \
+			ripgrep \
+			tmux \
+			tree \
+			base-devel \
+			zoxide \
+			gum \
+			xclip \
+			neovim \
+			starship \
+			trash-cli \
+			ttf-jetbrains-mono-nerd \
+			ttf-nerd-fonts-symbols \
+			fastfetch
+
+		if ! command -v yay >/dev/null 2>&1; then
+			printf "\n--- Installing yay AUR helper ---\n\n"
+			tmp_dir=$(mktemp -d)
+			git clone https://aur.archlinux.org/yay.git "$tmp_dir/yay"
+			(cd "$tmp_dir/yay" && makepkg -si)
+			rm -rf "$tmp_dir"
+
+			yay -S --needed --noconfirm \
+				sesh-bin
+		fi
+	elif [ "$system_type" == "Darwin" ]; then
+		printf "\n--- Setting up shell utils for macOS ---\n\n"
+		brew install \
+			bat \
+			eza \
+			fd \
+			fzf \
+			ripgrep \
+			tmux \
+			git \
+			zoxide \
+			starship \
+			trash-cli \
+			neovim \
+			fastfetch
+	fi
+}
+
+# Function to setup Neovim configuration
+setup_nvim() {
+	printf "\n--- Setting up neovim ---\n\n"
+	if [ -d ~/.config/nvim ]; then
+		echo "neovim config already exists, do you want to overwrite it? [y/N]"
+		read -r response
+		if [ "$response" == "y" ] && [ "$response" == "Y" ]; then
+			mv ~/.config/nvim ~/.config/nvim.bak
+			git clone https://github.com/razobeckett/nvim.git ~/.config/nvim
+			nvim --headless +Lazy +qall
+		fi
+	fi
+}
+
+# Main script execution
+system_type=$(uname -s)
+
+if [ "$system_type" == "Darwin" ]; then
+	install_brew
+fi
+
+install_shell_utils
+setup_nvim
+
+printf "\n*** Script completed successfully. {^_^} ***\n"
