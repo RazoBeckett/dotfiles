@@ -7,14 +7,15 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "Catppuccin Macchiato"
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font = wezterm.font_with_fallback({
-	{ family = "BerkeleyMono4 Nerd Font" },
+	{ family = "Comic Code" },
 	{ family = "Symbols Nerd Font" },
 	{ family = "Noto Color Emoji" },
 })
 
 config.max_fps = 144
-config.font_size = 12.3
+config.font_size = 12.0
 config.cursor_blink_rate = 0
 config.enable_tab_bar = false
 config.use_fancy_tab_bar = false

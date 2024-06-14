@@ -11,7 +11,7 @@ case "$BLOCK_BUTTON" in
 		exit
 		;;
 	3)
-		notify-send "🌞 Brightness module" "\- Shows the current brightness level"
+		brightnessctl -q set 45%
 		;;
 	4)
 		if [ "$level" -le 4 ]; then

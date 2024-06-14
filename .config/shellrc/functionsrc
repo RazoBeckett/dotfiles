@@ -64,10 +64,9 @@ extract() {
 	done
 }
 
-md() {
-	mkdir -p "$1"
-	cd "$1" || return
-}
+md() { mkdir -p "$1" && cd "$1" || return; }
+
+ai() { tgpt "$*"; }
 
 # apt to nala:
 if [ -x /bin/apt ]; then

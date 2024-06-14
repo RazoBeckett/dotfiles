@@ -5,11 +5,10 @@ command_timeout = 1000
 add_newline = false
 format = """\
 $os$username$hostname$directory\
-$git_branch$git_status
+$git_branch$git_status\
+$fill$cmd_duration$all\
 $character
 """
-
-right_format ="""$cmd_duration$all"""
 
 [character]
 disabled = false

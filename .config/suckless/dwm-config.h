@@ -15,8 +15,8 @@ static const int showsystray  = 1;        /* 0 means no systray */
 static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
 static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned */
-//static const char *fonts[]    = { "JetBrains Mono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
-static const char *fonts[]    = { "BerkeleyMono4 Nerd Font:weight=Regular:size=11:antialias=true:hinting=true" };
+static const char *fonts[]    = { "GeistMono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
+//static const char *fonts[]    = { "BerkeleyMono4 Nerd Font:weight=Regular:size=11:antialias=true:hinting=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 static const char col_base[]       = "#24273a"; // Base
@@ -48,7 +48,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
+static const char *tags[] = { "", "", "󰪶", "4", "5", "6", "󰊱", "󰓇", "󰠮", "󰀿" };
 
 #include "apprules.h"
 
@@ -86,12 +86,12 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* user constants */
-#define TERMINAL "alacritty"
+#define TERMINAL "wezterm"
 #define FILEMANAGER "pcmanfm"
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 
 /* user commands */
-static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-c", "-l", "7", "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; 
+static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; //"-c", "-l", "7", 
 static const char *rofisearch[]	= { "rofi", "-show", "drun", NULL };
 static const char *rofiemoji[]	= { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
 
@@ -169,6 +169,7 @@ static const Key keys[] = {
   	{ MODKEY,			XK_v,			spawn,		{.v = (const char*[]){ "xfce4-popup-clipman", NULL }} },
   	{ MODKEY|ShiftMask,		XK_s,			spawn,		{.v = (const char*[]){ "flameshot", "gui", NULL }} },
   	{ MODKEY,			XK_l,			spawn,		SHCMD("betterlockscreen -l") },
+	{ MODKEY|ALTKEY,		XK_r,			spawn,          SHCMD("xset r rate 210 40") }, 
 };
 
 /* button definitions */

@@ -8,6 +8,7 @@
 
 # /etc/zsh/zshenv : export ZDOTDIR="$HOME/.config/zsh"
 alias zshconfig="nvim $ZDOTDIR/.zshrc"
+rzsh() { source $ZDOTDIR/.zshrc }
 
 # Custom scripts
 [[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc            # Loads the $PATH Variable and Exports
@@ -23,7 +24,7 @@ PLUGINPATH=/usr/share/zsh/plugins
 
 WAKATIME_HOME=${XDG_CONFIG_HOME}/wakatime
 # History
-HISTSIZE=5000
+HISTSIZE=50000
 HISTFILE=${XDG_STATE_HOME}/zsh/history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -48,3 +49,4 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 eval "$(fzf --zsh)"              # Load fzf
 eval "$(zoxide init zsh)"        # Load zoxide
 eval "$(starship init zsh)"      # Load starship prompt
+#eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"      # Load oh-my-posh prompt
