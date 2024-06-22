@@ -8,7 +8,10 @@
 
 # /etc/zsh/zshenv : export ZDOTDIR="$HOME/.config/zsh"
 alias zshconfig="nvim $ZDOTDIR/.zshrc"
-rzsh() { source $ZDOTDIR/.zshrc }
+
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval $(ssh-agent -s) > /dev/null
+fi
 
 # Custom scripts
 [[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc            # Loads the $PATH Variable and Exports

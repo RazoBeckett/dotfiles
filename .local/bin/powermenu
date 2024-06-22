@@ -9,11 +9,11 @@ powermenu() {
 	"󰜺 Cancel") return ;;
 	" Shutdown")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && systemctl poweroff || return
+		[[ $confirm = "yes" ]] && shutdown now || return
 		;;
 	" Restart")
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
-		[[ $confirm = "yes" ]] && systemctl reboot || return
+		[[ $confirm = "yes" ]] && reboot || return
 		;;
 	" Lock") dm-tool lock ;;
 	"󱎴 Refresh Rate")
