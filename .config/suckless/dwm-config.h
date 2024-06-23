@@ -4,7 +4,7 @@
 /* appearance */
 static const unsigned int borderpx       = 2;   /* border pixel of windows */
 static const unsigned int gappx          = 8;   /* gaps between windows */
-static const unsigned int fgappx         = 18;  /* gaps around only one window*/
+static const unsigned int fgappx         = 16;  /* gaps around only one window*/
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft  = 0;   /* 0: systray in the right corner, >0: systray on left of status text */
@@ -19,13 +19,13 @@ static const char *fonts[]    = { "GeistMono Nerd Font:weight=bold:size=11:antia
 //static const char *fonts[]    = { "BerkeleyMono4 Nerd Font:weight=Regular:size=11:antialias=true:hinting=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
-static const char col_base[]       = "#24273a"; // Base
-static const char col_surface1[]   = "#494d64"; // Surface1
-static const char col_lavender[]   = "#b7bdf8"; // Lavender
-static const char col_text[]       = "#eeeeee"; // Text
-static const char col_mantle[]     = "#1e2030"; // Mantle
-static const char col_yellow[]     = "#eed49f"; // Yellow
-static const char col_blue[]       = "#8aadf4"; // Blue
+static const char col_base[]       = "#241b26"; // Base
+static const char col_surface1[]   = "#2f2a3f"; // Surface1
+static const char col_lavender[]   = "#c965bf"; // Lavender
+static const char col_text[]       = "#eed5d9"; // Text
+static const char col_mantle[]     = "#241b26"; // Mantle (same as Base, no exact match)
+static const char col_yellow[]     = "#e39755"; // Yellow
+static const char col_blue[]       = "#6a9eb5"; // Blue
 static const char *colors[][3]     = {
     /*			fg		bg		border   */
     [SchemeNorm]  =  { col_lavender,	col_base,	col_surface1 },
@@ -86,7 +86,7 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* user constants */
-#define TERMINAL "wezterm"
+#define TERMINAL "alacritty"
 #define FILEMANAGER "pcmanfm"
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 

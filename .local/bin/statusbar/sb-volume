@@ -11,8 +11,9 @@ case "$BLOCK_BUTTON" in
 esac
 
 . sb-theme
+. colorscheme
 if [ "$(pamixer --get-mute)" == "true" ]; then
-	display "^b#F5BDE6c#24273A^   ^b#24273Ac#F5BDE6^ MUTE "
+	echo "^b$FG_COLOR\c$BG_COLOR^   ^b$BG_COLOR\c$FG_COLOR^ MUTE "
 	exit
 fi
 
@@ -32,10 +33,10 @@ elif [ "$volume" -gt 40 ]; then
 elif [ "$volume" -gt 15 ]; then
 	icon=""
 elif [ "$volume" -lt 10 ]; then
-	display "^b#F5BDE6c#24273A^   ^b#24273Ac#F5BDE6^ 0$volume% "
+	echo "^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ 0$volume%  "
 	exit
 else
 	icon=""
 fi
 
-echo "^b#F5BDE6c#24273A^ $icon  ^b#24273Ac#F5BDE6^ $volume% "
+echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ $volume% "

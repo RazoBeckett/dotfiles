@@ -2,12 +2,13 @@
 # Display brightness levels.
 
 . sb-theme
+. colorscheme
 level="$(brightnessctl -m | cut -d, -f4 | sed 's/%//')"
 
 case "$BLOCK_BUTTON" in
 	2)
 		brightnessctl -q set 100
-		display "^b#F5BDE6c#24273A^ 󰃞  ^b#24273Ac#F5BDE6^ 00% "
+		echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ 00% "
 		exit
 		;;
 	3)
@@ -46,8 +47,8 @@ elif [ "$level" -ge 10 ]; then
 	icon="󰃞 " # Brightness icon at above 0%
 elif [ "$level" -le 9 ]; then
 	icon="󰃞 " # Brightness icon at above 0%
-	display "^b#F5BDE6c#24273A^ $icon ^b#24273Ac#F5BDE6^ 0$level% "
+	echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ 0$level% "
 	exit
 fi
 
-display "^b#F5BDE6c#24273A^ $icon ^b#24273Ac#F5BDE6^ $level% "
+echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ $level% "

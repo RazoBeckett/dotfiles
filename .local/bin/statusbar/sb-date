@@ -25,5 +25,7 @@ case $BLOCK_BUTTON in
 6) terminal -e "$EDITOR" "$0" ;;
 esac
 
+. colorscheme
+
 . sb-theme
-display "^c#24273Ab#89dceb^  ^b#24273Ac#89dceb^ $(date +'%b %d') ^c#24273Ab#89dceb^  ^b#24273Ac#89dceb^ $(date '+%H:%M')"
+display "^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ $(date +'%b %d') ^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ $(date '+%H:%M')"

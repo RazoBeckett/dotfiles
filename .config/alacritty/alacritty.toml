@@ -6,7 +6,8 @@ import = [
   "~/.config/alacritty/keybinds.toml", # Keybinds
 
   # -- Themes --
-  "~/.config/alacritty/catppuccin-macchiato.toml", 
+  #"~/.config/alacritty/catppuccin-macchiato.toml", 
+  "~/.config/alacritty/uwunicorn.toml", 
   # "~/.config/alacritty/xcad.toml",
   # "~/.config/alacritty/dracula.toml",
   # "~/.config/alacritty/catppuccin-mocha.toml",
@@ -39,6 +40,6 @@ TERM = "xterm-256color"
 
 [font]
 #glyph_offset = { x = 1, y = 0 }
-normal.family = "DankMono Nerd Font"
+normal.family = "BlexMono Nerd Font"
 normal.style = "Regular"
 size = 9.0

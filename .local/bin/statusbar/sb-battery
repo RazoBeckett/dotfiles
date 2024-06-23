@@ -14,7 +14,7 @@ case "$BLOCK_BUTTON" in
     6) terminal -e "$EDITOR" "$0" ;;
 esac
 
-. sb-theme
+. colorscheme
 
 # Loop through all attached batteries.
 for battery in /sys/class/power_supply/BAT?*; do
@@ -23,42 +23,42 @@ for battery in /sys/class/power_supply/BAT?*; do
 
     capacity="$(cat "$battery/capacity" 2>&1)"
     if [ "$capacity" -gt 90 ]; then
-        status="󱊣"
+        icon="󱊣"
     elif [ "$capacity" -le 90 ]; then
-        status="󰂂"
+        icon="󰂂"
     elif [ "$capacity" -le 80 ]; then
-        status="󰂁"
+        icon="󰂁"
     elif [ "$capacity" -le 70 ]; then
-        status="󰂀"
+        icon="󰂀"
     elif [ "$capacity" -le 60 ]; then
-        status="󰁿"
+        icon="󰁿"
     elif [ "$capacity" -le 50 ]; then
-        status="󰁾"
+        icon="󰁾"
     elif [ "$capacity" -le 40 ]; then
-        status="󰁽"
+        icon="󰁽"
     elif [ "$capacity" -le 30 ]; then
-        status="󰁼"
+        icon="󰁼"
     elif [ "$capacity" -le 20 ]; then
-        status="󰁻"
+        icon="󰁻"
     elif [ "$capacity" -le 10 ]; then
-        status="󰁺"
+        icon="󰁺"
     else
-        status="󰂎"
+        icon="󰂎"
     fi
 
     case "$(cat "$battery/status" 2>&1)" in
-        Full) status="" ;;
+        Full) icon="" ;;
         Discharging)
             if [ "$capacity" -le 20 ]; then
-                status="$status"
+                icon="$icon"
                 color=1
             fi
             ;;
-        Charging) status="󰚥$status" ;;
-        "Not charging") status="󱞜" ;;
-        Unknown) status="? $status" ;;
+        Charging) icon="󰚥$icon" ;;
+        "Not charging") icon="󱞜" ;;
+        Unknown) icon="? $icon" ;;
         *) exit 1 ;;
     esac
 
-    display "^c#24273Ab#4ae172^ $status ^b#24273Ac#4ae172^ $capacity%" "$color"
+    echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ $capacity%" "$color"
 done

@@ -1,0 +1,70 @@
+# Default colors
+[colors.primary]
+background = '#241b26' # base00
+foreground = '#eed5d9' # base05
+
+# Cursor colors
+[colors.cursor]
+text = '#241b26' # base00
+cursor = '#eed5d9' # base05
+
+# Search colors
+[colors.search.matches]
+foreground = '#241b26' # base00
+background = '#6a9eb5' # base0D (blue)
+
+[colors.search.focused_match]
+foreground = '#241b26' # base00
+background = '#e39755' # base09 (yellow)
+
+# Footer bar colors
+[colors.footer_bar]
+foreground = '#241b26' # base00
+background = '#46354a' # base02
+
+# Keyboard regex hints
+[colors.hints.start]
+foreground = '#241b26' # base00
+background = '#e39755' # base09 (yellow)
+
+[colors.hints.end]
+foreground = '#241b26' # base00
+background = '#46354a' # base02
+
+# Selection colors
+[colors.selection]
+text = '#eed5d9' # base05
+background = '#46354a' # base02
+
+# Normal colors
+[colors.normal]
+black = '#494D64' # base00
+red = '#de5b44' # base08
+green = '#6ac38f' # base0E
+yellow = '#e39755' # base09
+blue = '#6a9eb5' # base0D
+magenta = '#c965bf' # base0B (purple)
+cyan = '#9c5fce' # base0C (aqua)
+white = '#eed5d9' # base05
+
+# Bright colors
+[colors.bright]
+black = '#5B6078' # base01 (darkened for better contrast)
+red = '#de5b44' # base08
+green = '#6ac38f' # base0E
+yellow = '#e39755' # base09
+blue = '#6a9eb5' # base0D
+magenta = '#c965bf' # base0B (purple)
+cyan = '#9c5fce' # base0C (aqua)
+white = '#e4ccd0' # base07 (lightened for better visibility)
+
+# Dim colors
+[colors.dim]
+black = '#494D64' # base00
+red = '#de5b44' # base08
+green = '#6ac38f' # base0E
+yellow = '#e39755' # base09
+blue = '#6a9eb5' # base0D
+magenta = '#c965bf' # base0B (purple)
+cyan = '#9c5fce' # base0C (aqua)
+white = '#eed5d9' # base05
