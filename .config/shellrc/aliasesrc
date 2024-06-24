@@ -51,6 +51,7 @@ alias smci="sudo make clean install && yes | rm *.o && rm *.orig"
 alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias tree='eza --tree'
 alias t='tmux'
+alias tb='nc termbin.com 9999'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
