@@ -34,7 +34,7 @@ static const char *colors[][3]     = {
 };
 
 static const char *const autostart[] = {
-	"rog-control-center", NULL, // only for asus rog laptops
+	//"rog-control-center", NULL, // only for asus rog laptops
 	"bash", "-c", "$HOME/.local/bin/launch_dwmblocks", NULL,
 	"nitrogen", "--restore", NULL,
 	"xfce4-clipman", NULL,
@@ -42,6 +42,7 @@ static const char *const autostart[] = {
 	"picom", "-b", NULL,
 	"touchegg", NULL,
 	"xset", "r", "rate", "210", "40", NULL,
+	"bash", "-c", "xmodmap $HOME/.config/Xmodmap", NULL,
 	"bash", "-c", "xrdb -load $HOME/.config/Xresources", NULL,
 	"/usr/lib/mate-polkit/polkit-mate-authentication-agent-1", NULL,
 	NULL /* terminate */

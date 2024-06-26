@@ -1,0 +1,4 @@
+clear Lock
+clear Mod5
+keycode 66 = Escape
+keycode 108 = BackSpace
