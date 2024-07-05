@@ -1,0 +1,8 @@
+#!/bin/env dash
+
+# Terminate already running bar instances
+killall -q dwmblocks
+pkill dwmblocks
+
+# Launch dwmblocks
+dwmblocks &
