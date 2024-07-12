@@ -1,0 +1,15 @@
+# Base16 Custom - wezterm color config
+# Scheme by Custom Author
+[colors]
+background = "#241b26" # base00
+foreground = "#eed5d9" # base05
+
+cursor_bg = "#eed5d9" # base00
+cursor_border = "#241b26" # base05
+cursor_fg = "#241b26" # base00
+
+selection_bg = "#46354a" # base02
+selection_fg = "#eed5d9" # base05
+
+ansi = ["#494D64", "#de5b44", "#6ac38f", "#e39755", "#6a9eb5", "#c965bf", "#9c5fce", "#eed5d9"]
+brights = ["#5B6078", "#de5b44", "#6ac38f", "#e39755", "#6a9eb5", "#c965bf", "#9c5fce", "#e4ccd0"]
