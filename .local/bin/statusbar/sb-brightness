@@ -8,7 +8,7 @@ level="$(brightnessctl -m | cut -d, -f4 | sed 's/%//')"
 case "$BLOCK_BUTTON" in
 	2)
 		brightnessctl -q set 100
-		echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ 00% "
+		echo "^b$FG_COLOR\c$BG_COLOR^ 󰃞  ^b$BG_COLOR\c$FG_COLOR^ 00% "
 		exit
 		;;
 	3)

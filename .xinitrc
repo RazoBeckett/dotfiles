@@ -11,6 +11,7 @@ export PATH="$PATH:$HOME/.local/bin/statusbar"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 #export GTK_THEME=':dark'
 export XCURSOR_PATH=/usr/share/icons:"$XDG_DATA_HOME"/icons
+export XCURSOR_THEME="S1mple-Adw-Dark"
 
 # Environment variables set everywhere
 unset EDITOR; unset TERMINAL; unset BROWSER

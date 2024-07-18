@@ -6,10 +6,10 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "uwunicorn"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font = wezterm.font_with_fallback({
-	{ family = "Comic Code" },
+	{ family = "FiraCode Nerd Font" },
 	{ family = "Symbols Nerd Font" },
 	{ family = "Noto Color Emoji" },
 })

@@ -15,7 +15,7 @@ static const int showsystray  = 1;        /* 0 means no systray */
 static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
 static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned */
-static const char *fonts[]    = { "GeistMono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
+static const char *fonts[]    = { "JetBrainsMono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
 //static const char *fonts[]    = { "BerkeleyMono4 Nerd Font:weight=Regular:size=11:antialias=true:hinting=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
@@ -42,14 +42,15 @@ static const char *const autostart[] = {
 	"picom", "-b", NULL,
 	"touchegg", NULL,
 	"xset", "r", "rate", "210", "40", NULL,
-	"bash", "-c", "xmodmap $HOME/.config/Xmodmap", NULL,
+	// "bash", "-c", "xmodmap $HOME/.config/Xmodmap", NULL,
 	"bash", "-c", "xrdb -load $HOME/.config/Xresources", NULL,
 	"/usr/lib/mate-polkit/polkit-mate-authentication-agent-1", NULL,
+	"udiskie","-A", "-t", NULL,
 	NULL /* terminate */
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "󰪶", "4", "5", "6", "󰊱", "󰓇", "󰠮", "󰀿" };
+static const char *tags[] = { "", "", "", "", "", "6", "󰊱", "󰓇", "", "󰀿" };
 
 #include "apprules.h"
 
@@ -93,6 +94,7 @@ static const Layout layouts[] = {
 
 /* user commands */
 static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; //"-c", "-l", "7", 
+static const char *passmenucmd[]= { "passmenu", "-c", "-l", "3", "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL };
 static const char *rofisearch[]	= { "rofi", "-show", "drun", NULL };
 static const char *rofiemoji[]	= { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
 
@@ -159,8 +161,9 @@ static const Key keys[] = {
 
 	/* custom shortcuts */
 	{ MODKEY,			XK_space,		spawn,		{.v = dmenucmd } },
+	{ MODKEY|ALTKEY,		XK_p,			spawn,          {.v = passmenucmd } },
   	{ MODKEY,			XK_period,		spawn,		{.v = rofiemoji} },
-	{ MODKEY,			XK_grave,		spawn,		TOPMENU },
+	{ MODKEY,			XK_grave,		spawn,		SHCMD("powerRofi.sh")},
   	{ MODKEY,			XK_Return,		spawn,		{.v = (const char*[]){ TERMINAL, NULL }} },
   	{ MODKEY,			XK_e,			spawn,		{.v = (const char*[]){ FILEMANAGER, NULL }} },
   	{ MODKEY,			XK_f,			spawn,		{.v = (const char*[]){ "firefox-developer-edition", NULL }} },

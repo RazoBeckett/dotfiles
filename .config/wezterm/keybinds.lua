@@ -34,6 +34,8 @@ function M.setup(config, wezterm)
 		[";"] = ";", -- navigate over to last pane
 		[","] = ",", -- renaming window
 		["]"] = "]", -- open sesh menu
+		["["] = "[", -- open tmux-sessionizer
+		["\\"] = "\\", -- open yazi
 
 		R = "r", -- reload tmux config
 		z = "z", -- zoom into pane

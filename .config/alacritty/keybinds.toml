@@ -29,5 +29,6 @@ bindings = [
   { key = ";", mods = "Control|Shift", chars = "\u0002;" },  # navigate over to last pane
   { key = ",", mods = "Control", chars = "\u0002," },        # rename the window 
   { key = "]", mods = "Control", chars = "\u0002]" },        # open sesh
-  { key = "f", mods = "Control", chars = "zi\n" },             # open zi
+  { key = "[", mods = "Control", chars = "\u0002[" },        # open tmux-sessionizer
+  { key = "f", mods = "Control", chars = "zi\n" },           # open zi
 ]

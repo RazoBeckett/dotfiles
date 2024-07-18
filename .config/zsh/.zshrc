@@ -11,6 +11,8 @@ alias zshconfig="nvim $ZDOTDIR/.zshrc"
 
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     eval $(ssh-agent -s) > /dev/null
+    ssh-add ~/.ssh/git
+    clear
 fi
 
 # Custom scripts
@@ -26,6 +28,7 @@ PLUGINPATH=/usr/share/zsh/plugins
 [[ -f $PLUGINPATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $PLUGINPATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh   # Loads syntax-highlighting plugin
 
 WAKATIME_HOME=${XDG_CONFIG_HOME}/wakatime
+
 # History
 HISTSIZE=50000
 HISTFILE=${XDG_STATE_HOME}/zsh/history

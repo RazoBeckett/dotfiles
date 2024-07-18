@@ -52,10 +52,13 @@ alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias tree='eza --tree'
 alias t='tmux'
 alias tb='nc termbin.com 9999'
+alias perdel='shred -v -u -z -n 35 -f'
+alias mtd='cd $(mktemp -d)'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
 alias BT='sudo systemctl start bluetooth'
+alias g='git'
 
 # pacman
 [[ -x /bin/pacman ]] && alias pacman='sudo pacman'

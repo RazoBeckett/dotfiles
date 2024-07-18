@@ -1,0 +1,4 @@
+#!/bin/env bash
+
+export BG_COLOR="#241b26"
+export FG_COLOR="#c965bf"

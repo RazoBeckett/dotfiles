@@ -1,7 +1,7 @@
 *.alpha: .6
 
 ! cursor
-Xcursor.theme: Bibata-Modern-Ice
+Xcursor.theme: Simp1e-Adw-Dark
 Xcursor.size: 24
 
 ! demnu

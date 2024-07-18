@@ -40,6 +40,6 @@ TERM = "xterm-256color"
 
 [font]
 #glyph_offset = { x = 1, y = 0 }
-normal.family = "Mononoki Nerd Font"
+normal.family = "BlexMono Nerd Font"
 normal.style = "Regular"
-size = 9.6
+size = 9.0
