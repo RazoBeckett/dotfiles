@@ -1,7 +1,7 @@
 # Export JAVA_HOME if needed
 # export JAVA_HOME=/opt/jdk1.8.0_371
 # export PATH="/opt/jdk1.8.0_371/bin:$PATH"
-[[ -f $HOME/.config/shellrc/sensitive-export ]] && source $HOME/.config/shellrc/sensitive-export
+[[ -f $HOME/.config/shellrc/sensitive-export ]] && source "$HOME/.config/shellrc/sensitive-export"
 
 # Add directories to the PATH
 export PATH=$PATH:/sbin:$HOME/.local/bin
@@ -11,6 +11,10 @@ export PATH=$PATH:$HOME/.suckless/dwmblocks/sb-files
 export PATH=$PATH:/usr/share/flutter/bin
 export PATH=$PATH:/usr/share/dart-sdk/bin
 
-# ----- Bat (better cat) -----
+# ----- GO Workspace -----
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/.local/go
+export PATH=$PATH:$GOPATH/bin
 
+# ----- Bat (better cat) -----
 export BAT_THEME="Catppuccin Macchiato"

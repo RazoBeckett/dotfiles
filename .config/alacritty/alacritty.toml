@@ -8,6 +8,7 @@ import = [
   # -- Themes --
   #"~/.config/alacritty/catppuccin-macchiato.toml", 
   "~/.config/alacritty/uwunicorn.toml", 
+  # "~/.config/alacritty/nord.toml",
   # "~/.config/alacritty/xcad.toml",
   # "~/.config/alacritty/dracula.toml",
   # "~/.config/alacritty/catppuccin-mocha.toml",
