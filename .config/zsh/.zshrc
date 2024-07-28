@@ -51,6 +51,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 [[ -f $PLUGINPATH/fzf-tab/fzf-tab.plugin.zsh ]] && source $PLUGINPATH/fzf-tab/fzf-tab.plugin.zsh    # Loads fzf-tab plugin
 [[ -f $HOME/.config/shellrc/lukesmithrc ]] && source $HOME/.config/shellrc/lukesmithrc              # Loads vim (cursor) mode indicator
 
+# direnv
+export DIRENV_LOG_FORMAT=""
+eval "$(direnv hook zsh)"        # Load direnv
+
 # Environment
 eval "$(fzf --zsh)"              # Load fzf
 eval "$(zoxide init zsh)"        # Load zoxide
