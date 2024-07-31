@@ -4,7 +4,7 @@
 case "$BLOCK_BUTTON" in
 	1) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
 	2) setsid --fork terminal -e pulsemixer ;;
-	3) pavucontrol ;;
+	3) setsid --fork pavucontrol ;;
 	4) pactl set-sink-volume @DEFAULT_SINK@ +5% ;;
 	5) pactl set-sink-volume @DEFAULT_SINK@ -5% ;;
 	6) terminal -e "$EDITOR" "$0" ;;

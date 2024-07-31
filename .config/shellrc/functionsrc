@@ -77,3 +77,20 @@ if [ -x /bin/apt ]; then
 		[ "$1" = "apt" ] && shift && command sudo nala "$@" || command sudo "$@"
 	}
 fi
+
+fkbps() {
+	if [[ -z "$1" ]]; then
+		echo "usage: fkbps <file>"
+		return 1
+	fi
+
+	local bitrate
+	bitrate=$(ffprobe -v error -show_entries format=bit_rate -of default=noprint_wrapper=1:nokey=1 "${1}" 2>/dev/null)
+
+	if [[ -n "$bitrate" ]]; then
+		echo "$(awk "BEGIN {print $bitrate/1000}") kbps"
+	else
+		echo "Could not determine bitrate"
+	fi
+
+}

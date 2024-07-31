@@ -8,6 +8,8 @@ import = [
   # -- Themes --
   #"~/.config/alacritty/catppuccin-macchiato.toml", 
   "~/.config/alacritty/uwunicorn.toml", 
+  # "~/.config/alacritty/tokyonight_night.toml",
+  # "~/.config/alacritty/tokyonight_moon.toml",
   # "~/.config/alacritty/nord.toml",
   # "~/.config/alacritty/xcad.toml",
   # "~/.config/alacritty/dracula.toml",
@@ -40,7 +42,7 @@ draw_bold_text_with_bright_colors = true
 TERM = "xterm-256color"
 
 [font]
-#glyph_offset = { x = 1, y = 0 }
-normal.family = "BlexMono Nerd Font"
+#glyph_offset = { x = 1, y = 0 } 
+normal.family = "FiraCode Nerd Font"
 normal.style = "Regular"
-size = 9.0
+size = 9

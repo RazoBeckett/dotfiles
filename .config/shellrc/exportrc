@@ -16,5 +16,8 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/.local/go
 export PATH=$PATH:$GOPATH/bin
 
+# ----- Rust -----
+export PATH=$PATH:$HOME/.local/share/cargo/bin
+
 # ----- Bat (better cat) -----
 export BAT_THEME="Catppuccin Macchiato"

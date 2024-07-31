@@ -16,7 +16,6 @@ static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
 static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned */
 static const char *fonts[]    = { "JetBrainsMono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
-//static const char *fonts[]    = { "BerkeleyMono4 Nerd Font:weight=Regular:size=11:antialias=true:hinting=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 static const char col_base[]       = "#241b26"; // Base
@@ -93,7 +92,7 @@ static const Layout layouts[] = {
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 
 /* user commands */
-static const char *dmenucmd[]	= { "dmenu_run", "-m", dmenumon, "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; //"-c", "-l", "7", 
+static const char *dmenucmd[]	= { "dmenu_run", "-c", "-l", "7", "-m", dmenumon, "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL }; //"-c", "-l", "7", 
 static const char *passmenucmd[]= { "passmenu", "-c", "-l", "3", "-fn", "JetBrains Mono Nerd Font:weight=bold:size=12:antialias=true:hinting=true", NULL };
 static const char *rofisearch[]	= { "rofi", "-show", "drun", NULL };
 static const char *rofiemoji[]	= { "rofi", "-modi", "emoji", "-show", "emoji", NULL };
