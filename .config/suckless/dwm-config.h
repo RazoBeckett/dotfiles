@@ -15,7 +15,7 @@ static const int showsystray  = 1;        /* 0 means no systray */
 static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
 static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned */
-static const char *fonts[]    = { "JetBrainsMono Nerd Font:weight=bold:size=11:antialias=true:hinting=true" };
+static const char *fonts[]    = { "JetBrainsMono Nerd Font:weight=bold:size=11:antialias=true:autohint=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 static const char col_base[]       = "#241b26"; // Base
@@ -87,7 +87,7 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* user constants */
-#define TERMINAL "alacritty"
+#define TERMINAL "kitty"
 #define FILEMANAGER "pcmanfm"
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 
