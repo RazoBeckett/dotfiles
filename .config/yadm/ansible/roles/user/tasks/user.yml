@@ -1,0 +1,30 @@
+- name: Install Modern CLI Tools
+  ansible.builtin.package:
+    name: "{{ user.cli }}"
+    state: present
+
+- name: Add User to wheel Group & Set Shell to Zsh
+  ansible.builtin.user:
+    name: "{{ username }}"
+    groups:
+      - wheel
+    append: true
+    shell: "{{ shell }}"
+
+- name: Install GUI Packages
+  ansible.builtin.package:
+    name: "{{ user.gui }}"
+    state: present
+
+- name: Install Charm-Cli Gum (debian/ubuntu)
+  ansible.builtin.apt:
+    deb: "https://github.com/charmbracelet/gum/releases/download/v0.14.3/gum_0.14.3_amd64.deb"
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Clone Neovim Configuration
+  become: false
+  ansible.builtin.git:
+    repo: "{{ neovim.config_repo }}"
+    dest: "/home/{{ username }}/.config/nvim"
+  when: neovim.enable

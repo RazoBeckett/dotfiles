@@ -1,0 +1,25 @@
+---
+- name: Arch Setup
+  hosts: localhost
+  connection: local
+  become: true
+
+  pre_tasks:
+    - name: Include Variables
+      ansible.builtin.include_vars:
+        file: "./group_vars/all/packages-{{ ansible_os_family | lower }}.yml"
+      tags: always
+
+  tasks:
+    - name: Start Setup
+      when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Debian'
+      block:
+        - name: Configure System Environment
+          ansible.builtin.import_role:
+            name: system
+          tags: sys_env
+
+        - name: Configure User Environment
+          ansible.builtin.import_role:
+            name: user
+          tags: user_env

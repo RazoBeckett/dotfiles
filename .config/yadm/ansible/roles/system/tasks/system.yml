@@ -1,0 +1,13 @@
+---
+- name: Setup TTY
+  ansible.builtin.copy:
+    content: |
+      KEYMAP=us
+      FONT=ter-218b
+    dest: /etc/vconsole.conf
+    mode: "0644"
+
+- name: Install Basic Packages
+  ansible.builtin.package:
+    name: "{{ system.basic_packages }}"
+    state: present

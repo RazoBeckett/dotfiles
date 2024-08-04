@@ -1,0 +1,27 @@
+---
+- name: Set ParallelDownloads to 5
+  ansible.builtin.lineinfile:
+    dest: /etc/pacman.conf
+    regexp: "^#ParallelDownloads.*"
+    line: "ParallelDownloads = 5"
+
+- name: Enable Color
+  ansible.builtin.lineinfile:
+    dest: /etc/pacman.conf
+    regexp: "^#Color.*"
+    line: "Color"
+
+- name: Enable multilib
+  ansible.builtin.replace:
+    path: /etc/pacman.conf
+    regexp: '^#\[multilib\]\n#Include.*'
+    replace: |
+      [multilib]
+      Include = /etc/pacman.d/mirrorlist
+    backup: true
+
+# - name: Update System
+#   community.general.pacman:
+#     update_cache: true
+#     upgrade: true
+#     state: latest

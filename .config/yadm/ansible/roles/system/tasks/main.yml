@@ -1,0 +1,10 @@
+---
+- name: Get pacman configured
+  ansible.builtin.import_tasks: pacman.yml
+  when: ansible_os_family == 'Archlinux'
+
+- name: Setup system packages
+  ansible.builtin.import_tasks: system.yml
+
+- name: Etc config
+  ansible.builtin.import_tasks: etc-config.yml

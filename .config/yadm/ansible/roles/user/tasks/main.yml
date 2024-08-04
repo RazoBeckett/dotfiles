@@ -1,0 +1,7 @@
+---
+- name: Include DWM
+  ansible.builtin.include_tasks: dwm.yml
+  when: window_manager == 'dwm'
+
+- name: Import User Setup
+  ansible.builtin.import_tasks: user.yml

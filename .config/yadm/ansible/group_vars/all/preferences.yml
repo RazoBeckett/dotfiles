@@ -1,0 +1,16 @@
+---
+username: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
+## User Preferences
+shell: "/bin/zsh"
+window_manager: "dwm" # only supports dwm, no other are supported yet
+
+## Neovim
+neovim:
+  enable: true
+  config_repo: "https://github.com/razobeckett/nvim.git"
+
+## DWM
+dwm:
+  repo: "https://github.com/razobeckett/dwm.git"
+  path: "/home/{{ username }}/.config/suckless/dwm"

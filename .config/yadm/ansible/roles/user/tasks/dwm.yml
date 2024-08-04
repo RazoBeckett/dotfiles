@@ -1,0 +1,17 @@
+---
+- name: Clone DWM
+  ansible.builtin.git:
+    repo: "{{ dwm.repo }}"
+    dest: "{{ dwm.path }}"
+  become: false
+
+- name: Get DWM Dependencies
+  ansible.builtin.package:
+    name: "{{ user.dwm_deps }}"
+    state: present
+
+- name: Build dwm
+  ansible.builtin.command: make clean install
+  args:
+    chdir: "{{ dwm.path }}"
+    creates: "/usr/local/bin/dwm"

@@ -1,0 +1,72 @@
+system:
+  basic_packages:
+    - base-devel
+    - bash
+    - bash-completion
+    - btop
+    - cmake
+    - curl
+    - ffmpeg
+    - git
+    - grep
+    - htop
+    - iproute2
+    - less
+    - net-tools
+    - ninja
+    - openssh
+    - tar
+    - tree
+    - unrar
+    - unzip
+    - wget
+    - xclip
+    - yay
+    - zip
+user:
+  cli:
+    - bat
+    - cloc
+    - direnv
+    - eza
+    - fastfetch
+    - fd
+    - fzf
+    - github-cli
+    - gum
+    - jq
+    - neovim
+    - pass
+    - pass-otp
+    - ripgrep
+    - starship
+    - tmux
+    - trash-cli
+    - ttf-firacode-nerd
+    - ttf-jetbrains-mono-nerd
+    - ttf-nerd-fonts-symbols
+    - zoxide
+    - zsh
+    - zsh-autosuggestions
+    - zsh-completions
+    - zsh-syntax-highlighting
+  gui:
+    - alacritty
+    - flameshot
+    - grub-customizer
+    - kitty
+    - libreoffice-fresh
+    - lxappearance
+    - mpv
+    - nemo
+    - obsidian
+    - signal-desktop
+    - zathura
+    - zathura-pdf-mupdf
+  dwm_deps:
+    - base-devel
+    - xorg-server
+    - xorg-xinit
+    - libxinerama
+    - libxft
+    - imlib2

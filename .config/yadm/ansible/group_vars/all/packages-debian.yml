@@ -1,0 +1,69 @@
+system:
+  basic_packages:
+    - build-essential
+    - bash
+    - bash-completion
+    - btop
+    - cmake
+    - curl
+    - ffmpeg
+    - git
+    - grep
+    - htop
+    - iproute2
+    - less
+    - net-tools
+    - ninja-build
+    - openssh-client
+    - tar
+    - tree
+    - unrar
+    - unzip
+    - wget
+    - xclip
+    - zip
+user:
+  cli:
+    - bat
+    - cloc
+    - direnv
+    - exa # replaces eza
+    - neofetch
+    - fd-find
+    - fzf
+    - gh # replaces github-cli
+    - jq
+    - neovim
+    - pass
+    - pass-otp
+    - ripgrep
+    - starship
+    - tmux
+    - trash-cli
+    - fonts-firacode
+    - fonts-jetbrains-mono
+    - fonts-noto
+    - zoxide
+    - zsh
+    - zsh-autosuggestions
+    - zsh-completions
+    - zsh-syntax-highlighting
+  gui:
+    - alacritty
+    - flameshot
+    - grub-customizer
+    - kitty
+    - lxappearance
+    - mpv
+    - nemo
+    # - obsidian # unavailable
+    - signal-desktop
+    - zathura
+    - zathura-pdf-poppler # replaces zathura-pdf-mupdf
+  dwm_deps:
+    - build-essential
+    - xorg
+    - xinit
+    - libxinerama-dev
+    - libimlib2-dev
+    - libxft-dev
