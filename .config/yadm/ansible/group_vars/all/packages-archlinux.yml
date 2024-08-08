@@ -33,6 +33,7 @@ user:
     - fd
     - fzf
     - github-cli
+    - go-yq
     - gum
     - jq
     - neovim
@@ -63,6 +64,13 @@ user:
     - signal-desktop
     - zathura
     - zathura-pdf-mupdf
+  aur:
+    - betterlockscreen
+    - brave-bin
+    - sesh-bin
+    - tgpt-bin
+    - thorium-browser-bin
+    - ttf-ms-fonts
   dwm_deps:
     - base-devel
     - xorg-server

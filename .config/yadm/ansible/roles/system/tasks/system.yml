@@ -11,3 +11,12 @@
   ansible.builtin.package:
     name: "{{ system.basic_packages }}"
     state: present
+
+- name: Install AUR helper
+  ansible.builtin.shell:
+    cmd: |
+      cd /tmp || exit 1
+      git clone https://aur.archlinux.org/{{ aur_helper }}.git
+      cd {{ aur_helper }}
+      makepkg -si --noconfirm
+    creates: /usr/bin/{{ aur_helper }}

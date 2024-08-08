@@ -1,3 +1,4 @@
+---
 - name: Install Modern CLI Tools
   ansible.builtin.package:
     name: "{{ user.cli }}"
@@ -14,6 +15,12 @@
 - name: Install GUI Packages
   ansible.builtin.package:
     name: "{{ user.gui }}"
+    state: present
+
+- name: Install AUR Packages
+  community.general.pacman:
+    name: "{{ user.aur }}"
+    executable: "{{ aur_helper }}"
     state: present
 
 - name: Install Charm-Cli Gum (debian/ubuntu)

@@ -3,6 +3,7 @@ username: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
 ## User Preferences
 shell: "/bin/zsh"
+aur_helper: "yay" # yay or paru
 window_manager: "dwm" # only supports dwm, no other are supported yet
 
 ## Neovim
