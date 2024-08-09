@@ -6,7 +6,7 @@ add_newline = false
 format = """\
 $os$username$hostname$directory\
 $git_branch$git_status\
-$fill$cmd_duration$all\
+$fill$cmd_duration$jobs$all\
 $character
 """
 
@@ -50,6 +50,10 @@ format = '[$path]($style)[$read_only]($read_only_style) '
 [cmd_duration]
 format = '[ $duration]($style) '
 style = 'bold purple'
+
+[jobs]
+symbol = ''
+style = 'red'
 
 [fill]
 symbol = " "
