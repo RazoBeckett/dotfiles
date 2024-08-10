@@ -4,22 +4,18 @@
   connection: local
   become: true
 
+  vars_files:
+    - "./group_vars/all/packages-{{ ansible_os_family | lower }}.yml"
+
   pre_tasks:
-    - name: Include Variables
-      ansible.builtin.include_vars:
-        file: "./group_vars/all/packages-{{ ansible_os_family | lower }}.yml"
+    - name: Check OS Family
+      ansible.builtin.fail:
+        msg: "This playbook only supports Archlinux and Debian based systems."
+      when: ansible_os_family != 'Archlinux' and ansible_os_family != 'Debian'
       tags: always
 
-  tasks:
-    - name: Start Setup
-      when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Debian'
-      block:
-        - name: Configure System Environment
-          ansible.builtin.import_role:
-            name: system
-          tags: sys_env
-
-        - name: Configure User Environment
-          ansible.builtin.import_role:
-            name: user
-          tags: user_env
+  roles:
+    - role: system
+      tags: sys_env
+    - role: user
+      tags: user_env
