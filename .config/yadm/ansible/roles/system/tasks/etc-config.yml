@@ -1,3 +1,4 @@
+---
 - name: Touchpad Configuration (X11)
   ansible.builtin.copy:
     dest: /etc/X11/xorg.conf.d/30-touchpad.conf

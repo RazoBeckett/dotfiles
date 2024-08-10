@@ -1,3 +1,4 @@
+---
 system:
   basic_packages:
     - base-devel

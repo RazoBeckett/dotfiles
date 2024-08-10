@@ -1,3 +1,4 @@
+---
 system:
   basic_packages:
     - build-essential
@@ -27,11 +28,11 @@ user:
     - bat
     - cloc
     - direnv
-    - exa # replaces eza
+    - exa  # replaces eza
     - neofetch
     - fd-find
     - fzf
-    - gh # replaces github-cli
+    - gh  # replaces github-cli
     - jq
     - neovim
     - pass
@@ -59,7 +60,7 @@ user:
     # - obsidian # unavailable
     - signal-desktop
     - zathura
-    - zathura-pdf-poppler # replaces zathura-pdf-mupdf
+    - zathura-pdf-poppler  # replaces zathura-pdf-mupdf
   dwm_deps:
     - build-essential
     - xorg
