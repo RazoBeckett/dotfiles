@@ -1,143 +1,117 @@
+// Inspired by Catnap
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  //"logo": null,
-  "general": {
-    "multithreading": true
-  },
-  "display": {
-    "separator": "➜   "
-  },
-  "modules": [
-    "break",
-    {
-      "type": "title",
-      "format": "    {6}{7}{8}"
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "padding": {
+            "top": 2,
+            "left": 2
+        }
     },
-    "break",
-    {
-      "key": "    󰌢 Machine   ",
-      "keyColor": "white",
-      "type": "host",
-      "format": "{1}"
+    "display": {
+        "separator": " "
     },
-    {
-      "key": "     OS        ",
-      "keyColor": "blue",
-      "type": "os",
-      "format": "{2} {8}Btw"
-    },
-    {
-      "key": "     Kernel    ",
-      "keyColor": "blue",
-      "type": "kernel"
-    },
-    {
-      "key": "     WM        ",
-      "keyColor": "blue",
-      "type": "wm"
-    },
-    {
-      "key": "     DE        ",
-      "keyColor": "blue",
-      "type": "de"
-    },
-    {
-      "type": "command",
-      "key": "     OS Age    ",
-      "keyColor": "yellow",
-      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-    },
-    {
-      "key": "    󰅐 Uptime    ",
-      "keyColor": "yellow",
-      "type": "uptime"
-    },
-    {
-      "key": "     Packages  ",
-      "keyColor": "yellow",
-      "type": "packages"
-    },
-    {
-      "key": "     Shell     ",
-      "keyColor": "cyan",
-      "type": "shell"
-    },
-    {
-      "key": "     Terminal  ",
-      "keyColor": "cyan",
-      "type": "terminal"
-    },
-    {
-      "key": "     Display   ",
-      "keyColor": "cyan",
-      "type": "display",
-      "format": "{1}x{2} {3}Hz [{6}]"
-    },
-    // {
-    //   "key": "     Font         ",
-    //   "keyColor": "blue",
-    //   "type": "terminalfont"
-    // },
-    {
-      "key": "    󰻠 CPU       ",
-      "keyColor": "red",
-      "type": "cpu",
-      "format": "{1}"
-    },
-    {
-      "key": "    󰍛 GPU       ",
-      "keyColor": "red",
-      "type": "gpu",
-      "format": "{1} {2} [{6}]"
-    },
-    {
-      "key": "    󰑭 Memory    ",
-      "keyColor": "red",
-      "type": "memory"
-    },
-    // {
-    //   "key": "    󰑭 Swap      ",
-    //   "keyColor": "blue",
-    //   "type": "swap"
-    // },
-    {
-      "key": "    󰞄 {1}(root)   ",
-      "keyColor": "yellow",
-      "type": "disk",
-      "folders": "/"
-    },
-    {
-      "key": "    󰋜 {1}     ",
-      "keyColor": "yellow",
-      "type": "disk",
-      "folders": "/home"
-    },
-    {
-      "key": "     {1}      ",
-      "keyColor": "yellow",
-      "type": "disk",
-      "folders": "/mnt"
-    },
-    // {
-    //   "key": "     Wifi      ",
-    //   "keyColor": "green",
-    //   "type": "wifi"
-    // },
-    // {
-    //   "key": "    󰩟 Local IP  ",
-    //   "keyColor": "cyan",
-    //   "type": "localip",
-    //   "compact": true
-    // },
-    "break",
-    {
-      "type": "colors",
-      "paddingLeft": 4,
-      "symbol": "circle",
-      "block": {
-        "width": 10
-      }
-    },
-    "break"
-  ]
+    "modules": [
+        "break",
+        {
+          "type": "title",
+          "format": "{6}{7}{8}"
+        },
+        "break",
+        {
+            "key": "╭───────────╮",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#31}󰌢 Machine {#keys}│",
+            "type": "host",
+            "format": "{1}"
+        },
+        {
+            "key": "│ {#34}{icon} Distro  {#keys}│",
+            "type": "os",
+            "format": "{2} {8}Btw"
+        },
+        {
+            "key": "│ {#34} Kernel  {#keys}│",
+            "type": "kernel"
+        },
+        {
+            "key": "│ {#34} OS Age  {#keys}│",
+            "type": "command",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        {
+            "key": "│ {#36} WM      {#keys}│",
+            "type": "wm"
+        },
+        {
+            "key": "│ {#33}󰅐 Uptime  {#keys}│",
+            "type": "uptime"
+        },
+        {
+            "key": "│ {#33}󰏖 Pkgs    {#keys}│",
+            "type": "packages"
+        },
+        {
+            "key": "│ {#32} Shell   {#keys}│",
+            "type": "shell"
+        },
+        {
+            "key": "│ {#32} Term    {#keys}│",
+            "type": "terminal"
+        },
+        {
+          "key": "│ {#32} Font    {#keys}│",
+          "type": "terminalfont"
+        },
+        {
+          "key": "│ {#31} Display {#keys}│",
+          "type": "display",
+          "format": "{1}x{2} {3}Hz [{6}]"
+        },
+        {
+            "key": "│ {#35}󰍛 CPU     {#keys}│",
+            "type": "cpu",
+            "format": "{1}"
+        },
+        {
+            "key": "│ {#35}󰢮 GPU     {#keys}│",
+            "type": "gpu",
+            "format": "{1} {2} [{6}]"
+        },
+        {
+            "key": "│ {#35}󰑭 Memory  {#keys}│",
+            "type": "memory"
+        },
+        {
+            "key": "│ {#34}󰉉 Disk    {#keys}│",
+            "type": "disk",
+            "folders": "/"
+        },
+        {
+            "key": "│ {#34}󰉉 Disk    {#keys}│",
+            "type": "disk",
+            "folders": "/home"
+        },
+        // {
+        //     "key": "│ {#36}󰩟 network {#keys}│",
+        //     "type": "localip",
+        //     "format": "{ipv4} ({ifname})"
+        // },
+        {
+            "key": "├───────────┤",
+            "type": "custom"
+        },
+        {
+            "key": "│ {#39} colors  {#keys}│",
+            "type": "colors",
+            "symbol": "circle"
+        },
+        {
+            "key": "╰───────────╯",
+            "type": "custom"
+        },
+        "break",
+        "break"
+    ]
 }
