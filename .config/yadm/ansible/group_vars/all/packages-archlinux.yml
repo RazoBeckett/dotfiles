@@ -17,6 +17,7 @@ system:
     - ninja
     - openssh
     - tar
+    - terminus-font
     - tree
     - unrar
     - unzip

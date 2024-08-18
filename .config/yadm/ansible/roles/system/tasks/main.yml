@@ -1,6 +1,6 @@
 ---
 - name: Get pacman configured
-  ansible.builtin.import_tasks: pacman.yml
+  ansible.builtin.import_tasks: arch-only.yml
   when: ansible_os_family == 'Archlinux'
 
 - name: Setup system packages

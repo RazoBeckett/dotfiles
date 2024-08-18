@@ -1,13 +1,14 @@
 ---
 system:
   basic_packages:
-    - build-essential
     - bash
     - bash-completion
     - btop
+    - build-essential
     - cmake
     - curl
     - ffmpeg
+    - fonts-terminus
     - git
     - grep
     - htop

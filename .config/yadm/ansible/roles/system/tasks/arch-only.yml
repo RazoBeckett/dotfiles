@@ -4,6 +4,7 @@
     dest: /etc/pacman.conf
     regexp: "^#ParallelDownloads.*"
     line: "ParallelDownloads = 5"
+    backup: true
 
 - name: Enable Color
   ansible.builtin.lineinfile:
@@ -18,7 +19,15 @@
     replace: |
       [multilib]
       Include = /etc/pacman.d/mirrorlist
-    backup: true
+
+- name: Install AUR helper
+  ansible.builtin.shell:
+    cmd: |
+      cd /tmp || exit 1
+      git clone https://aur.archlinux.org/{{ aur_helper }}.git
+      cd {{ aur_helper }}
+      makepkg -si --noconfirm
+    creates: /usr/bin/{{ aur_helper }}
 
 # - name: Update System
 #   community.general.pacman:

@@ -1,8 +1,20 @@
 ---
+- name: Install AUR helper
+  ansible.builtin.shell:
+    cmd: |
+      cd /tmp || exit 1
+      git clone https://aur.archlinux.org/{{ aur_helper }}.git
+      cd {{ aur_helper }}
+      makepkg -si --noconfirm
+    creates: /usr/bin/{{ aur_helper }}
+  when: ansible_os_family == "Archlinux"
+
 - name: Install Modern CLI Tools
-  ansible.builtin.package:
+  community.general.pacman:
     name: "{{ user.cli }}"
+    executable: "{{ aur_helper }}"
     state: present
+  when: ansible_os_family == "Archlinux"
 
 - name: Add User to wheel Group & Set Shell to Zsh
   ansible.builtin.user:
@@ -11,20 +23,6 @@
       - wheel
     append: true
     shell: "{{ shell }}"
-
-- name: Install GUI Packages
-  ansible.builtin.package:
-    name: "{{ user.gui }}"
-    state: present
-  when: ansible_facts['system_vendor'] != "Microsoft Corporation"
-
-- name: Install AUR Packages
-  community.general.pacman:
-    name: "{{ user.aur }}"
-    executable: "{{ aur_helper }}"
-    state: present
-  become: false
-  when: ansible_os_family == "Archlinux"
 
 - name: Install Charm-Cli Gum (debian/ubuntu)
   ansible.builtin.apt:
