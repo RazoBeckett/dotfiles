@@ -19,6 +19,7 @@ system:
     - openssh-client
     - tar
     - tree
+    - ufw
     - unrar
     - unzip
     - wget

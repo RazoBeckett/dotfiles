@@ -19,6 +19,7 @@ system:
     - tar
     - terminus-font
     - tree
+    - ufw
     - unrar
     - unzip
     - wget
