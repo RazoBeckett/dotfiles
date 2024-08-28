@@ -94,3 +94,16 @@ fkbps() {
 	fi
 
 }
+
+priv() {
+	# private history mode fo zsh
+	export HISTFILE=/dev/null
+	fc -p
+	export HISTMODE=incognito
+	echo "History is now private"
+}
+
+publ() {
+	export HISTMODE=
+	exec zsh
+}

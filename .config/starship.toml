@@ -7,7 +7,7 @@ format = """\
 $os$username$hostname$directory\
 $git_branch$git_status\
 $fill$cmd_duration$jobs$all\
-$character
+${custom.incognito}$character
 """
 
 [character]
@@ -54,7 +54,6 @@ style = 'bold purple'
 [jobs]
 symbol = ''
 style = 'red'
-
 [fill]
 symbol = " "
 
@@ -120,3 +119,9 @@ format = '[ $symbol($version) ]($style)'
 symbol = ' '
 style = "#8aadf4"
 format = '[ $symbol($version) ]($style)'
+
+[custom.incognito]
+when = "test $HISTMODE = incognito"
+symbol = '󰗹 '
+style = '#e51c23'
+format = '[$symbol]($style)'
