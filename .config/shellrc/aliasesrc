@@ -1,4 +1,5 @@
 alias aliasconfig='nvim $HOME/.config/shellrc/aliasesrc'
+alias x='startx'
 
 # Change directory aliases
 alias cd.='cd .'
@@ -8,11 +9,13 @@ alias ....='cd ../..'
 
 # Replaced ls with eza
 alias sl=ls
-alias l='ls -1'
-alias la='ls -a'
-alias lla='ll -a'
-alias ll='ls -l --git --git-repos --header'
-alias ls='eza --time-style=long-iso --icons --group-directories-first'
+if command -v eza &>/dev/null; then
+  alias l='ls -1'
+  alias la='ls -a'
+  alias lla='ll -a'
+  alias ll='ls -l --git --git-repos --header'
+  alias ls='eza --time-style=long-iso --icons --group-directories-first'
+fi
 
 # Avoid Mistakes
 alias cp='cp -Riv'
@@ -54,6 +57,7 @@ alias t='tmux'
 alias tb='nc termbin.com 9999'
 alias perdel='shred -v -u -z -n 35 -f'
 alias mtd='cd $(mktemp -d)'
+alias pass=' pass'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
