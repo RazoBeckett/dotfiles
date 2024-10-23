@@ -30,5 +30,5 @@ bindings = [
   { key = ",", mods = "Control", chars = "\u0002," },        # rename the window 
   { key = "]", mods = "Control", chars = "\u0002]" },        # open sesh
   { key = "[", mods = "Control", chars = "\u0002[" },        # open tmux-sessionizer
-  { key = "f", mods = "Control", chars = "zi\n" },           # open zi
+  { key = "f", mods = "Control", chars = "\u0002f" },           # open zi
 ]

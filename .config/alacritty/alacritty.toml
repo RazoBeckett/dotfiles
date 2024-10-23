@@ -1,7 +1,7 @@
+[general]
 live_config_reload = true
 working_directory = "None"
 
-# Themes --
 import = [ 
   "~/.config/alacritty/keybinds.toml", # Keybinds
 
@@ -45,4 +45,4 @@ TERM = "xterm-256color"
 #glyph_offset = { x = 1, y = 0 }
 normal.family = "MonoLisa Nerd Font"
 normal.style = "Regular"
-size = 8.8
+size = 9
