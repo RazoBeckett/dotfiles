@@ -1,0 +1,72 @@
+# font settings
+font-family = SF Mono
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+gtk-titlebar = false
+window-decoration = false
+confirm-close-surface = false
+background-opacity = 0.7
+
+background = #241b26
+foreground = #eed5d9
+
+window-padding-x = 8
+window-padding-y = 8
+
+# black
+palette = 0=#494D64
+palette = 8=#5B6078
+# red
+palette = 1=#de5b44
+palette = 9=#de5b44
+# green
+palette = 2=#6ac38f
+palette = 10=#6ac38f
+# yellow
+palette = 3=#e39755
+palette = 11=#e39755
+# blue
+palette = 4=#6a9eb5
+palette = 12=#6a9eb5
+# purple
+palette = 5=#c965bf
+palette = 13=#c965bf
+# aqua
+palette = 6=#9c5fce
+palette = 14=#9c5fce
+# white
+palette = 7=#eed5d9
+palette = 15=#e4ccd0
+
+keybind=ctrl+1=text:\x021
+keybind=ctrl+2=text:\x022
+keybind=ctrl+3=text:\x023
+keybind=ctrl+4=text:\x024
+keybind=ctrl+5=text:\x025
+keybind=ctrl+6=text:\x026
+keybind=ctrl+7=text:\x027
+keybind=ctrl+8=text:\x028
+keybind=ctrl+9=text:\x029
+
+keybind=ctrl+t=text:\x02c
+keybind=ctrl+shift+t=text:\x02!
+
+keybind=ctrl+z=text:\x02z
+keybind=ctrl+w=text:\x02x
+keybind=ctrl+shift+n=text:\x02N
+keybind=ctrl+shift+w=text:\x02w
+keybind=ctrl+shift+q=text:\x02Q
+
+keybind=ctrl+s=text:\x02%
+keybind=ctrl+shift+s=text:\x02"
+
+keybind=ctrl+shift+r=text:\x02r
+keybind=ctrl+shift+d=text:\x02d
+
+keybind=ctrl+shift+;=text:\x02;
+keybind=ctrl+,=text:\x02,
+keybind=ctrl+]=text:\x02]
+keybind=ctrl+[=text:\x02[
+keybind=ctrl+f=text:\x02f
