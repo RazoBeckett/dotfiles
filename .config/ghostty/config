@@ -1,5 +1,8 @@
 # font settings
-font-family = Codelia
+font-family = SF Mono
+font-family-italic = DankMono Nerd Font
+font-family-bold-italic = IBM Plex Mono
+font-size = 12
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
