@@ -5,14 +5,15 @@
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d | fzf --reverse --preview='tree -C {}')
+	selected=$(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d | \
+		fzf --reverse --preview='tree -C {}' --bind 'alt-n:execute(read something < /dev/tty; mkdir -p $(dirname {})/"$something")+reload(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d )')
 fi
 
 if [[ -z $selected ]]; then
 	exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+selected_name=$(basename "$selected" | tr ":,. " "____")
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
@@ -22,6 +23,7 @@ fi
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
 	tmux new-session -ds "$selected_name" -c "$selected"
+	tmux neww -d -t "$selected_name:2" -n "cmd"
 fi
 
 tmux switch-client -t "$selected_name"

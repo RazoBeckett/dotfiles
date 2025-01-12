@@ -95,15 +95,40 @@ fkbps() {
 
 }
 
-priv() {
-	# private history mode fo zsh
-	export HISTFILE=/dev/null
-	fc -p
-	export HISTMODE=incognito
-	echo "History is now private"
+tdf() {
+	tgpt "write a commit message based on provided git diff: follow the rules: 
+	1. The commit message should be in present tense as usual (that means in the imperative mood),
+	2. the commit message should be of 50 characters or less, and commit description should be of 72 characters or less,
+	3. commits follow the Conventional Commits specification (which means they starts with feat, fix, docs, style, refactor, perf, test, chore, ci or build),
+
+	example starts here:
+	feat: Add a new database field awesomeness
+
+	In order for the unicorn widget to gets it's
+	data a new database field awesomeness was
+	intorduced to the schema and the database
+	connector was extended.
+
+	A constant MAX_AWESOMENESS was intorduced and
+	set to 9000. This value ensures that the
+	entered values into the database won't go
+	over 9000.
+
+	example ends here
+
+	here is the diff:
+	$(git diff)"
 }
 
-publ() {
-	export HISTMODE=
-	exec zsh
-}
+# priv() {
+# 	# private history mode fo zsh
+# 	export HISTFILE=/dev/null
+# 	fc -p
+# 	export HISTMODE=incognito
+# 	echo "History is now private"
+# }
+#
+# publ() {
+# 	export HISTMODE=
+# 	exec zsh
+# }

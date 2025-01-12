@@ -1,0 +1,18 @@
+Task: Write a commit message based on a provided Git diff.
+
+Rules to follow:
+1. Write the commit message in present tense (e.g., "fixes" instead of "fixed").
+2. The commit title (first line) should be short and fit in one line. If there are too many changes to summarize, provide a detailed explanation in the commit description (additional lines after the title).
+3. The commit message should follow the Conventional Commits specification (e.g., feat:, fix:, chore:, docs:, etc.).
+
+Generate the commit message in the following format, **only**:
+<commit-message-summary>
+<commit-description>
+
+Where:
+- **<commit-message-summary>** is a concise, one-line summary of the change, in present tense, and following the Conventional Commits specification.
+- **<commit-description>** is an optional, detailed explanation of changes. If the summary is sufficient, leave this blank.
+
+Output **ONLY** the commit message in this format. Do **not** include anything else, such as markdown, comments, or any additional text.
+
+You will receive the diff of staged files as input. Based on that, generate the commit message strictly following these rules.

@@ -3,7 +3,7 @@ local M = {}
 --kits are the keybinds that are used in the terminal
 function M.setup(config, wezterm)
 	config.keys = {
-		{ key = "f", mods = "CTRL", action = wezterm.action.ToggleFullScreen },
+		{ key = "f", mods = "CTRL|SHIFT", action = wezterm.action.ToggleFullScreen },
 		{ key = "r", mods = "CTRL|SHIFT", action = wezterm.action.ReloadConfiguration },
 	}
 
@@ -38,6 +38,7 @@ function M.setup(config, wezterm)
 		["\\"] = "\\", -- open yazi
 
 		R = "r", -- reload tmux config
+		f = "f", -- reload tmux config
 		z = "z", -- zoom into pane
 		t = "c", -- create new wndow
 		T = "!", -- break pane into new window

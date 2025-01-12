@@ -1,21 +1,20 @@
 # font settings
-font-family = SF Mono
-font-family-italic = DankMono Nerd Font
-font-family-bold-italic = IBM Plex Mono
+font-family = GeistMono Nerd Font
 font-size = 12
-font-feature = -calt
 font-feature = -liga
+font-feature = -calt
 font-feature = -dlig
 
 theme = uwunified
 
+gtk-single-instance = true
 gtk-titlebar = false
 window-decoration = false
 window-vsync = false
 confirm-close-surface = false
 background-opacity = 0.7
 
-shell-integration-features = no-cursor,no-sudo,title
+shell-integration-features = no-cursor,no-sudo,no-title
 cursor-style-blink = false
 
 keybind=ctrl+1=text:\x021

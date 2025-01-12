@@ -9,12 +9,14 @@ end
 config.color_scheme = "uwunicorn"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font = wezterm.font_with_fallback({
-	{ family = "Comic Code" },
+	{ family = "JetBrains Mono" },
+	-- { family = "Comic Code" },
+	-- { family = "Noto Color Emoji" },
 	{ family = "Symbols Nerd Font" },
-	{ family = "Noto Color Emoji" },
 })
 
 config.max_fps = 144
+config.animation_fps = 144
 config.font_size = 12.0
 config.cursor_blink_rate = 0
 config.enable_tab_bar = false
@@ -23,9 +25,8 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.7
 config.window_close_confirmation = "NeverPrompt"
 config.macos_window_background_blur = 30
-config.status_update_interval = 1000
 config.scrollback_lines = 30000
-config.term = "xterm-256color"
+config.term = "xterm-kitty"
 config.enable_wayland = false
 
 config.window_padding = {

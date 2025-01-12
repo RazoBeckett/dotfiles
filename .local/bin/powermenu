@@ -15,7 +15,7 @@ powermenu() {
 		confirm=$(echo -e "yes\nno" | dmenu -fn "JetBrains Mono Nerd Font")
 		[[ $confirm = "yes" ]] && reboot || return
 		;;
-	" Lock") dm-tool lock ;;
+	" Lock") betterlockscreen -l;;
 	"󱎴 Refresh Rate")
 		confirm=$(echo -e "60\n144" | dmenu -fn "JetBrains Mono Nerd Font")
 		if [[ "$confirm" = "60" ]]; then

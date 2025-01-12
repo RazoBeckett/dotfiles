@@ -58,6 +58,8 @@ alias tb='nc termbin.com 9999'
 alias perdel='shred -v -u -z -n 35 -f'
 alias mtd='cd $(mktemp -d)'
 alias pass=' pass'
+alias temps=' watch -n 1 "sensors"'
+alias gp='git diff --staged | tgpt "$(cat ~/.config/shellrc/commit-prompt.txt)"'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'

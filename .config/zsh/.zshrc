@@ -9,13 +9,8 @@
 # /etc/zsh/zshenv : export ZDOTDIR="$HOME/.config/zsh"
 alias zshconfig="nvim $ZDOTDIR/.zshrc"
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    eval $(ssh-agent -s) > /dev/null
-    ssh-add ~/.ssh/git
-    clear
-fi
-
 # Custom scripts
+[[ -f $HOME/.config/shellrc/ssh-agentrc ]] && source $HOME/.config/shellrc/ssh-agentrc      # Loads up ssh-agent
 [[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc            # Loads the $PATH Variable and Exports
 [[ -f $HOME/.config/shellrc/bindkeys.zsh ]] && source $HOME/.config/shellrc/bindkeys.zsh    # Loads the set up the bindkeys
 [[ -f $HOME/.config/shellrc/aliasesrc ]] && source $HOME/.config/shellrc/aliasesrc          # Loads all aliases

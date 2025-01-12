@@ -6,7 +6,20 @@ notify() {
 		--hint=string:x-canonical-private-synchronous:"$1" "$@"
 }
 
-case $BLOCK_BUTTON in
+# Marathi day names array (POSIX-compliant way to handle arrays using a case statement)
+get_marathi_day() {
+	case "$(date +%w)" in
+	0) echo "रविवार" ;;
+	1) echo "सोमवार" ;;
+	2) echo "मंगळवार" ;;
+	3) echo "बुधवार" ;;
+	4) echo "गुरुवार" ;;
+	5) echo "शुक्रवार" ;;
+	6) echo "शनिवार" ;;
+	esac
+}
+
+case "$BLOCK_BUTTON" in
 1)
 	notify "$(date +'  %mth Month  ')" "$(cal --color=always |
 		sed "s|..7m|<span color='$(xrdb -get color1)'>|;s|..0m|</span>|")
@@ -21,11 +34,16 @@ case $BLOCK_BUTTON in
 		yad \
 		--calendar
 	;;
-3) notify-send "Day Status" "Date: $(date +'%x (%A)')\nTime: $(date +'%I:%M %p')" ;;
-6) terminal -e "$EDITOR" "$0" ;;
+3)
+	# Get Marathi day name using the function
+	marathi_day=$(get_marathi_day)
+	notify-send "Day Status" "Date: $(date +'%x (%A)') ($marathi_day)\nTime: $(date +'%I:%M %p')"
+	;;
+6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 . colorscheme
-
 . sb-theme
+
+# POSIX-compliant way to display
 display "^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ $(date +'%b %d') ^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ $(date '+%H:%M')"

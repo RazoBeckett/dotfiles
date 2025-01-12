@@ -43,5 +43,5 @@ bindkey '^Y' autosuggest-accept                   # accept autosuggest
 bindkey -M vicmd [ edit-command-line              # edit command line in vim
 
 # custom keybindings
-bindkey -s '^B[' ' tmux-sessionizer\n'              # ctrl + \ to open tmux sessionizer
+bindkey -s '^Bf' ' tmux-sessionizer\n'              # ctrl + \ to open tmux sessionizer
 bindkey -s '^B]' ' sesh connect "$(sesh list -i | gum filter --limit 1 --placeholder "Pick a sesh" --prompt="⚡" --indicator="")"\n' # ctrl + ] to connect to a tmux session

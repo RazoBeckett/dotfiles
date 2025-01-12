@@ -2,7 +2,7 @@
 /* NOTE: make symbolic link of this file into dwm build directory */
 
 /* appearance */
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 static const unsigned int gappx          = 8;   /* gaps between windows */
 static const unsigned int fgappx         = 16;  /* gaps around only one window*/
 static const unsigned int snap           = 32;  /* snap pixel */
@@ -33,8 +33,12 @@ static const char *colors[][3]     = {
 };
 
 static const char *const autostart[] = {
+	// "bash", "-c", "while true; do sleep 1800 && notify-send 'Reminder' 'Take a quick walk'; done", NULL,
+	// "bash", "-c", "while true; do sleep 2700 && notify-send 'Reminder' 'Drink some water'; done", NULL,
 	//"rog-control-center", NULL, // only for asus rog laptops
+	"dunst", NULL,
 	"bash", "-c", "$HOME/.local/bin/launch_dwmblocks", NULL,
+	// "sh", "-c", "feh --randomize --bg-fill $HOME/Pictures/nord-background/*", NULL,
 	"nitrogen", "--restore", NULL,
 	"xfce4-clipman", NULL,
 	"nm-applet", "--indicator", NULL,
@@ -88,7 +92,7 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* user constants */
-#define TERMINAL "kitty"
+#define TERMINAL "ghostty"
 #define FILEMANAGER "nemo"
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 
@@ -108,6 +112,8 @@ static const Key keys[] = {
 	/* Brightness FN */
 	{ 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("~/.local/bin/brightification up && kill -39 $(pidof dwmblocks)") },
 	{ 0, XF86XK_MonBrightnessDown, spawn, SHCMD("~/.local/bin/brightification down && kill -39 $(pidof dwmblocks)") },
+	{ MODKEY,XK_9,                 spawn, SHCMD("~/.local/bin/brightification up && kill -39 $(pidof dwmblocks)") },
+	{ MODKEY,XK_8,                 spawn, SHCMD("~/.local/bin/brightification down && kill -39 $(pidof dwmblocks)") },
 	/* Touchpad FN */
 	{ 0, XF86XK_TouchpadToggle,    spawn, SHCMD("~/.local/bin/touchpad toggle") },
 
@@ -159,6 +165,8 @@ static const Key keys[] = {
 	{ MODKEY,                   XK_6,              focusbynum,     {.i = 5} },
 	{ MODKEY,                   XK_7,              focusbynum,     {.i = 6} },
 	{ MODKEY,                   XK_8,              focusbynum,     {.i = 7} },
+	{ MODKEY|ShiftMask,	    XK_z,	       unfloatvisible, {0} },
+	// { MODKEY|ShiftMask,	    XK_t,              unfloatvisible, {.v = &layouts[1]} },
 	/* custom shortcuts */
 	{ MODKEY,                   XK_space,          spawn,          {.v = dmenucmd } },
 	{ MODKEY|ALTKEY,            XK_p,              spawn,          {.v = passmenucmd } },
@@ -170,6 +178,7 @@ static const Key keys[] = {
 	{ MODKEY,                   XK_Return,         spawn,          CMD(TERMINAL) },
 	{ MODKEY,                   XK_e,              spawn,          CMD(FILEMANAGER) },
 	{ MODKEY,                   XK_f,              spawn,          CMD("firefox-developer-edition") },
+	{ MODKEY,                   XK_z,              spawn,          CMD("zen-browser") },
 	{ MODKEY,                   XK_b,              spawn,          CMD("brave") },
 	{ MODKEY,                   XK_t,              spawn,          CMD("thorium-browser") },
 	{ MODKEY,                   XK_n,              spawn,          CMD("nitrogen") },
@@ -197,9 +206,9 @@ static const Button buttons[] = {
 	{ ClkStatusText,        0,              Button4,        sigstatusbar,   {.i = 4} },
 	{ ClkStatusText,        0,              Button5,        sigstatusbar,   {.i = 5} },
 
-	{ ClkClientWin,         ALTKEY,         Button1,        moveorplace,    {.i = 2} },
-	{ ClkClientWin,         ALTKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         ALTKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 2} },
+	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button2,        killclient,     {.ui = 2 } },

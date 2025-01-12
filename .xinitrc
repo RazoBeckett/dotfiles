@@ -9,15 +9,17 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export PATH="$PATH:$HOME/.local/bin/statusbar"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-#export GTK_THEME=':dark'
+# export GTK_THEME=':dark'
 export XCURSOR_PATH=/usr/share/icons:"$XDG_DATA_HOME"/icons
-export XCURSOR_THEME="S1mple-Adw-Dark"
+export XCURSOR_THEME="Banana-Catppuccin-Mocha"
+export XCURSOR_SIZE=40
 
 # Environment variables set everywhere
 unset EDITOR; unset TERMINAL; unset BROWSER
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="firefox-developer-edition"
+export BROWSER="zen-browser"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-exec dbus-launch --sh-syntax dwm # Start DWM
+# exec dbus-launch --sh-syntax dwm # Start DWM
+# exec dusk
