@@ -25,8 +25,8 @@ else
 	selected=$(
 		echo "$find_command" |
 			fzf --reverse --preview='tree -C {}' \
-				--bind 'alt-n:execute(read something < /dev/tty; mkdir -p $(dirname {})/"$something")+reload(echo "$find_command")' \
-				--bind 'alt-c:execute(read repo_link < /dev/tty; git clone $repo_link)+reload(echo "$find_command")'
+				--bind 'alt-n:execute(read something < /dev/tty; mkdir -p $(dirname {})/"$something")+reload(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d 2>/dev/null)' \
+				--bind 'alt-c:execute(read repo_link < /dev/tty; git clone $repo_link)+reload(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d 2>/dev/null)'
 	)
 fi
 
