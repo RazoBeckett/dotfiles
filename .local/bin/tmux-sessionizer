@@ -1,29 +1,57 @@
 #!/usr/bin/env bash
 
-# made by the one and only @theprimeagen
+# Made by @theprimeagen, with enhancements!
 
+SEARCH_PATHS=(
+	~/Developer/work
+	~/Developer/personal
+	~/Developer/forks
+	~/Developer/devops
+)
+
+# Ensure necessary commands are available
+for cmd in find fzf tmux; do
+	if ! command -v "$cmd" &>/dev/null; then
+		echo "Error: '$cmd' is not installed." >&2
+		exit 1
+	fi
+done
+
+# Select directory
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	selected=$(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d | \
-		fzf --reverse --preview='tree -C {}' --bind 'alt-n:execute(read something < /dev/tty; mkdir -p $(dirname {})/"$something")+reload(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d )')
+	find_command=$(find "${SEARCH_PATHS[@]}" -mindepth 1 -maxdepth 1 -type d 2>/dev/null)
+	selected=$(
+		echo "$find_command" |
+			fzf --reverse --preview='tree -C {}' \
+				--bind 'alt-n:execute(read something < /dev/tty; mkdir -p $(dirname {})/"$something")+reload(echo "$find_command")' \
+				--bind 'alt-c:execute(read repo_link < /dev/tty; git clone $repo_link)+reload(echo "$find_command")'
+	)
 fi
 
-if [[ -z $selected ]]; then
-	exit 0
-fi
+[[ -z $selected ]] && exit 0
 
 selected_name=$(basename "$selected" | tr ":,. " "____")
 tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-	tmux new-session -s "$selected_name" -c "$selected"
+	# Create a new session and open nvim in the first window
+	tmux new-session -ds "$selected_name" -c "$selected" "nvim; $SHELL"
+	# Create the second window with a shell prompt
+	tmux neww -d -t "$selected_name:2" -n "cmd"
+	# Attach to the session
+	tmux attach-session -t "$selected_name"
 	exit 0
 fi
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-	tmux new-session -ds "$selected_name" -c "$selected"
+	tmux new-session -ds "$selected_name" -c "$selected" "nvim; $SHELL"
 	tmux neww -d -t "$selected_name:2" -n "cmd"
 fi
 
-tmux switch-client -t "$selected_name"
+if [[ -n $TMUX ]]; then
+	tmux switch-client -t "$selected_name"
+else
+	tmux attach-session -t "$selected_name"
+fi
