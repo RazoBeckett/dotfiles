@@ -39,7 +39,7 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 	# Create a new session and open nvim in the first window
 	tmux new-session -ds "$selected_name" -c "$selected" "nvim; $SHELL"
 	# Create the second window with a shell prompt
-	tmux neww -d -t "$selected_name:2" -n "cmd"
+	tmux neww -d -t "$selected_name:2" -n "cmd" -c "$selected"
 	# Attach to the session
 	tmux attach-session -t "$selected_name"
 	exit 0
@@ -47,7 +47,7 @@ fi
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
 	tmux new-session -ds "$selected_name" -c "$selected" "nvim; $SHELL"
-	tmux neww -d -t "$selected_name:2" -n "cmd"
+	tmux neww -d -t "$selected_name:2" -n "cmd" -c "$selected"
 fi
 
 if [[ -n $TMUX ]]; then
