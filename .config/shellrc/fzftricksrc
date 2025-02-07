@@ -31,21 +31,22 @@ _fzf_compgen_dir() {
 }
 
 asong() {
-	local songs
-	songs=$(find ~/Music -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' -o -name '*.m4a' \) | sort)
+	local dir=${1:-"$HOME/Music"}
+	local songs song full_path
 
-	local song
+	songs=$(find "$(realpath "$dir")" -maxdepth 1 -type f \( -name '*.mp3' -o -name '*.flac' -o -name '*.aac' -o -name '*.wav' -o -name '*.m4a' \) | sort)
+
+	[[ -z "$songs" ]] && echo "No songs found in $dir" && return
+
 	song=$(echo "$songs" | awk -F/ '{print $NF}' | fzf --layout=reverse \
 		--border=rounded --border-label="Press ESC to exit" --prompt="  " --pointer="󰽴" --marker="󰷞 ")
 
-	# Check if a song was selected
 	if [[ -n "$song" ]]; then
 		# Get the full path of the selected song
-		full_path=$(echo "$songs" | grep "/$song$")
-		# Play the song using mpv with the full path
+		full_path=$(echo "$songs" | command grep -F "$song")
 		mpv --no-video "$full_path"
 		# Call asong() recursively for continuous song selection
-		asong
+		asong "$dir"
 	else
 		pkill mpv
 		echo -e "\nNo song selected. Exiting."
