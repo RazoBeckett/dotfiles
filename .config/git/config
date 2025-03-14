@@ -1,0 +1,63 @@
+[user]
+	name = Mayur Raut
+	email = 95993675+RazoBeckett@users.noreply.github.com
+	signingkey = 1859B801BFC1AB98
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[includeIf "gitdir:~/Developer/personal/"]
+	path = ~/.config/git/.gitconfig-personal
+[includeIf "gitdir:~/Developer/work/"]
+	path = ~/.config/git/.gitconfig-work
+[core]
+	editor = nvim
+	; pager = delta
+[delta]
+	navigate = true
+	side-by-side = true
+[merge]
+	conflictStyle = diff3
+[diff]
+	colorMoved = default
+[grep]
+	extendRegexp = true
+	lineNumber = true
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+[alias]
+	a = add
+	aa = add --all
+	ad = add --deleted
+	am = add --modified
+	ar = add --renamed
+	au = add --update
+	br = branch
+	c = commit
+	caan = commit -a --amend --no-edit
+	cam = commit -am
+	can = commit --amend --no-edit
+	cdf = clean -df
+	cl = clone
+	co = checkout
+	d = diff
+	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	l = log
+	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	p = push
+	pF = push --force
+	pf = push --force-with-lease
+	phm = push --set-upstream origin main
+	pl = pull
+	plr = pull --rebase
+	pom = push origin main
+	st= status
+	wta = worktree add
+	wtl = worktree list
+	wtr = worktree remove
