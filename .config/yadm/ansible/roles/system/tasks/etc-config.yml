@@ -40,6 +40,7 @@
         Option "SwapbuffersWait" "false"
       EndSection
     mode: "0644"
+  when: "'GenuineIntel' in ansible_facts['processor']"
 
 - name: Setup zshenv file
   ansible.builtin.lineinfile:
