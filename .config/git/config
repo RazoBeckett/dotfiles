@@ -15,8 +15,15 @@
 [includeIf "gitdir:~/Developer/work/"]
 	path = ~/.config/git/.gitconfig-work
 [core]
+	compression = 9
 	editor = nvim
+	preloadindex = true
+	whitespace = error
 	; pager = delta
+[advice]
+	addEmptyPathspec = false
+	pushNonFastForward = false
+	statusHints = false
 [delta]
 	navigate = true
 	side-by-side = true
@@ -31,6 +38,18 @@
 	gpgsign = true
 [tag]
 	gpgsign = true
+[push]
+	autoSetupRemote = true
+	default = current
+	followTags = true
+[pull]
+	default = current
+	rebase = true
+[rebase]
+	autoStash = true
+	missingCommitsCheck = warn
+[url "git@github.com:"]
+	insteadOf = "gh:"
 [alias]
 	a = add
 	aa = add --all
@@ -45,10 +64,11 @@
 	can = commit --amend --no-edit
 	cdf = clean -df
 	cl = clone
+	cm = commit -m
 	co = checkout
 	d = diff
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-	l = log
+	l = log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto)  %D%n%s%n'
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	p = push
 	pF = push --force
@@ -57,7 +77,10 @@
 	pl = pull
 	plr = pull --rebase
 	pom = push origin main
+	prev = reset HEAD~1 --soft
+	s = status --short --branch
 	st= status
+	undo = reset HEAD --hard
 	wta = worktree add
 	wtl = worktree list
 	wtr = worktree remove
