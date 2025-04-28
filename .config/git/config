@@ -27,17 +27,25 @@
 [delta]
 	navigate = true
 	side-by-side = true
+[branch]
+	sort = -committerdate
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [diff]
-	colorMoved = default
+	alogrithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [grep]
 	extendRegexp = true
 	lineNumber = true
 [commit]
 	gpgsign = true
+	template = ~/.config/git/template
+	verbose = true
 [tag]
 	gpgsign = true
+	sort = version:refname
 [push]
 	autoSetupRemote = true
 	default = current
@@ -48,6 +56,8 @@
 [rebase]
 	autoStash = true
 	missingCommitsCheck = warn
+[help]
+	autocorrect = prompt
 [url "git@github.com:"]
 	insteadOf = "gh:"
 [alias]
