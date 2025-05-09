@@ -17,7 +17,14 @@ if [ "$(pamixer --get-mute)" == "true" ]; then
 	exit
 fi
 
-volume="$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | tr -d '%')"
+volume="$(pactl list sinks | awk '
+  BEGIN { RS="Sink #" }
+  /State: RUNNING/ {
+    if (match($0, /Volume: front-left: *[0-9]+ *\/ *([0-9]+)%/, m)) {
+      print m[1]
+    }
+  }'
+)"
 
 if [ -z "$volume" ]; then
 	exit 1

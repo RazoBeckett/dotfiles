@@ -3,7 +3,7 @@
 # ---- using pactl for pipewire ----
 
 function send_notification() {
-	volume=$(pactl list sinks | grep 'Volume: front-left' | awk '{print $5}' | tr -d '%')
+	volume=$(pactl list sinks | awk ' BEGIN { RS="Sink #" } /State: RUNNING/ { if (match($0, /Volume: front-left: *[0-9]+ *\/ *([0-9]+)%/, m)) { print m[1] } }')
 	dunstify -a "changevolume" -u normal -r "9993" -h int:value:"$volume" -i "audio-volume-$1" " Volume: ${volume}%" -t 2000
 }
 
