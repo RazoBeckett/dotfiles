@@ -21,13 +21,26 @@ done
 if [[ $# -eq 1 ]]; then
 	selected=$1
 else
-	find_command=$(find "${SEARCH_PATHS[@]}" -mindepth 1 -maxdepth 1 -type d 2>/dev/null)
 	selected=$(
-		echo "$find_command" |
+		find "${SEARCH_PATHS[@]}" -mindepth 1 -maxdepth 1 -type d 2>/dev/null |
 			fzf --reverse --preview='tree -C {}' \
-				--bind 'alt-n:execute(read something < /dev/tty; mkdir -p $(dirname {})/"$something")+reload(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d 2>/dev/null)' \
-				--bind 'alt-c:execute(read repo_link < /dev/tty; (cd $(dirname {}) && git clone $repo_link))+reload(find ~/Developer/work ~/Developer/personal ~/Developer/forks ~/Developer/devops -mindepth 1 -maxdepth 1 -type d 2>/dev/null)'
+				--bind "alt-n:execute(
+				echo -n 'New folder name: ' > /dev/tty;
+				read new_dir < /dev/tty;
+				mkdir -p \$(dirname {})/\"\$new_dir\"
+			)+reload(find ${SEARCH_PATHS[*]} -mindepth 1 -maxdepth 1 -type d 2>/dev/null)" \
+				--bind "alt-c:execute(
+				echo -n 'Repo to clone: ' > /dev/tty;
+				read repo_link < /dev/tty;
+				(cd \$(dirname {}) && git clone \$repo_link)
+			)+reload(find ${SEARCH_PATHS[*]} -mindepth 1 -maxdepth 1 -type d 2>/dev/null)" \
+				--bind "alt-d:execute(
+				echo -n 'Delete {}? [y/N]: ' > /dev/tty;
+				read answer < /dev/tty;
+				[[ \"\$answer\" == [yY] ]] && rm -rf {}
+			)+reload(find ${SEARCH_PATHS[*]} -mindepth 1 -maxdepth 1 -type d 2>/dev/null)"
 	)
+
 fi
 
 [[ -z $selected ]] && exit 0
