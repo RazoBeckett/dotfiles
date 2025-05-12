@@ -53,5 +53,13 @@ eval "$(direnv hook zsh)"        # Load direnv
 # Environment
 eval "$(fzf --zsh)"              # Load fzf
 eval "$(zoxide init zsh)"        # Load zoxide
+
 eval "$(starship init zsh)"      # Load starship prompt
+TRANSIENT_PROMPT="${PROMPT// prompt / prompt --profile transient }"
+autoload -Uz add-zle-hook-widget
+add-zle-hook-widget zle-line-finish transient-prompt
+function transient-prompt() {
+    PROMPT="$TRANSIENT_PROMPT" RPROMPT="$TRANSIENT_RPROMPT" zle .reset-prompt
+}
+
 #eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"      # Load oh-my-posh prompt

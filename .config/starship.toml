@@ -10,6 +10,11 @@ $fill$cmd_duration$jobs$all\
 ${custom.incognito}$character
 """
 
+[profiles]
+transient="""
+$character\
+"""
+
 [character]
 disabled = false
 success_symbol = '[󰬐](bright-black)'
