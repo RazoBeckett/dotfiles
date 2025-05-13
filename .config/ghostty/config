@@ -1,10 +1,8 @@
 # font settings
-font-family = GeistMono Nerd Font
-font-size = 12
+font-family = SF Mono
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
-
 theme = uwunified
 
 gtk-single-instance = true
