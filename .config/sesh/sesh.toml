@@ -55,11 +55,14 @@ path = "~/.config/tmux"
 startup_command = "nvim tmux.conf"
 
 [[session]]
-name = "Downloads"
+name = "downloads"
 path = "~/Downloads"
-startup_command = "yazi"
 
 [[session]]
-name = "Home"
+name = "home"
 path = "~"
-startup_command = "yazi"
+
+[[session]]
+name = "music"
+path = "~/Music"
+startup_command = "asong"
