@@ -32,13 +32,12 @@ install_shell_utils() {
 		elif [ "$ID" = "ubuntu" ]; then
 			if ! dpkg -s ansible >/dev/null 2>&1; then
 				printf "\n--- Setting Ansible ---\n\n"
-				sudo apt-get update
-				sudo apt-get install -y software-properties-common
-				sudo apt-add-repository -y ppa:ansible/ansible
-				sudo apt-get update
-				sudo apt-get install -y ansible
-				sudo apt-get install -y python3 python3-pip python3-watchdog python3-argcomplete
-				sudo activate-global-python-argcomplete
+				sudo apt-get update -y &&
+					sudo apt-get install -y software-properties-common python3 python3-pip python3-watchdog python3-argcomplete &&
+					sudo apt-add-repository -y ppa:ansible/ansible &&
+					sudo apt-get update -y &&
+					sudo apt-get install -y ansible &&
+					sudo activate-global-python-argcomplete
 			fi
 		else
 			echo "Unsupported OS"
