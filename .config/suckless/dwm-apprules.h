@@ -17,6 +17,7 @@ static const Rule rules[] = {
     {"firefox", NULL, NULL, 2, 0, -1},
     {"zen-alpha", NULL, NULL, 2, 0, -1},
     {"zen-beta", NULL, NULL, 2, 0, -1},
+    {"zen", NULL, NULL, 2, 0, -1},
     {"brave-browser", NULL, NULL, 2, 0, -1},
     {"Brave-browser", NULL, NULL, 2, 0, -1},
     {"thorium-browser", NULL, NULL, 2, 0, -1},
