@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+Device_Status=$(xinput list-props "AT Translated Set 2 keyboard" | grep "Device Enabled" | awk '{print $4}')
+
+if [ "$Device_Status" -eq 1 ]; then
+  xinput disable "AT Translated Set 2 keyboard"
+  notify-send "Keyboard Disabled"
+else
+  xinput enable "AT Translated Set 2 keyboard"
+  notify-send "Keyboard Enabled"
+fi

@@ -11,6 +11,7 @@ notify() {
 
 case "$BLOCK_BUTTON" in
     1) notify "$(acpi -b | awk -F ': |, ' 'NR==2{printf "%s\n%s\n", $2, $4}')" ;;
+    2) "$HOME"/.local/bin/toggle_laptop_keyboard ;;
     6) terminal -e "$EDITOR" "$0" ;;
 esac
 
