@@ -13,6 +13,10 @@ install_brew() {
 		echo "Updating Homebrew bundle"
 		brew bundle --global
 	fi
+
+	# Dock instantly leap back
+	defaults write com.apple.dock autohide-time-modifier -int 0
+	killall Dock
 }
 
 # Function to install shell utilities on Arch Linux and macOS
