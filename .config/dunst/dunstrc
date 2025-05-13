@@ -1,6 +1,3 @@
-# https://github.com/ericmurphyxyz/dotfiles/blob/master/.config/dunst/dunstrc
-# copied from Eric Murphy
-
 [global]
     monitor = 0
     follow = mouse
@@ -22,9 +19,9 @@
     horizontal_padding = 15
     text_icon_padding = 20
     frame_width = 2
-    frame_color = "#9399b2"
+    frame_color = "#adc6ff"
     corner_radius = 10
-    separator_color = frame
+    separator_color = "#8e9099"
     sort = yes
     idle_threshold = 120
 
@@ -56,27 +53,26 @@
     mouse_left_click = do_action, close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
+    highlight = "#adc6ff"
 
 [experimental]
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#181825FF"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
+    background = "#111318"
+    foreground = "#e2e2e9"
+    highlight = "#2b4678"
     timeout = 10
 
 [urgency_normal]
-    background = "#181825FF"
-    foreground = "#CDD6F4"
-    highlight = "#CDD6F4"
+    background = "#111318"
+    foreground = "#e2e2e9"
+    highlight = "#2b4678"
     timeout = 10
 
 [urgency_critical]
-    background = "#F38BA8"
-    foreground = "#181825"
-    frame_color = "#F38BA8"
+    background = "#111318"
+    foreground = "#e2e2e9"
+    highlight = "#ffb4ab"
     timeout = 1000
     format = "<b>%s</b>\n%b"
-
-# vim: ft=cfg
