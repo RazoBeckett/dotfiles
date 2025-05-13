@@ -9,13 +9,15 @@ end
 config.color_scheme = "uwunicorn"
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font = wezterm.font_with_fallback({
-	{ family = "JetBrains Mono" },
-	-- { family = "Comic Code" },
-	-- { family = "Noto Color Emoji" },
-	{ family = "Symbols Nerd Font" },
+	-- "JetBrains Mono",
+	"Maple Mono",
+	"Noto Color Emoji",
+	"Symbols Nerd Font"
 })
 
-config.max_fps = 144
+config.max_fps = 120
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
 config.animation_fps = 144
 config.font_size = 12.0
 config.cursor_blink_rate = 0
