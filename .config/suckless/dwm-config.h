@@ -2,6 +2,7 @@
 /* NOTE: make symbolic link of this file into dwm build directory */
 
 /* appearance */
+#include <unistd.h>
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
 static const unsigned int gappx          = 8;   /* gaps between windows */
 static const unsigned int fgappx         = 16;  /* gaps around only one window*/
@@ -49,6 +50,8 @@ static const char *const autostart[] = {
 	"bash", "-c", "xrdb -load $HOME/.config/Xresources", NULL,
 	"/usr/lib/mate-polkit/polkit-mate-authentication-agent-1", NULL,
 	"udiskie","-A", "-t", NULL,
+	"zen-browser", NULL,
+	"alacritty", NULL,
 	NULL /* terminate */
 };
 
@@ -92,7 +95,7 @@ static const Layout layouts[] = {
 
 #include <X11/XF86keysym.h>
 /* user constants */
-#define TERMINAL "ghostty"
+#define TERMINAL "alacritty"
 #define FILEMANAGER "nemo"
 #define TOPMENU SHCMD("~/.local/bin/topmenu")
 
@@ -175,6 +178,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,         XK_s,              spawn,          SHCMD("flameshot gui") },
 	{ MODKEY,                   XK_l,              spawn,          SHCMD("betterlockscreen -l") },
 	{ MODKEY|ALTKEY,            XK_r,              spawn,          SHCMD("xset r rate 210 40") },
+	{ MODKEY|ShiftMask,         XK_grave,          spawn,          SHCMD("systemctl hibernate") },
 	{ MODKEY,                   XK_Return,         spawn,          CMD(TERMINAL) },
 	{ MODKEY,                   XK_e,              spawn,          CMD(FILEMANAGER) },
 	{ MODKEY,                   XK_f,              spawn,          CMD("firefox-developer-edition") },
