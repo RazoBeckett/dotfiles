@@ -96,12 +96,13 @@ fkbps() {
 }
 
 tdf() {
-	tgpt "write a commit message based on provided git diff: follow the rules: 
+	tgpt "write a commit message based on provided git diff: follow these Conventional commits rules: 
 	1. The commit message should be in present tense as usual (that means in the imperative mood),
 	2. the commit message should be of 50 characters or less, and commit description should be of 72 characters or less,
 	3. commits follow the Conventional Commits specification (which means they starts with feat, fix, docs, style, refactor, perf, test, chore, ci or build),
+	4. the commit message body each line length should be 45 characters or less, strictly follow the formatting rules shown in the example below,
 
-	example starts here:
+	>>>>> example starts here: >>>>>
 	feat: Add a new database field awesomeness
 
 	In order for the unicorn widget to gets it's
@@ -114,10 +115,10 @@ tdf() {
 	entered values into the database won't go
 	over 9000.
 
-	example ends here
+	<<<<< example ends here <<<<< 
 
 	here is the diff:
-	$(git diff)"
+	$(git diff --staged)"
 }
 
 # priv() {
