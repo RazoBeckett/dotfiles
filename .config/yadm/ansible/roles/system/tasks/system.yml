@@ -3,7 +3,9 @@
   ansible.builtin.copy:
     content: |
       KEYMAP=us
-      FONT=ter-218b
+      FONT=ter-v22b
+      XKBLAYOUT=us
+      XKBOPTIONS=caps:escape
     dest: /etc/vconsole.conf
     mode: "0644"
 

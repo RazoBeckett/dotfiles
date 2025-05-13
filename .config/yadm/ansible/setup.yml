@@ -8,6 +8,10 @@
     - "./group_vars/all/packages-{{ ansible_os_family | lower }}.yml"
 
   pre_tasks:
+    - name: Print the value of ansible_facts['processor'][0]
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts['processor'][1] }}"
+      tags: always
     - name: Check OS Family
       ansible.builtin.fail:
         msg: "This playbook only supports Archlinux and Debian based systems."

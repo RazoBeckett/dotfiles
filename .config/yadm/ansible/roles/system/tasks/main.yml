@@ -9,5 +9,5 @@
 - name: Etc config
   ansible.builtin.import_tasks: etc-config.yml
 
-- name: UFW Firewall
-  ansible.builtin.import_tasks: ufw.yml
+- name: Network Security
+  ansible.builtin.import_tasks: network-security.yml

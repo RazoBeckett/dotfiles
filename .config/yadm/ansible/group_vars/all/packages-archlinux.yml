@@ -24,7 +24,6 @@ system:
     - unzip
     - wget
     - xclip
-    - yay
     - zip
 user:
   cli:
@@ -47,6 +46,8 @@ user:
     - tmux
     - trash-cli
     - ttf-firacode-nerd
+    - ttf-ibm-plex
+    - ttf-ibm-plex-mono-nerd
     - ttf-jetbrains-mono-nerd
     - ttf-nerd-fonts-symbols
     - zoxide
@@ -63,6 +64,7 @@ user:
     - lxappearance
     - mpv
     - nemo
+    - network-manager-applet
     - obsidian
     - signal-desktop
     - zathura

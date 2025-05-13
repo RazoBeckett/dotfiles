@@ -8,3 +8,7 @@
 - name: Reload UFW Firewall
   community.general.ufw:
     state: reloaded
+
+- name: Reload sysctl
+  ansible.builtin.command:
+    cmd: sysctl --system
