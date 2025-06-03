@@ -10,12 +10,13 @@
 alias zshconfig="nvim $ZDOTDIR/.zshrc"
 
 # Custom scripts
-# [[ -f $HOME/.config/shellrc/ssh-agentrc ]] && source $HOME/.config/shellrc/ssh-agentrc      # Loads up ssh-agent
-[[ -f $HOME/.config/shellrc/exportrc ]] && source $HOME/.config/shellrc/exportrc            # Loads the $PATH Variable and Exports
-[[ -f $HOME/.config/shellrc/bindkeys.zsh ]] && source $HOME/.config/shellrc/bindkeys.zsh    # Loads the set up the bindkeys
-[[ -f $HOME/.config/shellrc/aliasesrc ]] && source $HOME/.config/shellrc/aliasesrc          # Loads all aliases
-[[ -f $HOME/.config/shellrc/fzftricksrc ]] && source $HOME/.config/shellrc/fzftricksrc      # Loads all functions make using fzf 
-[[ -f $HOME/.config/shellrc/functionsrc ]] && source $HOME/.config/shellrc/functionsrc      # Loads all custom functions 
+CS=$HOME/.config/shellrc
+# [[ -f $CS/ssh-agentrc ]] && source $CS/ssh-agentrc      # Loads up ssh-agent
+[[ -f $CS/exportrc ]] && source $CS/exportrc            # Loads the $PATH Variable and Exports
+[[ -f $CS/bindkeys.zsh ]] && source $CS/bindkeys.zsh    # Loads the set up the bindkeys
+[[ -f $CS/aliasesrc ]] && source $CS/aliasesrc          # Loads all aliases
+[[ -f $CS/fzftricksrc ]] && source $CS/fzftricksrc      # Loads all functions make using fzf 
+[[ -f $CS/functionsrc ]] && source $CS/functionsrc      # Loads all custom functions 
 
 # Plugins 
 PLUGINPATH=/usr/share/zsh/plugins

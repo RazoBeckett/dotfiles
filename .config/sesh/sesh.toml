@@ -65,4 +65,4 @@ path = "~"
 [[session]]
 name = "music"
 path = "~/Music"
-startup_command = "asong"
+startup_command = "tmux neww -d -n \"spotify\" sptd && asong"

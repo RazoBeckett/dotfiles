@@ -1,14 +1,21 @@
 #!/bin/env sh
 
-USER_NAME=$1
-HOST_NAME=$2
+ssh_string="$1"
 
-if [ -z "$USER_NAME" ] || [ -z "$HOST_NAME" ]; then
-	echo "Usage: $0 <user_name> <host_name>"
+if [ -z "$ssh_string" ]; then
+	echo "Usage: $(basename "$0") <user@host>"
 	exit 1
 fi
 
-TMP_PUB="/tmp/tpm.pub"
+USER_NAME=$(printf "%s" "$ssh_string" | cut -d'@' -f1)
+HOST_NAME=$(printf "%s" "$ssh_string" | cut -d'@' -f2)
+
+if [ -z "$USER_NAME" ] || [ -z "$HOST_NAME" ]; then
+	echo "Usage: $0 <user@host>"
+	exit 1
+fi
+
+TMP_PUB="/tmp/tpm"
 
 if ssh-keygen -D /usr/lib/pkcs11/libtpm2_pkcs11.so >"$TMP_PUB" 2>/dev/null && grep -q "ecdsa-sha2" "$TMP_PUB"; then
 	PUBLIC_KEY="$TMP_PUB"

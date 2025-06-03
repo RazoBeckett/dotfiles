@@ -40,7 +40,7 @@ elif [ "$volume" -gt 40 ]; then
 elif [ "$volume" -gt 15 ]; then
 	icon=""
 elif [ "$volume" -lt 10 ]; then
-	echo "^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ 0$volume%  "
+	echo "^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ 0$volume% "
 	exit
 else
 	icon=""
