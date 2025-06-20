@@ -125,6 +125,16 @@ symbol = ' '
 style = "#8aadf4"
 format = '[ $symbol($version) ]($style)'
 
+[nodejs]
+symbol = '󰎙 '
+style = "#3c873a"
+format = '[ $symbol($version) ]($style)'
+
+[package]
+symbol = '󰏗 '
+style = "#dea66c"
+format = '[ $symbol($version) ]($style)'
+
 [custom.incognito]
 when = "test $HISTMODE = incognito"
 symbol = '󰗹 '
