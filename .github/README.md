@@ -1,3 +1,5 @@
+<a href="https://archlinux.org"><img width=150 height=50 align=right src="https://archlinux.org/static/logos/archlinux-logo-light-1200dpi.7ccd81fd52dc.png"></a>
+
 # 🏠 RazoBeckett's Dotfiles
 
 [![GitHub repo size](https://img.shields.io/github/repo-size/RazoBeckett/dotfiles)](#)
