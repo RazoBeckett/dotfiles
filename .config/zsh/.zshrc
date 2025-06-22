@@ -46,6 +46,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 #_comp_options+=(globdots)
 [[ -f $PLUGINPATH/fzf-tab/fzf-tab.plugin.zsh ]] && source $PLUGINPATH/fzf-tab/fzf-tab.plugin.zsh    # Loads fzf-tab plugin
 [[ -f $HOME/.config/shellrc/lukesmithrc ]] && source $HOME/.config/shellrc/lukesmithrc              # Loads vim (cursor) mode indicator
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 
 # direnv
 export DIRENV_LOG_FORMAT=""
