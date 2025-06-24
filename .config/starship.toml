@@ -135,6 +135,11 @@ symbol = '󰏗 '
 style = "#dea66c"
 format = '[ $symbol($version) ]($style)'
 
+[bun]
+symbol = ' '
+style = "#fbf0df"
+format = '[ $symbol($version) ]($style)'
+
 [custom.incognito]
 when = "test $HISTMODE = incognito"
 symbol = '󰗹 '
