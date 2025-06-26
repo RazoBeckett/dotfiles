@@ -42,14 +42,14 @@ show_always = true
 
 [hostname]
 ssh_only = true
-format = 'on [$hostname](bold yellow) '
+format = '[ $hostname](fg:#ffc0cb) '
 
 [directory]
 truncation_length = 3
 truncation_symbol = '…/'
 home_symbol = '󰋜 ~'
 read_only_style = '197'
-read_only = '  '
+read_only = '  '
 format = '[$path]($style)[$read_only]($read_only_style) '
 
 [cmd_duration]
@@ -70,7 +70,7 @@ style = 'bright-black'
 
 [git_status]
 format = '[$all_status$ahead_behind](green)'
-conflicted = '󰈻'
+conflicted = '[ ](red)'
 up_to_date = ''
 untracked = '[ ](red)'
 ahead = '[⇡${count}](yellow)'
