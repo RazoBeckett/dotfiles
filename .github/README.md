@@ -21,14 +21,14 @@ This repository contains my personal configuration files (dotfiles) for various 
 ### Primary Environment
 - **Terminal**: [Alacritty](https://alacritty.org/) with custom keybindings for tmux integration
 - **Browser**: [Zen Browser](https://zen-browser.app/) as primary browser
-- **Window Manager**: [DWM (Custom Build)](https://github.com/razobeckett/dwm) for X11
+- **Window Manager**: [DWM (Custom Build)](https://github.com/razobeckett/dwm/#readme) for X11
 - **Wayland Compositor**: [Hyprland](https://hyprland.org/) for Wayland sessions
 - **Shell**: ZSH with custom configuration and plugins
 - **Terminal Multiplexer**: Tmux with custom keybindings and session management
 
 ### Key Features
 - **Seamless Tmux Integration**: Custom keybindings in Alacritty for effortless tmux usage
-- **Smart Session Management**: Using `sesh` for quick tmux session switching
+- **Smart Session Management**: Using [sesh](https://github.com/joshmedeski/sesh/#readme) for quick tmux session switching
 - **Fuzzy Finding**: Extensive FZF integration for file navigation and command history
 - **Modern CLI Tools**: Replacements for traditional UNIX tools (bat, eza, fd, ripgrep, etc.)
 
@@ -46,7 +46,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 - **Tmux** (`.config/tmux/`): Terminal multiplexer with custom keybindings and appearance
 
 ### Window Management
-- **DWM Config**: Custom DWM build configurations
+- **DWM Config**: [Custom DWM build](https://github.com/razobeckett/dwm/#readme) configurations
 - **Hyprland** (`.config/hypr/`): Wayland compositor with custom keybindings
 - **Picom** (`.config/picom/`): X11 compositor for transparency and effects
 
@@ -113,7 +113,7 @@ My tmux configuration is optimized for development workflow:
 - **Session Management**: Quick switching with `sesh` and `tmux-sessionizer`
 - **Custom Keybindings**: Terminal-integrated keybindings for seamless usage
 - **Smart Splits**: Automatic path preservation and intelligent sizing
-- **File Navigation**: Integrated `yazi` file manager
+- **File Navigation**: Integrated [yazi](https://github.com/sxyazi/yazi/#readme) file manager
 
 ### ZSH Environment
 - **Plugin System**: Autosuggestions, syntax highlighting, and fzf-tab
@@ -133,7 +133,7 @@ My tmux configuration is optimized for development workflow:
 
 ### Editor Setup (external, *not included*)
 - **Neovim**: Modern IDE-like experience with:
-  - Custom configuration from [razobeckett/nvim](https://github.com/razobeckett/nvim)
+  - Custom configuration from [razobeckett/nvim](https://github.com/razobeckett/nvim/#readme)
   - LSP integration for code intelligence
   - Plugin management and optimizations
   - Custom keymaps and workflows
@@ -172,13 +172,14 @@ ansible-playbook -K -i "localhost," -c local setup.yml
 
 ### Configuration Philosophy
 - **Modular Design**: Configurations are split into logical modules for easy maintenance
-- **Cross-Platform**: Support for Arch Linux, Debian-based systems, and macOS
+- **Cross-Platform**: Support for [Arch Linux](https://archlinux.org), [Debian](https://www.debian.org/)-based systems, and [macOS](https://en.wikipedia.org/wiki/MacOS)
 - **Experimental Configs**: Some configurations are from tools I've experimented with - not all represent my current active setup
 
 ## 🙏 Acknowledgments
 
 Special thanks to the creators and maintainers of these amazing tools that make my workflow possible:
 
+- **[Neovim](https://neovim.io/)** - hyperextensible Vim-based text editor
 - **[sesh](https://github.com/joshmedeski/sesh)** - Fast tmux session manager
 - **[tmux-sessionizer](https://github.com/ThePrimeagen/.dotfiles)** - Project-based tmux session creation (script by [ThePrimeagen](https://twitch.tv/theprimeagen)
 - **[starship](https://starship.rs/)** - Cross-shell prompt
