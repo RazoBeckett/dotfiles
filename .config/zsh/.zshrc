@@ -17,6 +17,7 @@ CS=$HOME/.config/shellrc
 [[ -f $CS/aliasesrc ]] && source $CS/aliasesrc          # Loads all aliases
 [[ -f $CS/fzftricksrc ]] && source $CS/fzftricksrc      # Loads all functions make using fzf 
 [[ -f $CS/functionsrc ]] && source $CS/functionsrc      # Loads all custom functions 
+[[ -f $CS/widgets.zsh ]] && source $CS/widgets.zsh      # Loads all custom widgets (keybind overrides) 
 
 # Plugins 
 PLUGINPATH=/usr/share/zsh/plugins
@@ -55,6 +56,7 @@ eval "$(direnv hook zsh)"        # Load direnv
 # Environment
 eval "$(fzf --zsh)"              # Load fzf
 eval "$(zoxide init zsh)"        # Load zoxide
+eval "$(atuin init zsh --disable-up-arrow)" || echo "failed"
 
 eval "$(starship init zsh)"      # Load starship prompt
 TRANSIENT_PROMPT="${PROMPT// prompt / prompt --profile transient }"
