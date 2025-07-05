@@ -6,14 +6,15 @@ import = [
   "~/.config/alacritty/keybinds.toml", # Keybinds
 
   # -- Themes --
-  #"~/.config/alacritty/catppuccin-macchiato.toml", 
-  "~/.config/alacritty/uwunicorn.toml", 
+  #"~/.config/alacritty/catppuccin-macchiato.toml",
+  "~/.config/alacritty/uwunicorn.toml",
+  # "~/.config/alacritty/diinki_retro.toml",
   # "~/.config/alacritty/tokyonight_night.toml",
   # "~/.config/alacritty/tokyonight_moon.toml",
   # "~/.config/alacritty/nord.toml",
   # "~/.config/alacritty/xcad.toml",
   # "~/.config/alacritty/dracula.toml",
-  # "~/.config/alacritty/catppuccin-mocha.toml",     
+  # "~/.config/alacritty/catppuccin-mocha.toml",
   # "~/.config/alacritty/solarized_dark.toml",
   # "~/.config/alacritty/solarized-osaka.toml",
 ]
