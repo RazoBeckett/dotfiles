@@ -1,61 +1,66 @@
 local M = {}
 
---kits are the keybinds that are used in the terminal
 function M.setup(config, wezterm)
+	local act = wezterm.action
+
 	config.keys = {
-		{ key = "f", mods = "CTRL|SHIFT", action = wezterm.action.ToggleFullScreen },
-		{ key = "r", mods = "CTRL|SHIFT", action = wezterm.action.ReloadConfiguration },
+		{ key = "f", mods = "CTRL|SHIFT", action = act.ToggleFullScreen },
+		{ key = "r", mods = "CTRL|SHIFT", action = act.ReloadConfiguration },
 	}
 
+	-- Your Ctrl+F mapping for tmux
+	table.insert(config.keys, {
+		key = "f",
+		mods = "CTRL",
+		action = act.Multiple({
+			act.SendKey({ key = "b", mods = "CTRL" }),
+			act.SendKey({ key = "f" }),
+		}),
+	})
+
+	-- existing numeric tmux bindings...
+	for i = 1, 9 do
+		table.insert(config.keys, {
+			key = tostring(i),
+			mods = "CTRL",
+			action = act.SendString("\x02" .. tostring(i)),
+		})
+	end
+
+	-- custom tmux keybinds
+	local keybinds_for_tmux = {
+		[";"] = ";",
+		[","] = ",",
+		["]"] = "]",
+		["["] = "[",
+		["\\"] = "\\",
+		R = "r",
+		f = "f",
+		z = "z",
+		t = "c",
+		T = "!",
+		w = "x",
+		W = "w",
+		s = "%",
+		S = '"',
+		D = "d",
+	}
+	for key, bind in pairs(keybinds_for_tmux) do
+		table.insert(config.keys, {
+			key = key,
+			mods = "CTRL",
+			action = act.SendString("\x02" .. bind),
+		})
+	end
+
+	-- your existing mouse_bindings here...
 	config.mouse_bindings = {
 		{
 			event = { Up = { streak = 1, button = "Left" } },
 			mods = "CTRL",
-			action = wezterm.action.OpenLinkAtMouseCursor,
+			action = act.OpenLinkAtMouseCursor,
 		},
 	}
-
-	for i = 1, 9 do
-		-- switch between windows in tmux
-		table.insert(config.keys, {
-			key = tostring(i),
-			mods = "CTRL",
-			action = wezterm.action.SendString("\x02" .. tostring(i)),
-		})
-	end
-
-	local keybinds_for_tmux = {
-		-- key you press(with CTRL) = key tmux receives
-
-		-- K = "\x1b\x5b\x41", -- move to pane above
-		-- J = "\x1b\x5b\x42", -- move to pane below
-		-- L = "\x1b\x5b\x43", -- move to pane right
-		-- H = "\x1b\x5b\x44", -- move to pane above
-		[";"] = ";", -- navigate over to last pane
-		[","] = ",", -- renaming window
-		["]"] = "]", -- open sesh menu
-		["["] = "[", -- open tmux-sessionizer
-		["\\"] = "\\", -- open yazi
-
-		R = "r", -- reload tmux config
-		f = "f", -- reload tmux config
-		z = "z", -- zoom into pane
-		t = "c", -- create new wndow
-		T = "!", -- break pane into new window
-		w = "x", -- close window
-		W = "w", -- show all windows
-		s = "%", -- split open pane vertically
-		S = '"', -- split open pane horizontally
-		D = "d", -- detach tmux session
-	}
-
-	for key, bind in pairs(keybinds_for_tmux) do
-		table.insert(config.keys, {
-			key = tostring(key),
-			mods = "CTRL",
-			action = wezterm.action.SendString("\x02" .. bind),
-		})
-	end
 end
 
 return M
