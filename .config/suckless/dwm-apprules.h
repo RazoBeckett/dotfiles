@@ -29,6 +29,7 @@ static const Rule rules[] = {
     {"nemo", NULL, NULL, 1 << 2, 0, -1},	// Nemo on 3rd workspace
     {"Nemo", NULL, NULL, 1 << 2, 0, -1},	// Nemo on 3rd workspace
     {"discord", NULL, NULL, 1 << 3, 0, -1},	// Discord on 4th workspace
+    {"bruno", NULL, NULL, 1 << 4, 0, -1},	// Discord on 4th workspace
     {"org.gnome.Nautilus", NULL, NULL, 1 << 2, 0, -1},	// Nautilus on 3rd workspace
     {"obsidian", NULL, NULL, 1 << 8, 0, -1},	// obsidian on 9th workspace
     {"amberol", NULL, NULL, 0, 1, -1},  // Allow amberol on any workspace and make it floating
