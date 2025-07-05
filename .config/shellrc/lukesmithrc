@@ -2,7 +2,7 @@
 
 # vi mode
 bindkey -v
-bindkey "^H" backward-delete-char
+bindkey "^H" backward-kill-word
 bindkey "^?" backward-delete-char
 export KEYTIMEOUT=1
 autoload edit-command-line; zle -N edit-command-line

@@ -1,23 +1,26 @@
+#!/bin/env sh
 # Export JAVA_HOME if needed
 # export JAVA_HOME=/opt/jdk1.8.0_371
 # export PATH="/opt/jdk1.8.0_371/bin:$PATH"
-[[ -f $HOME/.config/shellrc/sensitive-export ]] && source "$HOME/.config/shellrc/sensitive-export"
+if [ -f "$HOME"/.config/shellrc/sensitive-export ]; then
+  . "$HOME"/.config/shellrc/sensitive-export
+fi
 
 # Add directories to the PATH
-export PATH=$PATH:/sbin:$HOME/.local/bin
-export PATH=$PATH:$HOME/.spicetify
-export PATH=$PATH:/var/lib/flatpak
-export PATH=$PATH:$HOME/.suckless/dwmblocks/sb-files
-export PATH=$PATH:/usr/share/flutter/bin
-export PATH=$PATH:/usr/share/dart-sdk/bin
+export PATH="$PATH":/sbin:"$HOME"/.local/bin
+export PATH="$PATH":"$HOME"/.spicetify
+export PATH="$PATH":/var/lib/flatpak
+export PATH="$PATH":"$HOME"/.suckless/dwmblocks/sb-files
+export PATH="$PATH":/usr/share/flutter/bin
+export PATH="$PATH":/usr/share/dart-sdk/bin
 
 # ----- GO Workspace -----
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH=$HOME/.local/go
-export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH":/usr/local/go/bin
+export GOPATH="$HOME"/.local/go
+export PATH="$PATH":"$GOPATH"/bin
 
 # ----- Rust -----
-export PATH=$PATH:$HOME/.local/share/cargo/bin
+export PATH="$PATH":"$HOME"/.local/share/cargo/bin
 
 # ----- Bat (better cat) -----
 export BAT_THEME="Catppuccin Macchiato"
@@ -25,3 +28,6 @@ export BAT_THEME="Catppuccin Macchiato"
 # ----- suppress FAPI Warnings -----
 export TPM2_PKCS11_LOG_LEVEL=0
 export TSS2_LOG=fapi+NONE
+
+# ----- PNPM -----
+export PNPM_HOME=~/.local/bin
