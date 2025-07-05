@@ -19,18 +19,18 @@ static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned
 static const char *fonts[]    = { "JetBrainsMono Nerd Font:weight=bold:size=11:antialias=true:autohint=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
-static const char col_base[]       = "#241b26"; // Base
-static const char col_surface1[]   = "#2f2a3f"; // Surface1
-static const char col_lavender[]   = "#c965bf"; // Lavender
-static const char col_text[]       = "#eed5d9"; // Text
-static const char col_mantle[]     = "#241b26"; // Mantle (same as Base, no exact match)
-static const char col_yellow[]     = "#e39755"; // Yellow
-static const char col_blue[]       = "#6a9eb5"; // Blue
-static const char *colors[][3]     = {
-    /*			fg		bg		border   */
-    [SchemeNorm]  =  { col_lavender,	col_base,	col_surface1 },
-    [SchemeSel]   =  { col_yellow,	col_mantle,	col_blue},
-    [SchemeTitle] =  { col_text,	col_mantle,	col_mantle},
+static const char col_bg[]             = "#141216"; // Background (Dark)
+static const char col_bg_alt[]         = "#27232b"; // Background Alt (Lighter Dark)
+static const char col_accent[]         = "#AC82E9"; // Primary Accent
+static const char col_accent_alt[]     = "#8F56E1"; // Accent Deep
+static const char col_fg[]             = "#c4e881"; // Foreground (Text)
+static const char col_highlight[]      = "#d8cab8"; // Highlight / Complementary Accent
+
+static const char *colors[][3] = {
+    /*               fg             bg           border */
+    [SchemeNorm]  = { col_accent,     col_bg,      col_bg_alt },
+    [SchemeSel]   = { col_highlight,  col_bg,      col_accent_alt },
+    [SchemeTitle] = { col_highlight,  col_bg,      col_bg },
 };
 
 static const char *const autostart[] = {
