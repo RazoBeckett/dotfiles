@@ -76,6 +76,7 @@
 	cl = clone
 	cm = commit -m
 	co = checkout
+	cob = checkout -b
 	d = diff
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 	l = log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto)  %D%n%s%n'
