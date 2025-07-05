@@ -60,6 +60,8 @@ alias mtd='cd $(mktemp -d)'
 alias pass=' pass'
 alias temps=' watch -n 1 "sensors"'
 alias gp='git diff --staged | tgpt "$(cat ~/.config/shellrc/commit-prompt.txt)"'
+alias wnv='watch -n 1 nvidia-smi'
+[[ -x /usr/bin/opencode ]] && alias oc='opencode'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
@@ -79,6 +81,11 @@ alias Rzd='shred -zu'
 alias mkdir='mkdir -p'
 alias rd='rm -r'
 alias less='less -R'
+alias pnpmx='pnpm dlx'
+
+# docker
+alias d='docker'
+alias dpsa='docker ps -a'
 
 [[ -x /bin/nvim ]] && alias vim='nvim' && alias sv='sudo --edit'
 [[ -x /bin/nemo ]] && alias nemo='setsid -f nemo $1 > /dev/null 2<&1'
