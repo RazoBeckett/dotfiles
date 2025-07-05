@@ -1,4 +1,7 @@
 #!/bin/env bash
 
-export BG_COLOR="#241b26"
-export FG_COLOR="#c965bf"
+# export BG_COLOR="#241b26"
+# export FG_COLOR="#c965bf"
+
+export BG_COLOR="#141216"
+export FG_COLOR="#d8cab8"
