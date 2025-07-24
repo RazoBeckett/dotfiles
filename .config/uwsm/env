@@ -1,0 +1,24 @@
+export XCURSOR_SIZE= 40
+export WLR_NO_HARDWARE_CURSORS=0
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export ERRFILE=$XDG_CACHE_HOME/X11/xsession-errors
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_DATA_DIRS=/usr/local/share/:/usr/share
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+export QT_QPA_PLATFORM=wayland
+export QT_STYLE_OVERRIDE=kvantum
+export GDK_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export MOZ_ENABLE_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+export OZONE_PLATFORM=wayland
+export XCOMPOSEFILE=~/.XCompose
+
+export LIBVA_DRIVER_NAME=nvidia
+export __GLX_VENDOR_LIBRARY_NAME=nvidia # Disable this if you have issues with screensharing
+export GBM_BACKEND=nvidia-drm
+export CUDA_CACHE_PATH=$XDG_CACHE_HOME/nv
+export NVD_BACKEND=direct
