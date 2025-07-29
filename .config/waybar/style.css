@@ -73,7 +73,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-	background-color: #241b26;
+	background-color: transparent;
 	padding: 0 13px;
 	color: #eed5d9;
 	margin: 0 3px;
@@ -94,8 +94,7 @@ button:hover {
 	margin-right: 0;
 }
 
-#battery.charging,
-#battery.plugged {
+#battery.charging {
 	color: #241b26;
 	background-color: #6ac38f;
 }
