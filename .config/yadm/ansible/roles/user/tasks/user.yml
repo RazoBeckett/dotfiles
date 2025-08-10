@@ -32,9 +32,16 @@
     state: present
   when: ansible_os_family == "Debian"
 
+- name: Check if there's existing neovim config
+  ansible.builtin.stat:
+    path: "/home/{{ username }}/.config/nvim"
+  register: nvim_config_dir
+
 - name: Clone Neovim Configuration
   become: false
   ansible.builtin.git:
     repo: "{{ neovim.config_repo }}"
     dest: "/home/{{ username }}/.config/nvim"
-  when: neovim.enable
+  when:
+    - neovim.enable
+    - not nvim_config_dir.stat.exists
