@@ -14,8 +14,10 @@ system:
     - iproute2
     - less
     - net-tools
+    - networkmanager
     - ninja
     - openssh
+    - pipewrite
     - tar
     - terminus-font
     - tree
@@ -23,10 +25,12 @@ system:
     - unrar
     - unzip
     - wget
+    - wireplumber
     - xclip
     - zip
 user:
   cli:
+    - atuin
     - bat
     - cloc
     - direnv
@@ -37,10 +41,9 @@ user:
     - github-cli
     - go-yq
     - gum
+    - imagemagick
     - jq
     - neovim
-    - pass
-    - pass-otp
     - ripgrep
     - starship
     - tmux
@@ -58,17 +61,15 @@ user:
   gui:
     - alacritty
     - flameshot
+    - ghostty
     - grub-customizer
-    - kitty
     - libreoffice-fresh
-    - lxappearance
     - mpv
     - nemo
     - network-manager-applet
+    - nwg-look
     - obsidian
     - signal-desktop
-    - zathura
-    - zathura-pdf-mupdf
   aur:
     - betterlockscreen
     - brave-bin
@@ -78,8 +79,20 @@ user:
     - ttf-ms-fonts
   dwm_deps:
     - base-devel
+    - imlib2
+    - libxft
+    - libxinerama
     - xorg-server
     - xorg-xinit
-    - libxinerama
-    - libxft
-    - imlib2
+  wayland:
+    - cliphist
+    - hyprcursor
+    - hyprland
+    - hyprlock
+    - hyprpaper
+    - hyprpicker
+    - kvantum
+    - rofi-wayland
+    - waybar
+    - wl-clipboard
+    - wl-copy
