@@ -46,11 +46,11 @@ user:
     - neovim
     - ripgrep
     - starship
+    - tgpt
     - tmux
     - trash-cli
     - ttf-firacode-nerd
     - ttf-ibm-plex
-    - ttf-ibm-plex-mono-nerd
     - ttf-jetbrains-mono-nerd
     - ttf-nerd-fonts-symbols
     - zoxide
@@ -74,7 +74,6 @@ user:
     - betterlockscreen
     - brave-bin
     - sesh-bin
-    - tgpt-bin
     - thorium-browser-bin
     - ttf-ms-fonts
   dwm_deps:
@@ -86,6 +85,7 @@ user:
     - xorg-xinit
   wayland:
     - cliphist
+    - greetd
     - hyprcursor
     - hyprland
     - hyprlock
@@ -93,6 +93,6 @@ user:
     - hyprpicker
     - kvantum
     - rofi-wayland
+    - uwsm
     - waybar
     - wl-clipboard
-    - wl-copy
