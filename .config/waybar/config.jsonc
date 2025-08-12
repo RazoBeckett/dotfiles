@@ -3,8 +3,8 @@
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    "margin-top": 3,
-    "width": 1910, // Waybar width
+    // "margin-top": 3,
+    // "width": 1910, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
@@ -14,8 +14,8 @@
     ],
     "modules-right": [
         "pulseaudio",
-        "network",
         "backlight",
+        // "network",
         "battery",
         "clock",
         "tray"
@@ -33,21 +33,22 @@
             "8": "󰓇",
             "9": "", 
             "10":"󰀿",
-            "active": "󱓻",
+            "active": "",
             "default": ""
         },
         "persistent-workspaces": {
-            "*": 2, // 5 workspaces by default on every monitor
+            "*": 1, // 5 workspaces by default on every monitor
             "HDMI-A-1": 3 // but only three on HDMI-A-1
         }
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
-        // "icons": {
+        "spacing": 10,
+        "icons": {
+        //   "blueman": "bluetooth",
         //   "blueman": "bluetooth",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-        // }
+        }
     },
     "clock": {
         "timezone": "Asia/Kolkata",
@@ -56,7 +57,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
@@ -65,19 +66,19 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
+        "format": "{icon} {capacity}%",
+        "format-full": " {icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "󱞜 {capacity}%",
+        "format-alt": " {icon} {time}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
@@ -85,19 +86,14 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "󰂲 00%",
+        "format-muted": "󰝟 00%",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
             "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
@@ -106,5 +102,20 @@
         "format": "{title}",
         "separate-outputs": true,
         "icon": true
+    },
+    "custom/volume": {
+      "format": "{}",
+      "exec": "~/.config/waybar/scripts/volume.sh",
+      "interval": 1,
+      "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "custom/brightness": {
+      "format": "{}",
+      "exec": "~/.config/waybar/scripts/brightness.sh",
+      "interval": 2,
+      "on-scroll-up": "brightnessctl set +5%",
+      "on-scroll-down": "brightnessctl set 5%-"
     }
 }

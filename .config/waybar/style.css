@@ -3,7 +3,7 @@
 	font-family: "SF Pro Text", "JetBrainsMono Nerd Font Propo";
 	font-size: 13px;
 	font-weight: bold;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 window#waybar {
