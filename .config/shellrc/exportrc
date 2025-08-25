@@ -25,6 +25,8 @@ export PATH="$PATH":"$HOME"/.local/share/cargo/bin
 # ----- Bat (better cat) -----
 export BAT_THEME="Catppuccin Macchiato"
 
+# ----- TPM (ssh) -----
+export TPM2_PKCS11_STORE="$HOME/.tpm2_pkcs11"
 # ----- suppress FAPI Warnings -----
 export TPM2_PKCS11_LOG_LEVEL=0
 export TSS2_LOG=fapi+NONE
