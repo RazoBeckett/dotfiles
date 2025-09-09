@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# simple helper to read a custom field from a bitwarden item via rbw
+# usage: bw-get.sh get <item-id-or-name> [FIELD]
+set -euo pipefail
+
+EXEC=rbw
+DEFAULT_FIELD="${FIELD:-SECRET}"   # can override by env var FIELD
+
+usage() {
+  cat <<EOF
+Usage: ${0##*/} get <item-id-or-name> [FIELD]
+
+Examples:
+  ${0##*/} get "My Note"
+  FIELD="api-key" ${0##*/} get "My Note"
+EOF
+}
+
+# check executable
+if ! command -v "$EXEC" >/dev/null 2>&1; then
+  printf '%s\n' "$EXEC not found in PATH" >&2
+  exit 1
+fi
+
+# minimal args check
+if [ "${#@}" -lt 2 ]; then
+  usage
+  exit 1
+fi
+
+cmd=$1
+item=$2
+field=${3:-$DEFAULT_FIELD}
+
+case "$cmd" in
+  get)
+    # try once; if it fails (likely locked), attempt an unlock and retry
+    if value=$("$EXEC" get --field "$field" -- "$item" 2>/dev/null); then
+      printf '%s\n' "$value"
+      exit 0
+    fi
+
+    # attempt to unlock interactively and retry
+    printf 'vault appears locked or fetch failed — attempting unlock...\n' >&2
+    if ! "$EXEC" unlock; then
+      printf 'unlock failed\n' >&2
+      exit 2
+    fi
+
+    # second try (let errors bubble out)
+    if value=$("$EXEC" get --field "$field" -- "$item"); then
+      printf '%s\n' "$value"
+      exit 0
+    else
+      printf 'failed to get field "%s" from item "%s"\n' "$field" "$item" >&2
+      exit 3
+    fi
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
