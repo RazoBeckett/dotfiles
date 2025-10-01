@@ -23,7 +23,7 @@ if [[ $# -eq 1 ]]; then
 else
 	selected=$(
 		find "${SEARCH_PATHS[@]}" -mindepth 1 -maxdepth 1 -type d 2>/dev/null |
-			fzf --reverse --preview='tree -C {}' \
+			fzf --reverse --preview='tree -C --du -h -I "node_modules|.git|dist" {}' \
 				--bind "alt-n:execute(
 				echo -n 'New folder name: ' > /dev/tty;
 				read new_dir < /dev/tty;
