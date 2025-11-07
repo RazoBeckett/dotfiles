@@ -13,7 +13,7 @@ esac
 . sb-theme
 . colorscheme
 if [ "$(pamixer --get-mute)" == "true" ]; then
-	echo "^b$FG_COLOR\c$BG_COLOR^   ^b$BG_COLOR\c$FG_COLOR^ MUTE "
+	echo "^b$FG_COLOR\c$BG_COLOR^  ^b$BG_COLOR\c$FG_COLOR^ MUTE "
 	exit
 fi
 

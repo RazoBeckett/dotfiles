@@ -37,4 +37,5 @@ static const Rule rules[] = {
     {"Yad", NULL, NULL, 0, 1, -1},  // Allow Yad on any workspace and make it floating
     {"signal", NULL, NULL, 1 << 3, 0, -1},  // singal on 7th workspace
     {"Signal", NULL, NULL, 1 << 3, 0, -1},  // singal on 7th workspace
+    {"Spotify", NULL, NULL, 1 << 7, 0, -1},  // Spotify on 8th workspace
 };

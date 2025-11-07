@@ -8,6 +8,7 @@ import = [
   # -- Themes --
   #"~/.config/alacritty/catppuccin-macchiato.toml",
   "~/.config/alacritty/uwunicorn.toml",
+  # "~/.config/alacritty/kanso_zen.toml",
   # "~/.config/alacritty/diinki_retro.toml",
   # "~/.config/alacritty/tokyonight_night.toml",
   # "~/.config/alacritty/tokyonight_moon.toml",
@@ -46,4 +47,4 @@ TERM = "xterm-256color"
 #glyph_offset = { x = 1, y = 0 }
 normal.family = "IBM Plex Mono"
 normal.style = "Regular"
-size = 9
+size = 12

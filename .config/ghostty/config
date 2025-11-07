@@ -1,19 +1,18 @@
 # font settings
 font-family = SF Mono
-# font-size = 12.8
 font-feature = -liga
 font-feature = -calt
 font-feature = -dlig
-# font-synthetic-style = false
-# freetype-load-flags = false
-# adjust-underline-position = 2
-# adjust-underline-thickness = -2
+font-synthetic-style = false
+freetype-load-flags = false
+adjust-underline-position = 2
+adjust-underline-thickness = -2
 theme = uwunified
 
 # adjust-cell-height = 5
 # adjust-cell-width = 1
 
-# gtk-single-instance = true
+gtk-single-instance = true
 gtk-titlebar = false
 window-decoration = false
 window-vsync = false
@@ -30,6 +29,7 @@ cursor-style-blink = false
 # custom-shader = ghostty-shaders/matrix-hallway.glsl
 # custom-shader = ghostty-shaders/glitchy.glsl
 # custom-shader = shaders/cursor_blaze_no_trail.glsl
+custom-shader = shaders/cursor_warp.glsl
 
 keybind=ctrl+1=text:\x021
 keybind=ctrl+2=text:\x022

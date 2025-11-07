@@ -7,12 +7,12 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "uwunicorn"
+config.line_height = 1.2
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.font = wezterm.font_with_fallback({
 	-- "JetBrains Mono",
-	"Maple Mono",
-	"Noto Color Emoji",
-	"Symbols Nerd Font"
+	"SF Mono",
+	"Symbols Nerd Font",
 })
 
 config.max_fps = 120
@@ -28,8 +28,8 @@ config.window_background_opacity = 0.7
 config.window_close_confirmation = "NeverPrompt"
 config.macos_window_background_blur = 30
 config.scrollback_lines = 30000
-config.term = "xterm-kitty"
-config.enable_wayland = false
+config.term = "xterm-256color"
+config.enable_wayland = true
 
 config.window_padding = {
 	top = "0.5cell",

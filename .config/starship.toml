@@ -83,6 +83,11 @@ renamed = ' '
 deleted = ' '
 
 # -- languages and tools --
+[sudo]
+format = '[$symbol]($style)'
+symbol=' '
+style = 'black'
+disabled = true
 
 [kubernetes]
 symbol = '󱃾 '
@@ -150,3 +155,4 @@ when = "test $HISTMODE = incognito"
 symbol = '󰗹 '
 style = '#e51c23'
 format = '[$symbol]($style)'
+

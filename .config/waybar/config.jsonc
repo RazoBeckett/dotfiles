@@ -11,14 +11,15 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
+        "hyprland/window"
     ],
     "modules-right": [
+        "tray",
         "pulseaudio",
         "backlight",
         // "network",
         "battery",
-        "clock",
-        "tray"
+        "clock"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -29,6 +30,7 @@
             "3": "",
             "4": "",
             "5": "",
+            "6": "󰺹",
             "7": "󰊱",
             "8": "󰓇",
             "9": "", 
@@ -52,7 +54,7 @@
     },
     "clock": {
         "timezone": "Asia/Kolkata",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%d / %m / %y}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
     "backlight": {
@@ -77,12 +79,13 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {essid}",
-        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-wifi": "  Connected",
+        "format-ethernet": "󰈀 Jacked In",
+        "tooltip-format": "{essid} | {ipaddr}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}: [{essid}] {ipaddr}/{cidr}"
+        // "on-click": "iwmenu -s 4 -i font --launcher rofi"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -96,12 +99,14 @@
             "headset": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "blueberry"
     },
     "hyprland/window": {
-        "format": "{title}",
+        "format": "{class}",
         "separate-outputs": true,
-        "icon": true
+        "icon": false,
+        "on-click-middle": "hyprctl dispatch killactive"
     },
     "custom/volume": {
       "format": "{}",

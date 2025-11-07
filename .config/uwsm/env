@@ -22,3 +22,5 @@ export __GLX_VENDOR_LIBRARY_NAME=nvidia # Disable this if you have issues with s
 export GBM_BACKEND=nvidia-drm
 export CUDA_CACHE_PATH=$XDG_CACHE_HOME/nv
 export NVD_BACKEND=direct
+
+export NVM_DIR="$HOME/.config/nvm"

@@ -16,7 +16,7 @@ static const int showsystray  = 1;        /* 0 means no systray */
 static const int showbar      = 1;        /* 0 means no bar */
 static const int topbar       = 1;        /* 0 means bottom bar */
 static const int titlestyle   = 1;        /* 0: left aligned , 1: center aligned */
-static const char *fonts[]    = { "JetBrainsMono Nerd Font:weight=bold:size=11:antialias=true:autohint=true" };
+static const char *fonts[]    = { "JetBrainsMono Nerd Font Propo:weight=bold:size=11:antialias=true:autohint=true" };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 
 static const char col_bg[]             = "#141216"; // Background (Dark)
@@ -179,7 +179,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,         XK_s,              spawn,          SHCMD("flameshot gui") },
 	{ MODKEY,                   XK_l,              spawn,          SHCMD("betterlockscreen -l") },
 	{ MODKEY|ALTKEY,            XK_r,              spawn,          SHCMD("xset r rate 210 40") },
-	{ MODKEY|ShiftMask,         XK_grave,          spawn,          SHCMD("systemctl hibernate") },
+	{ MODKEY|ShiftMask,         XK_h,              spawn,          SHCMD("systemctl hibernate") },
 	{ MODKEY,                   XK_Return,         spawn,          CMD(TERMINAL) },
 	{ MODKEY,                   XK_e,              spawn,          CMD(FILEMANAGER) },
 	{ MODKEY,                   XK_f,              spawn,          CMD("firefox-developer-edition") },

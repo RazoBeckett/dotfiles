@@ -47,8 +47,8 @@ elif [ "$level" -ge 10 ]; then
 	icon="󰃞 " # Brightness icon at above 0%
 elif [ "$level" -le 9 ]; then
 	icon="󰃞 " # Brightness icon at above 0%
-	echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ 0$level% "
+	echo "^b$FG_COLOR\c$BG_COLOR^ $icon^b$BG_COLOR\c$FG_COLOR^ 0$level% "
 	exit
 fi
 
-echo "^b$FG_COLOR\c$BG_COLOR^ $icon ^b$BG_COLOR\c$FG_COLOR^ $level% "
+echo "^b$FG_COLOR\c$BG_COLOR^ $icon^b$BG_COLOR\c$FG_COLOR^ $level% "

@@ -4,7 +4,7 @@ startup_command = "ls"
 [[session]]
 name = "dwm"
 path = "~/.config/suckless/dwm"
-startup_command = "nvim config.h"
+startup_command = "ide"
 
 [[session]]
 name = "shellrc"

@@ -95,8 +95,7 @@ button:hover {
 }
 
 #battery.charging {
-	color: #241b26;
-	background-color: #6ac38f;
+	color: #6ac38f;
 }
 
 @keyframes blink {
@@ -126,10 +125,10 @@ label:focus {
 }
 
 #network.disconnected {
-	background-color: #de5b44;
+	color: #de5b44;
 }
 
 #window {
-	background-color: #241b26;
+	background-color: transparent;
 	padding: 0 10px;
 }
