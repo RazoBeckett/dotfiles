@@ -18,6 +18,7 @@ CS=$HOME/.config/shellrc
 [[ -f $CS/fzftricksrc ]] && source $CS/fzftricksrc      # Loads all functions make using fzf 
 [[ -f $CS/functionsrc ]] && source $CS/functionsrc      # Loads all custom functions 
 [[ -f $CS/widgets.zsh ]] && source $CS/widgets.zsh      # Loads all custom widgets (keybind overrides) 
+[[ -f $CS/zsh-vi-mode.zsh ]] && source $CS/zsh-vi-mode.zsh      # Loads zsh-vi-mode
 
 # Plugins 
 PLUGINPATH=/usr/share/zsh/plugins
@@ -25,6 +26,8 @@ PLUGINPATH=/usr/share/zsh/plugins
 [[ -f $PLUGINPATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && source $PLUGINPATH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh   # Loads syntax-highlighting plugin
 
 WAKATIME_HOME=${XDG_CONFIG_HOME}/wakatime
+
+autoload zmv
 
 # History
 HISTSIZE=50000
@@ -56,8 +59,9 @@ eval "$(direnv hook zsh)"        # Load direnv
 # Environment
 eval "$(fzf --zsh)"              # Load fzf
 eval "$(zoxide init zsh)"        # Load zoxide
-eval "$(atuin init zsh --disable-up-arrow)" || echo "failed"
-# eval "$(~/.local/bin/mise activate zsh)"
+eval "$(atuin init zsh --disable-up-arrow)" # load atuin
+
+eval "$(mise activate zsh)" # load mise
 
 eval "$(starship init zsh)"      # Load starship prompt
 TRANSIENT_PROMPT="${PROMPT// prompt / prompt --profile transient }"
@@ -66,5 +70,3 @@ add-zle-hook-widget zle-line-finish transient-prompt
 function transient-prompt() {
     PROMPT="$TRANSIENT_PROMPT" RPROMPT="$TRANSIENT_RPROMPT" zle .reset-prompt
 }
-
-#eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"      # Load oh-my-posh prompt
