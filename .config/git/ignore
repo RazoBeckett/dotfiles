@@ -8,3 +8,5 @@ node_modules
 *venv*
 *.o
 *.so
+
+**/.claude/settings.local.json
