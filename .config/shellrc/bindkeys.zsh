@@ -14,8 +14,8 @@ alias -s {doc,DOC,docx,DOCX,odt,ODT}='background libreoffice'
 alias -s {xls,XLS,xlsx,XLSX,ods,ODS}='background libreoffice'
 alias -s {ppt,PPT,pptx,PPTX,odp,ODP}='background libreoffice'
 alias -s {html,HTML,htm,HTM}='background firefox'
-alias -s {zip,ZIP,tar,TAR,tar.gz,TAR.GZ,tar.bz2,TAR.BZ2}='tar -xvf'
-alias -s {rar,RAR}='unrar x'
+alias -s {tar,TAR,tar.gz,TAR.GZ,tar.bz2,TAR.BZ2}='tar -xvf'
+alias -s {zip,ZIP,rar,RAR}='unrar x'
 alias -s {7z,7Z}='7z x'
 alias -s {deb,DEB}='sudo dpkg -i'
 alias -s {rpm,RPM}='sudo rpm -i'
@@ -36,8 +36,14 @@ bindkey '^[[5~' beginning-of-buffer-or-history    # page up
 bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # home
 bindkey '^[[F' end-of-line                        # end
-bindkey '^[[Z' undo                               # shift + tab undo last action
+bindkey '^_' undo                               # shift + tab undo last action
 bindkey '^P' history-search-backward              # Search backwords using arrow-up
 bindkey '^N' history-search-forward               # Search forward using arrow-down
 bindkey '^Y' autosuggest-accept                   # accept autosuggest
-bindkey -M vicmd [ edit-command-line              # edit command line in vim
+# bindkey -M vicmd [ edit-command-line              # edit command line in vim
+
+# Global alias
+alias -g NE='2>/dev/null'
+alias -g DN='>/dev/null'
+alias -g NUL='>/dev/null 2>&1'
+

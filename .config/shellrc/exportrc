@@ -33,3 +33,6 @@ export TSS2_LOG=fapi+NONE
 
 # ----- PNPM -----
 export PNPM_HOME=~/.local/bin
+
+# ----- Secrets -----
+. ~/.config/shellrc/secretsrc

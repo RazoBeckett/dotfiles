@@ -62,7 +62,10 @@ alias temps=' watch -n 1 "sensors"'
 alias gp='git diff --staged | tgpt "$(cat ~/.config/shellrc/commit-prompt.txt)"'
 alias wnv='watch -n 1 nvidia-smi'
 [[ -x /usr/bin/opencode ]] && alias oc='opencode'
+[[ -x /usr/bin/opencode ]] && alias occ='opencode --continue'
 alias poweroff='shutdown -h now'
+alias e='setsid -f xdg-open . > /dev/null 2>&1'
+alias ts='tailscale'
 
 # alias to show the date
 alias da='date "+%Y-%m-%d %A %T %Z"'
