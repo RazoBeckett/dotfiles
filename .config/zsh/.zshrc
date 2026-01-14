@@ -18,7 +18,6 @@ CS=$HOME/.config/shellrc
 [[ -f $CS/fzftricksrc ]] && source $CS/fzftricksrc      # Loads all functions make using fzf 
 [[ -f $CS/functionsrc ]] && source $CS/functionsrc      # Loads all custom functions 
 [[ -f $CS/widgets.zsh ]] && source $CS/widgets.zsh      # Loads all custom widgets (keybind overrides) 
-[[ -f $CS/zsh-vi-mode.zsh ]] && source $CS/zsh-vi-mode.zsh      # Loads zsh-vi-mode
 
 # Plugins 
 PLUGINPATH=/usr/share/zsh/plugins
