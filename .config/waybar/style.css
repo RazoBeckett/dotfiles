@@ -38,6 +38,13 @@ button:hover {
 	color: #eed5d9;
 }
 
+#workspaces button.active {
+	color: white;
+	padding-right: 3px;
+	padding-left: 3px;
+	transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
 #workspaces button:hover {
 	background: #241b26;
 }
@@ -131,4 +138,14 @@ label:focus {
 #window {
 	background-color: transparent;
 	padding: 0 10px;
+}
+
+/* Warning state (75-89% usage) */
+#custom-copilot.warning {
+	color: #ef9b0f; /* Orange */
+}
+
+/* Critical state (>= 90% usage) */
+#custom-copilot.critical {
+	color: #ff0000; /* Red */
 }
