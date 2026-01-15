@@ -8,18 +8,23 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/window"
+        "mpris",
+        // "custom/divider",
+        "custom/pomodoro"
     ],
     "modules-right": [
         "tray",
+        "custom/copilot",
         "pulseaudio",
         "backlight",
         // "network",
         "battery",
         "clock"
+        // "custom/server-status"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -34,15 +39,22 @@
             "7": "󰊱",
             "8": "󰓇",
             "9": "", 
-            "10":"󰀿",
-            "active": "",
-            "default": ""
+            "10":"󰀿"
         },
         "persistent-workspaces": {
             "*": 1, // 5 workspaces by default on every monitor
             "HDMI-A-1": 3 // but only three on HDMI-A-1
         }
     },
+    "mpris": {
+        "format": "{status_icon} {artist} - {title} 󰇙",
+        "status-icons": {
+            "playing": " ",
+            "paused": "󰏤 ",
+            "stopped": "■"
+        }
+    },
+
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
@@ -108,6 +120,11 @@
         "icon": false,
         "on-click-middle": "hyprctl dispatch killactive"
     },
+    "custom/divider": {
+        "format": " 󰇙 ",
+        "attribute": "class",
+        "class": "divider"
+    },
     "custom/volume": {
       "format": "{}",
       "exec": "~/.config/waybar/scripts/volume.sh",
@@ -121,6 +138,32 @@
       "exec": "~/.config/waybar/scripts/brightness.sh",
       "interval": 2,
       "on-scroll-up": "brightnessctl set +5%",
-      "on-scroll-down": "brightnessctl set 5%-"
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "custom/server-status": {
+        "exec": "~/.config/waybar/scripts/server-status.sh",
+        "interval": 60,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "pkill -RTMIN+5 waybar",
+        "on-click-right": "wol 64:51:06:2a:9b:cd && notify-send 'Waking up server...'"
+    },
+    "custom/pomodoro": {
+        "exec": "i3-gnome-pomodoro status --format=waybar --show-seconds --always",
+        "return-type": "json",
+        "interval": 1,
+        "format": " {}",
+        "on-click": "i3-gnome-pomodoro start",
+        "on-click-middle": "i3-gnome-pomodoro toggle",
+        "on-click-right": "i3-gnome-pomodoro stop"
+    },
+    "custom/copilot": {
+        "exec": "go run ~/.config/waybar/scripts/copilot-usage.go",
+        "return-type": "json",
+        "interval": 300,
+        "format": "{}",
+        "on-click": "notify-send \"$(go run ~/.config/waybar/scripts/copilot-usage.go refresh)\"",
+        "on-click-right": "go run ~/.config/waybar/scripts/copilot-usage.go login",
+        "signal": 8
     }
 }
