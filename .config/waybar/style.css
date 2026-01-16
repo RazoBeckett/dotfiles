@@ -149,3 +149,13 @@ label:focus {
 #custom-copilot.critical {
 	color: #ff0000; /* Red */
 }
+
+/* Warning state (75-89% usage) */
+#temperature.warning {
+	color: #ef9b0f; /* Orange */
+}
+
+/* Critical state (>= 90% usage) */
+#temperature.critical {
+	color: #ff0000; /* Red */
+}

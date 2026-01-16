@@ -12,13 +12,13 @@
         "hyprland/window"
     ],
     "modules-center": [
-        "mpris",
+        "group/music-expander",
         // "custom/divider",
         "custom/pomodoro"
     ],
     "modules-right": [
-        "tray",
-        "custom/copilot",
+        "group/tray-expander",
+        "tray", 
         "pulseaudio",
         "backlight",
         // "network",
@@ -46,15 +46,52 @@
             "HDMI-A-1": 3 // but only three on HDMI-A-1
         }
     },
+    "group/music-expander": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "tray-group-item"
+        },
+        "modules": ["custom/music-expand-icon", "mpris"]
+    },
     "mpris": {
-        "format": "{status_icon} {artist} - {title} 󰇙",
+        "format": "{artist}  󰇙  {player}  󰇙",
         "status-icons": {
             "playing": " ",
             "paused": "󰏤 ",
             "stopped": "■"
         }
     },
-
+    "custom/music-expand-icon": {
+        "format": " {}",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exec 'playerctl play-pause'",
+        "exec": "echo \"$(playerctl metadata title 2>/dev/null)  󰇙 \" || echo 'No media'",
+        "interval": 1
+    },
+    "group/tray-expander": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "tray-group-item"
+        },
+        "modules": ["custom/expand-icon", "custom/copilot", "temperature"]
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",  // Adjust to your CPU sensor path
+        "critical-threshold": 80,
+        "format": " {temperatureC}",
+        "format-warning": " {temperatureC}",
+        "format-critical": " {temperatureC}°C "
+    },
+    "custom/expand-icon": {
+        "format": " ",
+        "tooltip": false,
+        "on-scroll-up": "",
+        "on-scroll-down": "",
+        "on-scroll-left": "",
+        "on-scroll-right": ""
+    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10,
