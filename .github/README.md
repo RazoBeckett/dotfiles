@@ -9,8 +9,7 @@
 > My personal dotfiles managed with [YADM](https://yadm.io/) and automated with Ansible
 
 ## 📋 Overview
-![DOTFILES-FACE-2025-06-10_14-28](https://github.com/user-attachments/assets/5d808485-9f64-4026-b45c-ba953be29f80)
-
+![DOTFILES-FACE-2025-06-10_14-28](https://github.com/user-attachments/assets/a0d0d182-74a6-4850-a14b-0e9d25acfd45)
 
 This repository contains my personal configuration files (dotfiles) for various applications and tools I use in my development environment. These dotfiles are managed using YADM for easy synchronization across machines, with system bootstrapping automated through Ansible playbooks.
 
@@ -21,7 +20,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 ### Primary Environment
 - **Terminal**: [Alacritty](https://alacritty.org/) with custom keybindings for tmux integration
 - **Browser**: [Zen Browser](https://zen-browser.app/) as primary browser
-- **Window Manager**: [DWM (Custom Build)](https://github.com/razobeckett/dwm/#readme) for X11
+- **Window Manager**: [DWM (Custom Build)](https://github.com/razobeckett/dwm/#readme) for X11 <i>(switched to hyprland)</i>
 - **Wayland Compositor**: [Hyprland](https://hyprland.org/) for Wayland sessions
 - **Shell**: ZSH with custom configuration and plugins
 - **Terminal Multiplexer**: Tmux with custom keybindings and session management
@@ -41,13 +40,12 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 ### Terminal Setup
 - **Alacritty** (`.config/alacritty/`): Main terminal with tmux-optimized keybindings
-- **Kitty** (`.config/kitty/`): Alternative terminal configuration
-- **WezTerm** (`.config/wezterm/`): Lua-based terminal configuration
+- **Ghostty** (`.config/ghostty/`): nice to have a terminal with image viewing capabilities
 - **Tmux** (`.config/tmux/`): Terminal multiplexer with custom keybindings and appearance
 
 ### Window Management
-- **DWM Config**: [Custom DWM build](https://github.com/razobeckett/dwm/#readme) configurations
 - **Hyprland** (`.config/hypr/`): Wayland compositor with custom keybindings
+- **DWM Config**: [Custom DWM build](https://github.com/razobeckett/dwm/#readme) configurations
 - **Picom** (`.config/picom/`): X11 compositor for transparency and effects
 
 ### Development Tools
@@ -189,6 +187,7 @@ Special thanks to the creators and maintainers of these amazing tools that make 
 - **[YADM](https://yadm.io/)** - Yet Another Dotfiles Manager
 - **[vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)** - Seamless navigation between vim and tmux
 - **[tmux-sessionx](https://github.com/omerxx/tmux-sessionx)** - Enhanced tmux session management
+- **[ghostty](https://ghostty.org)** - fast, feature-rich, and cross-platform terminal emulator
 
 And to the broader open-source community for inspiration and countless hours of development that make these tools possible.
 
