@@ -236,8 +236,8 @@ scrollbar trough {
 }
 
 .mpris-overlay {
-	background-color: rgba(47, 51, 77, 0.7);
-	opacity: 0.9;
+	background-color: rgba(47, 51, 77, 0.9);
+	opacity: 1;
 	padding: 15px 10px;
 }
 
