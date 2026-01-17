@@ -18,12 +18,13 @@
     ],
     "modules-right": [
         "group/tray-expander",
-        "tray", 
+        "tray",
         "pulseaudio",
         "backlight",
         // "network",
         "battery",
-        "clock"
+        "clock",
+        "custom/notification"
         // "custom/server-status"
     ],
     // Modules configuration
@@ -202,5 +203,21 @@
         "on-click": "notify-send \"$(go run ~/.config/waybar/scripts/copilot-usage.go refresh)\"",
         "on-click-right": "go run ~/.config/waybar/scripts/copilot-usage.go login",
         "signal": 8
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "",
+            "none": "",
+            "dnd-notification": "",
+            "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     }
 }
