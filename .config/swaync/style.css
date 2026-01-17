@@ -244,7 +244,7 @@ scrollbar trough {
 .widget-mpris-album-art {
 	-gtk-icon-size: 100px;
 	border-radius: 12.6px;
-	margin: 0 10px;
+	margin: 10px 10px;
 }
 
 .widget-mpris-title {
@@ -261,7 +261,7 @@ scrollbar trough {
 	border-radius: 12.6px;
 	color: #c8d3f5;
 	margin: 0 5px;
-	padding: 2px;
+	padding: 2px 15px;
 }
 
 .widget-mpris button image {
