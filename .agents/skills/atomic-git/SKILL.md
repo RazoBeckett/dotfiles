@@ -50,8 +50,21 @@ All other mid-workflow messages are queued and handled after the workflow comple
 - NEVER modify, format, or refactor source code.
 - NEVER add co-authors or trailers to commits.
 - NEVER amend existing commits or rewrite history.
-- Use `git add -p` for all staging (interactive, hunk-by-hunk).
+- Use non-interactive patch staging only.
+- Stage hunks by generating patches and applying them with: `git apply --cached <patch>`
+- Interactive commands (git add -p, git add -i) are forbidden.
 - Squash merge only, via `gh pr merge --squash`.
+- The agent MUST prefer smallest-valid atomic commits over fewer commits.
+
+### Temporary Patch Handling
+- All generated patches MUST be written to `/tmp`.
+- Patch filename format:
+  `/tmp/atomic-git-<pid>-<sequence>.patch`
+- Patch files are temporary staging artifacts only.
+- After a successful commit, the patch file MUST be deleted.
+- If staging or commit fails, the patch MUST be deleted before aborting.
+- The repository MUST never contain patch files.
+- The agent MUST NOT reuse old patch files.
 
 ---
 
@@ -77,13 +90,26 @@ Commits atomic changes only. Does NOT push, does NOT create a branch, does NOT c
 - Staged or unstaged changes must exist. If none, abort.
 - Not in detached HEAD state (warn but continue if so).
 
+### Patch Staging Rules
+- Treat Git as a patch database.
+- Never stage entire files unless all changes share the same intent.
+- Mixed hunks MUST be separated into independent patches.
+- Each commit must leave unrelated hunks unstaged.
+- After staging, verify that: `git diff --cached`
+  contains only changes relevant to the commit message.
+
 ### Process
 1. Inspect full diff (staged + unstaged).
 2. Group changes by intent: feat vs fix vs refactor vs test vs docs vs chore.
 3. For each group:
-   - `git add -p` to stage relevant hunks only. Split mixed hunks if possible.
-   - If nothing can be staged for a group, skip it.
+   - Generate a minimal patch containing only hunks belonging to that intent.
+   - Write patch to `/tmp/atomic-git-<pid>-<sequence>.patch`.
+   - Patch must include correct file headers and context.
+   - Stage using: `git apply --cached /tmp/atomic-git-<pid>-<sequence>.patch`
+   - Verify staged content using: `git diff --cached`
+   - If staging fails, delete the patch and skip the group.
    - Commit using Conventional Commit format.
+   - After successful commit, delete the patch file.
 4. Repeat until all intended changes are committed.
 5. If nothing at all could be staged, abort.
 
@@ -91,6 +117,11 @@ Commits atomic changes only. Does NOT push, does NOT create a branch, does NOT c
 - Working tree is clean for that atomic unit.
 - No unintended hunks were staged.
 - Message matches Conventional Commit format. Amend message only if format is wrong, never touch code.
+
+### Patch Cleanup Guarantee
+- No patch files may remain in `/tmp` after workflow completion.
+- On workflow exit (success or abort), delete any remaining
+  `/tmp/atomic-git-*.patch` files created during this session.
 
 ### Post-Processing
 - If unstaged changes remain, repeat process.
