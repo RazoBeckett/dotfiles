@@ -18,6 +18,7 @@ fi
 
 ARGS+=(
     "--app=$URL"
+		"--focus=$URL"
     "--name=$NAME"
     "--class=$CLASS"
 )
