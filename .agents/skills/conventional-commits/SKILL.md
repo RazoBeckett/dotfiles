@@ -1,9 +1,6 @@
 ---
 name: conventional-commits
 description: Format git commit messages following the Conventional Commits specification. Use when the user asks to format commit messages, write commits, or mentions git commits, commit conventions, or commit message standards.
-auto_detect_changes: true
-git_inspection: true
-fallback_to_user_input: true
 ---
 
 # Conventional Commits
@@ -37,6 +34,61 @@ Help users write properly formatted conventional commit messages following the s
 - **build**: Affect build components (tools, dependencies, project version)
 - **ops**: Affect operational aspects (infrastructure, deployment, CI/CD, monitoring, backups)
 - **chore**: Miscellaneous tasks (initial commit, modifying .gitignore)
+
+## Atomic Commits
+
+### What is an Atomic Commit?
+
+An **atomic commit** is a single, self-contained change that:
+- Addresses **one logical change** or task
+- Can be reverted independently without breaking the codebase
+- Has a clear, focused purpose
+- Leaves the codebase in a working state
+
+### Benefits of Atomic Commits
+
+- **Easier code review**: Reviewers can understand each change in isolation
+- **Simpler debugging**: Use `git bisect` to identify which specific change introduced a bug
+- **Safe rollbacks**: Revert problematic changes without affecting unrelated work
+- **Clear history**: Project timeline shows logical progression of development
+- **Better collaboration**: Team members can cherry-pick or merge specific features
+
+### Atomic Commit Principles
+
+1. **One concern per commit**: Each commit should address exactly one thing
+   - ✅ Good: "fix: correct validation logic for email field"
+   - ❌ Bad: "fix validation, update docs, refactor helper functions"
+
+2. **Complete and working**: Every commit should leave the code in a functional state
+   - Tests should pass
+   - Code should compile/run
+   - No broken functionality
+
+3. **Independent changes**: Commits should be self-contained
+   - Can be cherry-picked to other branches
+   - Can be reverted without conflicts
+   - Don't depend on uncommitted changes
+
+4. **Logical grouping**: Related changes stay together
+   - If renaming a function, include all call-site updates in the same commit
+   - Keep implementation and its tests in one commit (when reasonable)
+
+### When to Split Commits
+
+Split into multiple commits when you have:
+- Multiple bug fixes (one commit per bug)
+- Feature + refactoring (separate commits)
+- Changes to different modules/components (separate by scope)
+- Code changes + documentation updates (can be separate)
+- Different types of changes (feat, fix, refactor should be separate)
+
+### When to Combine into One Commit
+
+Keep in one commit when:
+- Renaming a function and updating all references
+- Adding a feature with its corresponding tests
+- Fixing a bug and adding a test that catches it
+- Changes are tightly coupled and can't work independently
 
 ## Formatting Rules
 
@@ -174,19 +226,21 @@ When `/conventional-commits` is invoked **without arguments**:
    - For each type group, extract scope from file paths
    - Generate description from actual code changes
    - Create separate commit message per type+scope combination
+   - **Apply atomic commit principles**: Each commit should represent one logical change
+   - Ensure each commit is independent and can be reverted safely
    - Order by priority: breaking → test → docs → build → ops → style → feat → fix → perf → refactor → chore
 
-5. **Format output**
+5. **Handle edge cases**
+   - No changes: "No changes detected. Stage or create changes first."
+   - Not a repo: "Not a git repository. Initialize with `git init`."
+   - Large diff (>20 files): Suggest logical grouping by type
+
+6. **Format output**
    - Show detected changes summary
    - Present each commit with `=== COMMIT X/Y ===` header
    - Include formatted commit message
    - Provide ready-to-use git command for each commit
    - Use code blocks for commit messages and commands
-
-6. **Handle edge cases**
-   - No changes: "No changes detected. Stage or create changes first."
-   - Not a repo: "Not a git repository. Initialize with `git init`."
-   - Large diff (>20 files): Suggest logical grouping by type
 
 ### User Description Mode (Fallback)
 
@@ -210,74 +264,6 @@ If the user provides a description:
 If the change removes functionality or changes APIs incompatibly:
 - Add `!` before `:`
 - Add `BREAKING CHANGE:` footer explaining what broke and how to migrate
-
-### Output Format
-
-**Auto-Detection Mode:**
-Present commits in this format:
-```
-Detected changes:
-- <N> files added, <M> files modified, <X> files deleted
-- Changes grouped into <Y> commit(s)
-
-=== COMMIT <N>/<Y> ===
-<type>(<scope>): <description>
-
-<optional body>
-
-git commit -m "<type>(<scope>): <description>" <optional -m body>
-```
-
-**User Description Mode:**
-Present the formatted commit as a code block:
-```
-<formatted commit message>
-```
-
-If body or footer is included, show the complete multi-line format with proper blank line separators.
-
-## Auto-Detection Mode
-
-When `/conventional-commits` is invoked without arguments, automatically inspect git changes and generate conventional commit messages.
-
-### Workflow
-
-1. **Verify git repository**
-   - Run: `git rev-parse --is-inside-work-tree`
-   - If not a repo, output: `not a git repository`
-
-2. **Gather changes (prioritize staged)**
-   - `git diff --staged` (staged changes)
-   - If empty: `git diff` (unstaged changes)
-   - `git status --porcelain` (file status overview)
-   - `git ls-files --others --exclude-standard` (untracked files)
-
-3. **Classify changes**
-   - Group by: added, modified, deleted, renamed files
-   - Identify file categories: code, tests, docs, config, deps
-   - Separate by commit type for multiple commits
-
-4. **Generate commits**
-   - For each distinct type group, generate separate commit
-   - Apply type detection logic to each group
-   - Extract appropriate scope for each commit
-   - Generate descriptions from actual code changes
-
-5. **Output proposed commits**
-   - Present each commit separately
-   - Include git commands for user to execute
-   - Allow user to copy/use individual commits
-
-### Input Handling
-
-| Invocation | Behavior |
-|-----------|----------|
-| `/conventional-commits` | Run auto-detection workflow |
-| `/conventional-commits add login feature` | Use "add login feature" as description, apply formatting rules |
-| `/conventional-commits "fix bug in payment"` | Same as above, with full description |
-
-- **Empty input**: Trigger git inspection workflow
-- **Non-empty input**: Use description as base, format per conventional commit rules
 
 ### Commit Type Detection Logic
 
@@ -335,9 +321,11 @@ git commit -m "test(auth): add unit tests for token refresh"
 ```
 
 **Grouping rules:**
+- **Follow atomic commit principles**: Each commit = one logical change
 - Group files by type (all test files → test commit)
 - Within same type, group by scope (all auth files → auth scope)
 - Generate one commit per distinct type+scope combination
+- Ensure each commit is independent and leaves code in working state
 - Order by priority (breaking → feat → fix → etc.)
 
 ### Output Format (Auto-Detection)

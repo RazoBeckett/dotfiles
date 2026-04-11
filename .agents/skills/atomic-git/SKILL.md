@@ -1,6 +1,7 @@
 ---
 name: atomic-git
-description: Handles all git commit, PR, and merge workflows. Load this skill once per session and keep it active. Triggers: "do commits" runs atomic commits only (Workflow A). "do commits + create PR / merge into main" runs full end-to-end (Workflow B). "aftermath", "we're done", or "do aftermath" finalizes an already-committed branch into a PR and merges it (Workflow C).
+description: Handles all git commit, PR, and merge workflows. Load this skill once per session and keep it active.
+Triggers: when 'do commits' runs atomic commits only (Workflow A). 'do commits + create PR / merge into main' runs full end-to-end (Workflow B). 'aftermath', 'we're done', or 'do aftermath' finalizes an already-committed branch into a PR and merges it (Workflow C).
 compatibility: Requires git and gh CLI (authenticated). Designed for Claude Code or similar agentic environments with bash access.
 allowed-tools: Bash(git:*) Bash(gh:*)
 ---

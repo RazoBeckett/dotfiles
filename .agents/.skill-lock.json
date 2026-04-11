@@ -1,0 +1,35 @@
+{
+  "version": 3,
+  "skills": {
+    "btca-cli": {
+      "source": "davis7dotsh/better-context",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/davis7dotsh/better-context.git",
+      "skillPath": "skills/btca-cli/SKILL.md",
+      "skillFolderHash": "47a9ec57ae3ce030be4180ae39f2a1c0e992c5b0",
+      "installedAt": "2026-02-22T12:00:08.937Z",
+      "updatedAt": "2026-02-22T12:00:08.937Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "c2f31172b6f256272305a5e6e7228b258446899f",
+      "installedAt": "2026-02-22T12:00:32.688Z",
+      "updatedAt": "2026-02-22T12:00:32.688Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode"
+  ]
+}

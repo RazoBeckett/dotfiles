@@ -1,0 +1,6 @@
+[submodule ".config/ghostty/ghostty-shaders"]
+	path = .config/ghostty/ghostty-shaders
+	url = https://github.com/hackr-sh/ghostty-shaders
+[submodule ".agents/skills/hegelian-dialectic-skill"]
+	path = .agents/skills/hegelian-dialectic-skill
+	url = git@github.com:KyleAMathews/hegelian-dialectic-skill.git
