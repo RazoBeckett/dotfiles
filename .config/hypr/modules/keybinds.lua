@@ -84,9 +84,9 @@ hl.bind(MODKEY .. " + SHIFT + S", sh("flameshot gui"))
 hl.bind(MODKEY .. " + SHIFT + H", sh("hyprlock & sleep 1 && systemctl hibernate"))
 
 -- clipboard
-hl.bind(ALTKEY .. " + W", sh("vicinae vicinae://extensions/vicinae/wm/switch-windows"))
-hl.bind(MODKEY .. " + V", sh("vicinae vicinae://extensions/vicinae/clipboard/history"))
-hl.bind(MODKEY .. " + period", sh("vicinae vicinae://extensions/vicinae/core/search-emojis"))
+hl.bind(ALTKEY .. " + W", sh("vicinae vicinae://launch/wm/switch-windows"))
+hl.bind(MODKEY .. " + V", sh("vicinae vicinae://launch/clipboard/history"))
+hl.bind(MODKEY .. " + period", sh("vicinae vicinae://launch/core/search-emojis"))
 
 -- Grouping
 hl.bind(MODKEY .. " + G", hl.dsp.group.toggle())
