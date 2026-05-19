@@ -37,7 +37,7 @@ end)
 
 hl.bind(MODKEY .. " + F", hl.dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
 hl.bind(MODKEY .. " + SHIFT + F", hl.dsp.window.fullscreen_state({ internal = 1, client = 0, action = "toggle" }))
-hl.bind(ALTKEY .. " + Q", hl.dsp.window.kill())
+hl.bind(ALTKEY .. " + Q", hl.dsp.window.close())
 hl.bind(MODKEY .. " + " .. ALTKEY .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- move focus between windows
