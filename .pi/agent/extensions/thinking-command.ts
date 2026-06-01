@@ -160,7 +160,7 @@ export default function (pi: ExtensionAPI) {
           container.addChild(new Spacer(1));
           container.addChild(
             new Text(
-              theme.fg("dim", "  Enter to select · Esc to go back"),
+              theme.fg("dim", "  ↑↓/j k navigate · Enter select · Esc back"),
               0,
               0,
             ),
@@ -173,7 +173,14 @@ export default function (pi: ExtensionAPI) {
             render: (w: number) => container.render(w),
             invalidate: () => container.invalidate(),
             handleInput: (data: string) => {
-              selectList.handleInput(data);
+              // Translate vim-style j/k to arrow keys for the SelectList
+              if (data === "j") {
+                selectList.handleInput("\x1b[B"); // down
+              } else if (data === "k") {
+                selectList.handleInput("\x1b[A"); // up
+              } else {
+                selectList.handleInput(data);
+              }
               tui.requestRender();
             },
           };
