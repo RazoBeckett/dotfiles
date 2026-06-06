@@ -43,6 +43,43 @@ function truncateId(str: string, maxLen: number): string {
   return str.slice(0, maxLen - 1) + "…";
 }
 
+/**
+ * Fuzzy-match score: returns a score >= 0 when every character of `query`
+ * appears in `target` in order (not necessarily contiguously).
+ * Higher scores mean a better match:
+ *   - exact match: huge bonus
+ *   - contiguous substring: medium bonus
+ *   - scattered fuzzy match: points per consecutive run
+ * Returns -1 when there is no match.
+ */
+function fuzzyScore(query: string, target: string): number {
+  const q = query.toLowerCase();
+  const t = target.toLowerCase();
+
+  // Exact match is the best
+  if (t === q) return 10_000 + t.length;
+
+  // Contiguous substring
+  const idx = t.indexOf(q);
+  if (idx !== -1) return 5_000 + (t.length - idx);
+
+  // Scattered fuzzy match: walk through target looking for characters
+  let qi = 0;
+  let score = 0;
+  let run = 0; // consecutive matched chars
+  for (let ti = 0; ti < t.length && qi < q.length; ti++) {
+    if (t[ti] === q[qi]) {
+      qi++;
+      run++;
+      score += run * 5; // longer runs = better
+    } else {
+      run = 0;
+    }
+  }
+
+  return qi === q.length ? score : -1;
+}
+
 // ---------------------------------------------------------------------------
 // Model info (provider + id + model reference)
 // ---------------------------------------------------------------------------
@@ -139,11 +176,16 @@ async function showModelSelector(ctx: ExtensionContext, pi: ExtensionAPI) {
       const applyFilter = () => {
         const q = query.trim().toLowerCase();
         if (q.length > 0) {
-          filteredModels = sortedModels.filter((item) => {
-            const haystack =
-              `${item.id} ${item.provider} ${item.provider}/${item.id} ${item.model.name ?? ""}`.toLowerCase();
-            return haystack.includes(q);
-          });
+          // Score every model against the fuzzy query, keep only matches
+          const scored = sortedModels
+            .map((item) => {
+              const haystack =
+                `${item.id} ${item.provider} ${item.provider}/${item.id} ${item.model.name ?? ""}`.toLowerCase();
+              return { item, score: fuzzyScore(q, haystack) };
+            })
+            .filter((entry) => entry.score >= 0)
+            .sort((a, b) => b.score - a.score);
+          filteredModels = scored.map((entry) => entry.item);
         } else {
           filteredModels = sortedModels;
         }
@@ -276,7 +318,7 @@ async function showModelSelector(ctx: ExtensionContext, pi: ExtensionAPI) {
         lines.push(
           theme.fg("border", "│") +
             padInner(
-              theme.fg("dim", "  ↑↓/ctrl+n ctrl+p navigate · type to search · Enter select · Esc cancel"),
+              theme.fg("dim", "  ↑↓/ctrl+n ctrl+p navigate · fuzzy search · Enter select · Esc cancel"),
             ) +
             theme.fg("border", "│"),
         );
